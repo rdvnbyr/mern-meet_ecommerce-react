@@ -1,0 +1,22 @@
+input {
+    width: 100% !important;
+    height: 40px !important;
+    background: #ffffff !important;
+    border-radius: 4px !important;
+    padding-left: 5px !important;
+    box-sizing: border-box !important;
+    &:focus {
+        outline: none !important;
+        box-shadow: none !important; 
+        border: 2px solid #16669c !important;
+        &::placeholder {
+            opacity: 0.4 !important;
+        }
+    }
+    &::placeholder {
+        color: #737373 !important;
+    }
+    &:hover {
+        background: white !important;
+    }
+}
