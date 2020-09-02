@@ -4,32 +4,41 @@ import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonCo from '../elements/Button/ButtonCo';
 import FooterPage from '../layout/Footer/Footer';
+import Cards from '../elements/Card/Cards'
+import Page404 from '../pages/Page404';
+
+
 
 
 function App() {
   return (
-    <div>
-      <Form className="p-3 w-50 bg-light shadow-lg mx-auto mt-3 border border-dark rounded">
-        <h4 className="text-center text-primary">Dummy Form</h4>
-        <InputCo
-          placeholder= 'Enter..'
-          labelText="Email"
-          controlId="email_login_input"
-        />
-        <InputCo
-          placeholder= 'Enter..'
-          labelText="Password"
-          controlId="password_register_input"
-        />
-        <ButtonCo
-          text='Button'
-          block={true}
-          variant="outline-primary"
-        />
-      </Form>
+        <div>
+          
+            <Form className="p-3 w-50 bg-light shadow-lg mx-auto mt-3 border border-dark rounded">
+              <h4 className="text-center text-primary">Dummy Form</h4>
+              <InputCo
+                placeholder= 'Enter..'
+                labelText="Email"
+                controlId="email_login_input"
+              />
+              <InputCo
+                placeholder= 'Enter..'
+                labelText="Password"
+                controlId="password_register_input"
+              />
+              <ButtonCo
+                text='Button'
+                block={true}
+                variant="outline-primary"
+              />
+            </Form>
 
-      <FooterPage />
-    </div>
+            <Cards />
+
+            <FooterPage />
+
+            <Page404/>
+        </div>
 
 
   );
