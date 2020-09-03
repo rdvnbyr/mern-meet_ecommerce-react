@@ -27,7 +27,7 @@ import React from 'react';
 import { MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardFooter, MDBTooltip } from 'mdbreact';
 
 
-function CardComponent (props) {
+function CardCo (props) {
      const {image, title, price} = props;
 
     return (
@@ -80,4 +80,4 @@ function CardComponent (props) {
           
         )
     }
-    export default CardComponent;
+    export default CardCo;

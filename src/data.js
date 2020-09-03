@@ -131,7 +131,44 @@ export const productData = {
     ]
 }
 
-
+export const weekProductData = {
+    title: 'Sales Products',
+    categories: ['all', 'apple', 'samsung', 'huawei', 'xiaomi'],
+    cards: [
+        {
+            id:1,
+            title: 'Iphone Pro Max',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa',
+            image:'/images/apple/iphone_promax.png',
+            price:1250,
+            category: 'apple'
+        },
+        {
+            id:2,
+            title: 'Note 20',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa',
+            image:'/images/samsung/note.jpg',
+            price:1750,
+            category: 'samsung'
+        },
+        {
+            id:3,
+            title: 'Note 10',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa' ,
+            image:'/images/xiaomi/note10.jpg',
+            price:1160,
+            category: 'xiaomi'
+        },        
+        {
+            id:4,
+            title: 'P 40',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa',
+            image:'/images/huawei/p40.jpg',
+            price:1000,
+            category: 'huawei'
+        },
+    ]
+}
 export const saleProductData = {
     title: 'Sales Products',
     categories: ['all', 'apple', 'samsung', 'huawei', 'xiaomi'],

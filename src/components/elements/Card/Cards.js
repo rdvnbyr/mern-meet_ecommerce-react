@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CardComponent from './CardComponent';
+import CardCo from './CardCo';
 import { saleProductData } from '../../../data';
 import { CardGroup } from 'react-bootstrap';
 import './Card.scss'
@@ -24,7 +24,7 @@ class Cards extends Component {
                         (
                             <CardGroup>
                             {saleProductData.cards.map((item,index) =>
-                                <CardComponent 
+                                <CardCo 
                                     key={index}
                                     {...item}
                                 />
