@@ -89,12 +89,11 @@ render() {
         <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)}>
           <MDBModalBody>
               <MDBRow>
-                <MDBCol md="12">
+                <MDBCol>
                   <MDBCard>
                     <MDBCardBody>
                       <form>
                         <p className="h4 text-center py-4">Sign up</p>
-
                         <div className="grey-text">
                           <MDBInput
                             label="Username"
@@ -131,6 +130,7 @@ render() {
                             success="right"
                           />
                         </div>
+                        
 
                         <div className="text-center py-4 mt-3">
                           <MDBBtn color="warning" type="submit">
@@ -138,7 +138,6 @@ render() {
                           </MDBBtn>
                         </div>
                       </form>
-
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
