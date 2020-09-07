@@ -4,129 +4,183 @@ export const productData = {
     cards: [
         {
             title: 'Iphone 7',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/apple/iphone_7.png',
             price:750,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Iphone Se',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/apple/iphone_se.png',
             price:989,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Iphone Xr',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/apple/iphone_xr.png',
             price:1000,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Iphone 11',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/apple/iphone11.png',
             price:1049,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Iphone 11 Pro',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/apple/iphone11_pro.png',
             price:1125,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Iphone Pro Max',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/apple/iphone_promax.png',
             price:1250,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Nova 7 ',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/huawei/nova7.jpg',
             price:649,
-            category: 'huawei'
+            category: 'huawei',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: ' P 30 ',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/huawei/p.jpg',
             price:1080,
-            category: 'huawei'
+            category: 'huawei',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'P 6',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/huawei/p6.png',
             price:1090,
-            category: 'huawei'
+            category: 'huawei',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'P 40',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/huawei/p40.jpg',
             price:1000,
-            category: 'huawei'
+            category: 'huawei',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'A 51',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/samsung/a51.jpg',
             price:500,
-            category: 'samsung'
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Flip',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/samsung/flip.webp',
             price:1249,
-            category: 'samsung'
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Note 20',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!',
             image:'/images/samsung/note.jpg',
             price:1750,
-            category: 'samsung'
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Note 10',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/samsung/note1.jpeg',
             price:1300,
-            category: 'samsung'
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Mi 10',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/xiaomi/mi10.png',
             price:1100,
-            category: 'xiaomi'
+            category: 'xiaomi',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Note 8',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/xiaomi/note8.webp',
             price:1300,
-            category: 'xiaomi'
+            category: 'xiaomi',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Note 9',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/xiaomi/note9.webp',
             price:1420,
-            category: 'xiaomi'
+            category: 'xiaomi',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Note 10',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/xiaomi/note10.jpg',
             price:1160,
-            category: 'xiaomi'
+            category: 'xiaomi',
+            inCart : false,
+            count : 0,
+            total : 0
         },
     ]
 }
@@ -138,34 +192,46 @@ export const weekProductData = {
         {
             id:1,
             title: 'Iphone Pro Max',
-            details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis mollitia corrupti, quisquam voluptates et deleniti amet eos minima! Dolor in qui aspernatur sequi quae dolores culpa! Quod fugiat doloremque, eaque quis temporibus, impedit culpa quibusdam ut voluptates vel soluta eos amet quaerat voluptas? Ex nobis a ipsum! In doloribus quaerat tenetur veniam voluptate vitae eligendi magnam consectetur dolorum nesciunt explicabo placeat non architecto aliquam fugiat, sint eum, asperiores id expedita ipsam, laudantium inventore tempore. Dolorum.",
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa',
             image:'/images/apple/iphone_promax.png',
             price:1250,
-            category: 'apple'
+            category: 'apple',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             id:2,
             title: 'Note 20',
-            details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis mollitia corrupti, quisquam voluptates et deleniti amet eos minima! Dolor in qui aspernatur sequi quae dolores culpa! Quod fugiat doloremque, eaque quis temporibus, impedit culpa quibusdam ut voluptates vel soluta eos amet quaerat voluptas? Ex nobis a ipsum! In doloribus quaerat tenetur veniam voluptate vitae eligendi magnam consectetur dolorum nesciunt explicabo placeat non architecto aliquam fugiat, sint eum, asperiores id expedita ipsam, laudantium inventore tempore. Dolorum.",
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa',
             image:'/images/samsung/note.jpg',
             price:1750,
-            category: 'samsung'
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             id:3,
             title: 'Note 10',
-            details: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis mollitia corrupti, quisquam voluptates et deleniti amet eos minima! Dolor in qui aspernatur sequi quae dolores culpa! Quod fugiat doloremque, eaque quis temporibus, impedit culpa quibusdam ut voluptates vel soluta eos amet quaerat voluptas? Ex nobis a ipsum! In doloribus quaerat tenetur veniam voluptate vitae eligendi magnam consectetur dolorum nesciunt explicabo placeat non architecto aliquam fugiat, sint eum, asperiores id expedita ipsam, laudantium inventore tempore. Dolorum.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa' ,
             image:'/images/xiaomi/note10.jpg',
             price:1160,
-            category: 'xiaomi'
-        },
+            category: 'xiaomi',
+            inCart : false,
+            count : 0,
+            total : 0
+        },        
         {
             id:4,
             title: 'P 40',
-            details: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis mollitia corrupti, quisquam voluptates et deleniti amet eos minima! Dolor in qui aspernatur sequi quae dolores culpa! Quod fugiat doloremque, eaque quis temporibus, impedit culpa quibusdam ut voluptates vel soluta eos amet quaerat voluptas? Ex nobis a ipsum! In doloribus quaerat tenetur veniam voluptate vitae eligendi magnam consectetur dolorum nesciunt explicabo placeat non architecto aliquam fugiat, sint eum, asperiores id expedita ipsam, laudantium inventore tempore. Dolorum.',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sa',
             image:'/images/huawei/p40.jpg',
             price:1000,
-            category: 'huawei'
+            category: 'huawei',
+            inCart : false,
+            count : 0,
+            total : 0
         },
     ]
 }
@@ -173,47 +239,67 @@ export const saleProductData = {
     title: 'Sales Products',
     categories: ['all', 'apple', 'samsung', 'huawei', 'xiaomi'],
     cards: [
-        {
-            title: 'Iphone 7',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
-            image:'/images/apple/iphone_7.png',
-            price:750,
-            category: 'apple'
-        },
-        {
-            title: 'Iphone Se',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
-            image:'/images/apple/iphone_se.png',
-            price:989,
-            category: 'apple'
-        },
-        {
-            title: 'Nova 7 ',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
-            image:'/images/huawei/nova7.jpg',
-            price:649,
-            category: 'huawei'
-        },
+    
         {
             title: 'Mi 10',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/xiaomi/mi10.png',
             price:1100,
-            category: 'xiaomi'
+            category: 'xiaomi',  
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
             title: 'Flip',
-            details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi ratione corrupti ea itaque et assumenda voluptas veritatis culpa laudantium aspernatur debitis necessitatibus dolorem optio quibusdam accusantium harum, tempore, non, omnis iure neque nihil delectus? Fuga error earum eveniet unde, quod voluptatem sequi, nulla vitae natus in, amet molestias iure.' ,
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
             image:'/images/samsung/flip.webp',
             price:1249,
-            category: 'samsung'
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
         {
-            title: 'Note 20',
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nulla, maxime nemo eveniet nesciunt vel laboriosam quo nam, amet natus voluptas quidem. Veniam distinctio saepe, numquam tenetur nisi magnam delectus consequatur, harum commodi ut incidunt eaque minima enim corporis deserunt vel aut aliquam, pariatur qui eum laudantium culpa nulla iusto.' ,
-            image:'/images/samsung/note.jpg',
-            price:1750,
-            category: 'samsung'
+            title: 'Note 10',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
+            image:'/images/samsung/note1.jpeg',
+            price:1300,
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
         },
+        {
+            title: 'Mi 10',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
+            image:'/images/xiaomi/mi10.png',
+            price:1100,
+            category: 'xiaomi',  
+            inCart : false,
+            count : 0,
+            total : 0
+        },
+        {
+            title: 'Flip',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
+            image:'/images/samsung/flip.webp',
+            price:1249,
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
+        },
+        {
+            title: 'Note 10',
+            details: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti deserunt doloremque ipsa accusantium aspernatur ducimus labore accusamus repellat repellendus, sint animi quaerat reprehenderit iure dolorum temporibus sed voluptatum impedit ullam ipsam in totam pariatur omnis? Provident, deserunt inventore fuga totam, aut quam culpa officiis voluptatem distinctio quibusdam aliquam nemo unde eveniet quia corrupti commodi exercitationem sapiente velit dolorem doloremque et voluptates itaque. Non qui placeat debitis nemo assumenda accusantium nesciunt voluptates nam saepe! Recusandae nobis blanditiis, architecto nostrum maiores minima voluptates aliquam tempora delectus iste quisquam perferendis neque ipsa rerum? Voluptates dolorum placeat accusamus debitis quasi eligendi necessitatibus, commodi aliquid ratione. Excepturi asperiores maxime, laudantium quo voluptates officiis dicta libero, quod suscipit quas magnam obcaecati assumenda facere ratione mollitia molestias quae omnis similique ad voluptate id voluptas odit vero iste? Sed repudiandae quibusdam explicabo, sapiente consectetur molestiae delectus asperiores laboriosam ipsam debitis veniam adipisci aspernatur at voluptates enim dolore fuga! Labore odio quia assumenda est ipsum! Distinctio quas porro, aperiam nisi quibusdam id perspiciatis officia assumenda, obcaecati mollitia dolorum. Laboriosam modi aperiam cum nam, quas debitis sequi totam ullam quaerat nesciunt, pariatur aspernatur excepturi, rerum voluptatum optio esse reiciendis deserunt. Quis, modi porro perspiciatis velit beatae corrupti at sunt, iste neque earum reiciendis, quo vel? Repellat eaque ex voluptatem cumque temporibus quam expedita, sint aperiam, quaerat praesentium corrupti! Ipsa perspiciatis error cum non aut. Reprehenderit magnam alias voluptatem quisquam! Ex facere, doloremque in qui, accusantium magni nihil similique deleniti, excepturi enim deserunt aspernatur accusamus aut odio vitae neque ipsa provident!' ,
+            image:'/images/samsung/note1.jpeg',
+            price:1300,
+            category: 'samsung',
+            inCart : false,
+            count : 0,
+            total : 0
+        },
+        
     ]
 }

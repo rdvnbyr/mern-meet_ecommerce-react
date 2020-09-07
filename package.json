@@ -26,6 +26,7 @@
     "redux-observable": "^1.2.0",
     "redux-persist": "^6.0.0",
     "rxjs": "^6.6.2",
+    "styled-components": "^5.2.0",
     "yup": "^0.29.3"
   },
   "scripts": {
