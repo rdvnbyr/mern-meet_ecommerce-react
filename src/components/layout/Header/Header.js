@@ -16,7 +16,7 @@ function Header() {
     const handleClickOpen = () => {
       setOpen(true);
     };
-  
+
     const handleClose = () => {
       setOpen(false);
     };
@@ -34,7 +34,10 @@ function Header() {
 
     return (
         <nav className={scrollClass}>
-
+            <div className="nav_logo">
+            <img src={logo} alt=""/>
+            <h4>meetHUB</h4>
+        </div>
             <div className="header_links">
                 <ul>
                     <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
@@ -43,13 +46,10 @@ function Header() {
                     <li><NavLink activeClassName="active" to="/contact">Contact</NavLink></li>
                 </ul>
             </div>
-            <div className="nav_logo">
-            <img src={logo} alt=""/>
-            <h4>meetHUB</h4>
-        </div>
+
             <div className="header_links">
                 <ul>
-                    <Search 
+                    <Search
                         onClick={ handleClickOpen }
                     />
                     {

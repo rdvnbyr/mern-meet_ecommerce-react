@@ -12,19 +12,19 @@ class Cards extends Component {
              category:[]
         }
     }
-    
+
 
     render() {
         return (
             <div className="container mt-3">
                 <h1 className='text-center my-5'>BEST SELLERS</h1>
-               <div>                    
+               <div>
                     {
                         this.state.category.length ===0 ?
                         (
                             <CardGroup>
                             {saleProductData.cards.map((item,index) =>
-                                <CardCo 
+                                <CardCo
                                     key={index}
                                     {...item}
                                 />
@@ -33,7 +33,7 @@ class Cards extends Component {
                         ) : (
                             'Array is empty'
                         )
-                    
+
                     }
                </div>
             </div>

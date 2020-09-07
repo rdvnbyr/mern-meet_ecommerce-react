@@ -31,7 +31,7 @@ function CardCo (props) {
      const {image, title, price} = props;
 
     return (
-                <MDBRow style = {{width:'33%', height:'500px' }}> 
+                <MDBRow style = {{width:'33%', height:'500px' }}>
                     <MDBCol className="m-3">
                         <MDBCard>
                             <MDBCardImage
@@ -42,18 +42,18 @@ function CardCo (props) {
                                 width= "100%"
                                 height= "300vw"
                                 object-fit ="cover"
-                        
+
                             />
 
-                            <MDBCardBody 
+                            <MDBCardBody
                                 cascade className='text-center'>
-                            
+
                             <MDBCardTitle>
                                     <strong>
                                         <a href='#!' style={{textAlign:'center',color:"black", fontWeight:'bold', margin:'15px 0 0 0'}} >{title}</a>
                                     </strong>
                             </MDBCardTitle>
-                            
+
                             <MDBCardFooter className='px-1'>
                                 <span className='float-left font-weight-bold'>
                                     <strong> {price} € </strong>
@@ -76,8 +76,7 @@ function CardCo (props) {
                         </MDBCard>
                     </MDBCol>
                 </MDBRow>
-     
-          
+
         )
     }
     export default CardCo;
