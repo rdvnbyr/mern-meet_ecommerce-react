@@ -1,3 +1,17 @@
+import React from 'react'
+
+function Shoping() {
+    return (
+        <div style={{margin: '120px', minHeight: '100vh'}}>
+            <h1>HELLO FROM SHOPING PAGE</h1>
+        </div>
+    )
+}
+
+export default Shoping
+
+
+
 // import React, { Component } from 'react'
 // import { productData } from '../../data'
 // import CardComponent from '../elements/Card/CardComponent'

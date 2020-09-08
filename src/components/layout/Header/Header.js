@@ -7,20 +7,15 @@ import SignedInLinks from './SignedInLinks';
 import CartBadge from './CartBadge';
 import Search from './Search';
 import SearchDialog from './SearchDialog';
+import ResponsiveIcon from './ResponsiveIcon';
 
 function Header() {
 
     const [scrollClass, setScrollClass] = useState('');
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [ respToggle, setRespToggle] = useState(true);
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-
-    const handleClose = () => {
-      setOpen(false);
-    };
-    const [ loggedIn, ] = useState(false);// bu kisim Authanticate kisminda duzeltilecek.
+    const [ loggedIn, ] = useState(false);// bu kisim Authanticate kisminda duzeltilecek
 
     useEffect( () => {
         window.addEventListener('scroll', () => {
@@ -32,25 +27,40 @@ function Header() {
         })
     }, []);
 
+    // search input dialog
+    const handleClickOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    // responsive navbar
+    const responsiveHandler = () => {
+        setRespToggle(!respToggle);
+    }
+
+    const toggleClass = respToggle ? '' : 'mobileActive';
+
     return (
-        <nav className={scrollClass}>
+        <nav className={scrollClass + ' ' + toggleClass}>
+            <ResponsiveIcon
+                className="responsive_navIcon"
+                onClick={responsiveHandler}
+            />
             <div className="nav_logo">
-            <img src={logo} alt=""/>
-            <h4>meetHUB</h4>
-        </div>
-            <div className="header_links">
+                <img src={logo} alt=""/>
+                <h4>meetHUB</h4>
+            </div>
+            <div className="header_links_left">
                 <ul>
                     <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
+                    <li><NavLink activeClassName="active" to="/shoping">Shoping</NavLink></li>
                     <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
-                    <li><NavLink activeClassName="active" to="/my-works">My Works</NavLink></li>
                     <li><NavLink activeClassName="active" to="/contact">Contact</NavLink></li>
                 </ul>
             </div>
 
-            <div className="header_links">
-                <ul>
+            <div className="header_links_right">
                     <Search
                         onClick={ handleClickOpen }
+                        className="search_navIcon"
                     />
                     {
                         loggedIn ? <SignedInLinks /> : <SignedOutLinks />
@@ -59,9 +69,10 @@ function Header() {
                         cartQty={3}
                         color="secondary"
                         onClick={ () => console.log('Say Hello from cartBadge') }
+                        className="cartBadge_navIcon"
                     />
-                </ul>
             </div>
+            
             <SearchDialog
                     open={open}
                     onClose={handleClose}

@@ -13,9 +13,9 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
-export default function CartBadge({cartQty, color, onClick}) {
+export default function CartBadge({cartQty, color, onClick, className}) {
   return (
-        <IconButton aria-label="cart" onClick={onClick}>
+        <IconButton aria-label="cart" onClick={onClick} className={className}>
             <StyledBadge badgeContent={cartQty} color={color}>
                 <ShoppingCartIcon />
             </StyledBadge>
