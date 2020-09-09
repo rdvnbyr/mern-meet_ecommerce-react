@@ -16,7 +16,7 @@ class Cards extends Component {
 
     render() {
         return (
-            <div className="container mt-3">
+            <div className="container mt-3 mb-5">
                 <h1 className='text-center my-5'>BEST SELLERS</h1>
                <div>
                     {

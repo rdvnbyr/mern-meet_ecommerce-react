@@ -1,41 +1,21 @@
 
-.card {
-    border-color :transparent;
-    border-radius:5px;
-    transition:all 1s linear;
-    &:hover {
-        .card{
-            border:0.4rem solid rgba (0,0,0,0.2);
-            box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.2)
-        }
-        .card-footer {
-           background: rgba (247,247,247);
-        }
-    }
-}
 .carousel .slide {
     background: #fff !important;
 }
-.card-footer {
-    background :transparent;
-    border-top :transparent;
-    transition :all 1s linear;
-}
-
- .img-container {
+.car_img-container {
     overflow: hidden;
     position: relative;
 
 
  }
- .card-img-top {
+ .car_card-img-top {
      transition :all 1s linear;
  }
 
- .img-container:hover .card-img-top {
+ .car_img-container:hover .card-img-top {
     transform: scale(1.2);
  }
- .cart-btn {
+ .car_cart-btn {
      position:absolute;
      bottom: 0;
      right: 0;
@@ -48,10 +28,10 @@
      transform:translate(100%,100%);
      transition :all 1s linear;
  }
- .img-container:hover .cart-btn {
+ .car_img-container:hover .cart-btn {
      transform:translate(0,0);
  }
- .cart-btn:hover {
+ .car_cart-btn:hover {
      /* color: var(--mainBlue); */
      cursor: pointer;
  }

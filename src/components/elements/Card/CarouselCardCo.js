@@ -14,13 +14,13 @@ class CarouselCardCo extends Component {
                 <Container className = "mx-auto col-md-6 col-lg-4 my-3">
                     <Row>
                     <Col
-                        className="img-container my-auto"
+                        className="car_img-container my-auto"
                         onClick = {() => console.log ("you clicked me on the image container")}>
 
                         <Link to ="/details">
                             <img src={image} alt="product"/>
                         </Link>
-                        <button className="cart-btn" disable={inCart? true : false }
+                        <button className="car_cart-btn" disable={inCart? true : false }
                                 onClick={() => {console.log ('added to the cart');
                         }}>
                             {inCart ? (
