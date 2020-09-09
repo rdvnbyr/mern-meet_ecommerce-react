@@ -22,7 +22,9 @@ function App() {
           <Route component={Page404} />
         </Switch>
       <Footer />
+
     </Router>
+
   );
 }
 

@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody} from 'mdbreact';
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody, MDBIcon} from 'mdbreact';
 
 
 class SignIn extends Component {
@@ -56,7 +56,7 @@ render() {
                                             error="wrong"
                                             success="right"
                                         />
-                    
+
                                     </div>
 
                                     <MDBBtn color="secondary" type="submit">
@@ -64,9 +64,11 @@ render() {
                                     </MDBBtn>
 
                                     <div className="text-center py-4 mt-3">
-                                        <MDBBtn color="warning" type="submit">
-                                            Sign In
-                                        </MDBBtn>
+                                    <MDBBtn color="warning" type="submit">
+                                        Sign In
+                                    <MDBIcon className="ml-2" />
+                                  </MDBBtn>
+
                                     </div>
                                  </form>
                             </MDBCardBody>
