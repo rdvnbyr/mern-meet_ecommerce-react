@@ -9,6 +9,7 @@ const ProductWrapper = styled.div`
     border-radius:5px;
     transition:all 1s linear;
     padding:10px;
+
 }
 
  &:hover {
@@ -59,7 +60,6 @@ const ProductWrapper = styled.div`
      transform:translate(0,0);
  }
  .cart-btn:hover {
-     /* color: var(--mainBlue); */
      cursor: pointer;
  }
 `;

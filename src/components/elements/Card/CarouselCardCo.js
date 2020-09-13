@@ -39,7 +39,7 @@ class CarouselCardCo extends Component {
                         <h3 className="aling-self-center mb-1 my-2">
                         {title}
                         </h3>
-                        <p className=" mb-0 my-2">
+                        <p className="text-left mb-0 my-2">
                         {details}
                         </p>
                         <h5 className="font-italic mb-3 my-3">
