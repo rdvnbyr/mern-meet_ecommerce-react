@@ -63,7 +63,11 @@ function Header() {
                         className="search_navIcon"
                     />
                     {
-                        loggedIn ? <SignedInLinks /> : <SignedOutLinks />
+                        loggedIn
+                         ?
+                         <SignedInLinks /> 
+                         : 
+                         <SignedOutLinks />
                     }
                     <CartBadge
                         cartQty={3}
