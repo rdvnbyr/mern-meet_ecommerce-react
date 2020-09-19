@@ -8,7 +8,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { createHashHistory } from 'history';
 
 import { epics } from './epics';
-import { commentReducer } from './reducers';
+import { commentReducer, sessionReducer } from './reducers';
 
 export const routerHistory = createHashHistory();
 
@@ -18,12 +18,14 @@ const middleware = compose(
     applyMiddleware(
         epicMiddleware,
         routerMiddleware(routerHistory)
-    )
+    ),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 const mainReducer = combineReducers({
     router: connectRouter(routerHistory),
-    comment: commentReducer
+    comment: commentReducer,
+    session: sessionReducer
 });
 
 const persistConfig = {

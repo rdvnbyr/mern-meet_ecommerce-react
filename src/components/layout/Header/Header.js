@@ -8,14 +8,21 @@ import CartBadge from './CartBadge';
 import Search from './Search';
 import SearchDialog from './SearchDialog';
 import ResponsiveIcon from './ResponsiveIcon';
+import SignIn from '../../auth/SignIn';
+import { useSelector, useDispatch } from 'react-redux';
+import { SessionActions } from '../../../actions';
+
 
 function Header() {
+
+    const isLogin = useSelector(state => state.session.isLogin);
+    const dispatch = useDispatch();
 
     const [scrollClass, setScrollClass] = useState('');
     const [open, setOpen] = useState(false);
     const [ respToggle, setRespToggle] = useState(true);
 
-    const [ loggedIn, ] = useState(false);// bu kisim Authanticate kisminda duzeltilecek
+    const [ modal13, setModal13 ] = useState(false);
 
     useEffect( () => {
         window.addEventListener('scroll', () => {
@@ -31,6 +38,11 @@ function Header() {
     const handleClickOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // logout
+    const logout = () => {
+        dispatch(SessionActions.logout());
+    }; 
+
     // responsive navbar
     const responsiveHandler = () => {
         setRespToggle(!respToggle);
@@ -39,49 +51,57 @@ function Header() {
     const toggleClass = respToggle ? '' : 'mobileActive';
 
     return (
-        <nav className={scrollClass + ' ' + toggleClass}>
-            <ResponsiveIcon
-                className="responsive_navIcon"
-                onClick={responsiveHandler}
-            />
-            <div className="nav_logo">
-                <img src={logo} alt=""/>
-                <h4>meetHUB</h4>
-            </div>
-            <div className="header_links_left">
-                <ul>
-                    <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
-                    <li><NavLink activeClassName="active" to="/shoping">Shoping</NavLink></li>
-                    <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
-                    <li><NavLink activeClassName="active" to="/contact">Contact</NavLink></li>
-                </ul>
-            </div>
-
-            <div className="header_links_right">
-                    <Search
-                        onClick={ handleClickOpen }
-                        className="search_navIcon"
-                    />
-                    {
-                        loggedIn
-                         ?
-                         <SignedInLinks /> 
-                         : 
-                         <SignedOutLinks />
-                    }
-                    <CartBadge
-                        cartQty={3}
-                        color="secondary"
-                        onClick={ () => console.log('Say Hello from cartBadge') }
-                        className="cartBadge_navIcon"
-                    />
-            </div>
-            
+        <div>
+            <nav className={scrollClass + ' ' + toggleClass}>
+                <ResponsiveIcon
+                    className="responsive_navIcon"
+                    onClick={responsiveHandler}
+                />
+                <div className="nav_logo">
+                    <img src={logo} alt=""/>
+                    <h4>meetHUB</h4>
+                </div>
+                <div className="header_links_left">
+                    <ul>
+                        <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/shoping">Shoping</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/contact">Contact</NavLink></li>
+                    </ul>
+                </div>
+                <div className="header_links_right">
+                        <Search
+                            onClick={ handleClickOpen }
+                            className="search_navIcon"
+                        />
+                        {
+                            isLogin
+                            ?
+                            <SignedInLinks
+                                onClick={logout}
+                            /> 
+                            : 
+                            <SignedOutLinks
+                                onClick={ () => setModal13(!modal13)}
+                            />
+                        }
+                        <CartBadge
+                            cartQty={3}
+                            color="secondary"
+                            onClick={ () => console.log('Say Hello from cartBadge') }
+                            className="cartBadge_navIcon"
+                        />
+                </div>
+            </nav>
             <SearchDialog
-                    open={open}
-                    onClose={handleClose}
+                open={open}
+                onClose={handleClose}
             />
-        </nav>
+            <SignIn 
+             modal13={modal13}
+             toggle={() => setModal13(!modal13)}
+            />
+        </div>
     )
 }
 
