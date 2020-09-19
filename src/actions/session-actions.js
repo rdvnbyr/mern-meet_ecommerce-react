@@ -35,12 +35,11 @@ export class SessionActions {
      * @return {string}
      * @constructor
      */
-    static login(email, password) {
+    static login(user) {
         return {
             type: SessionActions.LOGIN,
             payload: {
-                email: email,
-                password: password
+                user: user
             }
         }
     };
@@ -71,5 +70,40 @@ export class SessionActions {
         }
     };
 
+        /**
+     * LOGOUT auth
+     * @return {string}
+     * @constructor
+     */
+    static get LOGOUT() {
+        return `${SessionActions.PREFIX}LOGOUT`;
+    }
+    /**
+     * LOGOUT auth success
+     * @return {string}
+     * @constructor
+     */
+    static get LOGOUT_SUCCESSFUL() {
+        return `${SessionActions.PREFIX}LOGOUT_SUCCESSFUL`;
+    }
+        /**
+         * LOGOUT auth fail
+     * @return {string}
+     * @constructor
+     */
+    static get LOGOUT_FAIL() {
+        return `${SessionActions.PREFIX}LOGOUT_FAIL`;
+    }
+
+        /**
+     * logout auth success
+     * @return {string}
+     * @constructor
+     */
+    static logout() {
+        return {
+            type: SessionActions.LOGOUT
+        };
+    };
 
 }

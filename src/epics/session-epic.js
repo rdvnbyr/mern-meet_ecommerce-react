@@ -11,11 +11,10 @@ function loginAuth(action$) {
             (action) => from(
                 axios
                     .post(
-                        '', {
-                        email: action.payload.email,
-                        password: action.payload.password
-                    })
+                        'https://meethub-node-restapi.herokuapp.com/auth/login', action.payload.user
+                    )
                     .then((res) => {
+                        console.log('EPIC',res);
                         if (res.status === 200) {
                             return SessionActions.loginSuccessful(res.data);
                         } else {
