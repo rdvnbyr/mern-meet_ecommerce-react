@@ -11,6 +11,7 @@ import ResponsiveIcon from './ResponsiveIcon';
 import SignIn from '../../auth/SignIn';
 import { useSelector, useDispatch } from 'react-redux';
 import { SessionActions } from '../../../actions';
+import SignUp from '../../auth/SignUp';
 
 
 function Header() {
@@ -23,6 +24,7 @@ function Header() {
     const [ respToggle, setRespToggle] = useState(true);
 
     const [ modal13, setModal13 ] = useState(false);
+    const [ modal14, setModal14 ] = useState(false);
 
     useEffect( () => {
         window.addEventListener('scroll', () => {
@@ -83,6 +85,7 @@ function Header() {
                             : 
                             <SignedOutLinks
                                 onClick={ () => setModal13(!modal13)}
+                                onClickSignUp ={ () => setModal14(!modal14)}
                             />
                         }
                         <CartBadge
@@ -100,6 +103,10 @@ function Header() {
             <SignIn 
              modal13={modal13}
              toggle={() => setModal13(!modal13)}
+            />
+            <SignUp 
+            modal14={modal14}
+            toggle14={() => setModal14(!modal14)}
             />
         </div>
     )

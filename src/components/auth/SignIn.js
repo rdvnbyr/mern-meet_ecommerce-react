@@ -17,7 +17,7 @@ const SignIn = (props) => {
 
     const validationSchema = Yup.object({
         email: Yup.string().email().required('required'),
-        password: Yup.string().min(5, 'must be at least 5 charachters').max(8, 'must be at max 8 charachters')
+        password: Yup.string()
     });
 
     const onSubmit = (values) => {

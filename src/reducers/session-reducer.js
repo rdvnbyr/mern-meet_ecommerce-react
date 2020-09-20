@@ -35,7 +35,29 @@ export const sessionReducer = (state = initialState, action) => {
                     isLogin: false,
                     user: {}
                 }
+            
+            case SessionActions.REGISTER:
+                console.log('REGISTER')
+                return {
+                    ...state,
+                    loading: true
+                }
+            case SessionActions.REGISTER_SUCCESSFUL:
+                console.log('REGISTER SUCCESSFULL', action.payload.user);
+                return {
+                    ...state,
+                    loading: false,
+                    user: action.payload.user
+                }
+            case SessionActions.REGISTER_FAIL:
+                console.log('REGISTER FAIL')
+                return {
+                    ...state,
+                    loading: false,
+                    error: 'Something went wrong'
+                }
         default:
             return state
     }
 }
+
