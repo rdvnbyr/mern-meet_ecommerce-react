@@ -105,5 +105,67 @@ export class SessionActions {
             type: SessionActions.LOGOUT
         };
     };
-
+/**
+    * register auth 
+    * @return {string}
+    * @constructor
+    */
+    static get REGISTER() {
+        return `${SessionActions.PREFIX}REGISTER`;
+    }
+    /**
+     * register auth success
+     * @return {string}
+     * @constructor
+     */
+    static get REGISTER_SUCCESSFUL() {
+        return `${SessionActions.PREFIX}REGISTER_SUCCESSFUL`;
+    }
+        /**
+         * register auth fail
+     * @return {string}
+     * @constructor
+     */
+    static get REGISTER_FAIL() {
+        return `${SessionActions.PREFIX}REGISTER_FAIL`;
+    }
+    /**
+     * register auth success
+     * @return {string}
+     * @constructor
+     */
+    static register(user) {
+        return {
+            type: SessionActions.REGISTER,
+            payload: {
+                user: user
+            }
+        }
+    };
+        /**
+     * register auth success
+     * @return {string}
+     * @constructor
+     */
+    static registerSuccessful(user) {
+        return {
+            type: SessionActions.REGISTER_SUCCESSFUL,
+            payload: {
+                user: user
+            }
+        }
+    };
+        /**
+     * register auth fail
+     * @return {string}
+     * @constructor
+     */
+    static registerFail(error) {
+        return {
+            type: SessionActions.REGISTER_FAIL,
+            payload: {
+                error: error
+            }
+        }
+    };
 }

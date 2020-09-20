@@ -27,7 +27,31 @@ function loginAuth(action$) {
                     } )))
     );
 }
+function signUpAuth(action$) {
 
+    return action$.pipe(
+        ofType(SessionActions.REGISTER),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post(
+                        'https://meethub-node-restapi.herokuapp.com/auth/signup', action.payload.user
+                    )
+                    .then((res) => {
+                        console.log('EPIC',res);
+                        if (res.status === 200) {
+                            return SessionActions.registerSuccessful(res.data);
+                        } else {
+                            return SessionActions.registerFail(res);
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return SessionActions.registerFail(err);
+                    } )))
+    );
+}
 export const loginEpics = combineEpics(
-    loginAuth
+    loginAuth,
+    signUpAuth
 );

@@ -1,8 +1,11 @@
 import React from 'react';
 
-function SignedOutLinks({onClick}) {
+function SignedOutLinks({onClick, onClickSignUp}) {
     return (
-        <button className="button_nav" onClick={onClick}>Login</button>
+        <div>
+            <button className="button_nav" onClick={onClick}>Login</button>
+            <button className="button_nav" onClick={onClickSignUp}>Sign Up</button>
+        </div>
     )
 }
 
