@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function SignedOutLinks({onClick, onClickSignUp}) {
+function SignedOutLinks({toLogin, toSignUp}) {
     return (
         <div>
-            <button className="button_nav" onClick={onClick}>Login</button>
-            <button className="button_nav" onClick={onClickSignUp}>Sign Up</button>
+            <Link className="button_nav" to={toLogin} >Login</Link>
+            <Link className="button_nav" to={toSignUp} >Sign Up</Link>
         </div>
     )
 }

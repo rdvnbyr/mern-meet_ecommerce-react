@@ -1,17 +1,15 @@
 import React, { useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../../../styles/header.scss';
 import logo from '../../../assets/logo-ecm.jpg';
-import SignedOutLinks from './SignedOutLinks';
 import SignedInLinks from './SignedInLinks';
 import CartBadge from './CartBadge';
 import Search from './Search';
 import SearchDialog from './SearchDialog';
 import ResponsiveIcon from './ResponsiveIcon';
-import SignIn from '../../auth/SignIn';
 import { useSelector, useDispatch } from 'react-redux';
 import { SessionActions } from '../../../actions';
-import SignUp from '../../auth/SignUp';
+
 
 
 function Header() {
@@ -23,8 +21,6 @@ function Header() {
     const [open, setOpen] = useState(false);
     const [ respToggle, setRespToggle] = useState(true);
 
-    const [ modal13, setModal13 ] = useState(false);
-    const [ modal14, setModal14 ] = useState(false);
 
     useEffect( () => {
         window.addEventListener('scroll', () => {
@@ -83,10 +79,10 @@ function Header() {
                                 onClick={logout}
                             /> 
                             : 
-                            <SignedOutLinks
-                                onClick={ () => setModal13(!modal13)}
-                                onClickSignUp ={ () => setModal14(!modal14)}
-                            />
+                            <div>
+                                <Link className="button_nav mx-2" to="/login">Login</Link>
+                                <Link className="button_nav mx-2" to="/signup">Sign Up</Link>
+                            </div>
                         }
                         <CartBadge
                             cartQty={3}
@@ -100,14 +96,7 @@ function Header() {
                 open={open}
                 onClose={handleClose}
             />
-            <SignIn 
-             modal13={modal13}
-             toggle={() => setModal13(!modal13)}
-            />
-            <SignUp 
-            modal14={modal14}
-            toggle14={() => setModal14(!modal14)}
-            />
+
         </div>
     )
 }
