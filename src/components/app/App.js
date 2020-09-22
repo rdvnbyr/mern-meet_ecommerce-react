@@ -8,6 +8,8 @@ import Shoping from '../pages/Shoping';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Page404 from '../pages/Page404';
+import SignIn from '../pages/SignIn';
+import SignUp from '../pages/SignUp';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/shoping" component={Shoping} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/login" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
           <Route component={Page404} />
         </Switch>
       <Footer />

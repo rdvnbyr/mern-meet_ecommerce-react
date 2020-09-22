@@ -1,85 +1,48 @@
-// import React from "react";
-// import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
-
-// const Signup = () => {
-//   return (
-//     <MDBContainer>
-//       <MDBRow>
-//         <MDBCol md="6">
-//           <MDBCard>
-//             <MDBCardBody>
-//               <form>
-//                 <p className="h4 text-center py-4">Sign up</p>
-//                 <div className="grey-text">
-//                   <MDBInput
-//                     label="Username"
-//                     icon="user"
-//                     group
-//                     type="text"
-//                     validate
-//                     error="wrong"
-//                     success="right"
-//                   />
-//                   <MDBInput
-//                     label="Email"
-//                     icon="envelope"
-//                     group
-//                     type="email"
-//                     validate
-//                     error="wrong"
-//                     success="right"
-//                   />
-//                   <MDBInput
-//                   label="Password"
-//                   icon="lock"
-//                   group
-//                   type="password"
-//                   validate
-//                 />
-//                   <MDBInput
-//                     label="Re - Password"
-//                     icon="exclamation-triangle"
-//                     group
-//                     type="text"
-//                     validate
-//                     error="wrong"
-//                     success="right"
-//                   />
-
-//                 </div>
-//                 <div className="text-center py-4 mt-3">
-//                   <MDBBtn color="elegant" type="submit">
-//                     Register
-//                   </MDBBtn>
-//                 </div>
-//               </form>
-//             </MDBCardBody>
-//           </MDBCard>
-//         </MDBCol>
-//       </MDBRow>
-//     </MDBContainer>
-//   );
-// };
-
-// export default Signup;
-
-
 import React from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody} from 'mdbreact';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { SessionActions } from '../../actions/session-actions';
 
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 const SignUp= (props) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
-
+  
     const initialValues = {
         username : '',
         email: '',
         password: '',
         passwordConfirm: '',
+        
     };
 
     
@@ -124,85 +87,94 @@ const SignUp= (props) => {
 
 
   return (
-    <MDBContainer>
-        <MDBModal isOpen={props.modal14} toggle={props.toggle14}>
-          <MDBModalBody>
-              <MDBRow>
-                <MDBCol>
-                  <MDBCard>
-                    <MDBCardBody>
-                      <form onSubmit={formik.handleSubmit}>
-                        <p className="h4 text-center py-4">Sign up</p>
-                        <div className="grey-text">
-                          <MDBInput
-                            label="Username"
-                            icon="user"
-                            name="username"
-                            group
-                            type="text"
-                            validate
-                            error="wrong"
-                            success="right"
-                            value={formik.values.username}
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                          />
-                          {formik.touched && formik.errors.username ? <div className="text-danger">{formik.errors.username }</div> : null}
-                          <MDBInput
-                            label="Email"
-                            icon="envelope"
-                            name="email"
-                            group
-                            type="email"
-                            validate
-                            error="wrong"
-                            success="right"
-                            value={formik.values.email}
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                          />
-                          {formik.touched && formik.errors.email ? <div className="text-danger">{formik.errors.email }</div> : null}
-                          <MDBInput
-                            label="Password"
-                            icon="lock"
-                            name="password"
-                            group
-                            type="password"
-                            validate
-                            value={formik.values.password}
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                          />
-                          {formik.touched && formik.errors.password ? <div className="text-danger">{formik.errors.password }</div> : null}
-                          <MDBInput
-                            label="Password Confirm"
-                            icon="exclamation-triangle"
-                            name="passwordConfirm"
-                            group
-                            type="password"
-                            validate
-                            error="wrong"
-                            success="right"
-                            value={formik.values.passwordConfirm}
-                            onBlur={formik.handleBlur}
-                            onChange={formik.handleChange}
-                          />
-                          {formik.touched && formik.errors.passwordConfirm ? <div className="text-danger">{formik.errors.passwordConfirm }</div> : null}
-                        </div>
-                        <div className="text-center py-4 mt-3">
-                        <MDBBtn color="warning" type="submit">
-                              Sign Up
-                        </MDBBtn>
-                        </div>
-                      </form>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-              </MDBRow>
-            </MDBModalBody>
-        </MDBModal>
-    </MDBContainer>
-    );
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <form className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12} >
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                label="Username"
+                name="username"
+                type="text"
+                // error="wrong"
+                success="right"
+                value={formik.values.username}
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+              />
+              {formik.touched && formik.errors.username ? <div className="text-danger">{formik.errors.username }</div> : null}
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+              variant="outlined"
+              required
+              fullWidth
+              label="Email"
+              name="email"
+              type="email"
+              // error="wrong"
+              success="right"
+              value={formik.values.email}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            />
+            {formik.touched && formik.errors.email ? <div className="text-danger">{formik.errors.email }</div> : null}
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+              variant="outlined"
+              required
+              fullWidth
+              label="Password"
+              name="password"
+              type="password"
+              value={formik.values.password}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            />
+            {formik.touched && formik.errors.password ? <div className="text-danger">{formik.errors.password }</div> : null}
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+              variant="outlined"
+              required
+              fullWidth
+              label="Password Confirm"
+              name="passwordConfirm"
+              type="password"
+              // error="wrong"
+              success="right"
+              value={formik.values.passwordConfirm}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            />
+            {formik.touched && formik.errors.passwordConfirm ? <div className="text-danger">{formik.errors.passwordConfirm }</div> : null}
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="dark"
+            className={classes.submit}
+          >
+            Sign Up
+          </Button>
+        </form>
+      </div>
+
+    </Container>
+  )
   }
 
 
