@@ -18,24 +18,23 @@ class Cards extends Component {
         return (
             <div className="container mt-3 mb-5">
                 <h1 className='text-center my-5'>BEST SELLERS</h1>
-               <div>
-                    {
-                        this.state.category.length ===0 ?
-                        (
-                            <CardGroup>
-                            {saleProductData.cards.map((item,index) =>
-                                <CardCo
-                                    key={index}
-                                    {...item}
-                                />
-                            )}
-                            </CardGroup>
-                        ) : (
-                            'Array is empty'
-                        )
-
-                    }
-               </div>
+                    <div>
+                            {
+                                this.state.category.length ===0 ?
+                                (
+                                    <CardGroup>
+                                    {saleProductData.cards.map((item,index) =>
+                                        <CardCo
+                                            key={index}
+                                            {...item}
+                                        />
+                                    )}
+                                    </CardGroup>
+                                ) : (
+                                    'Array is empty'
+                                )
+                            }
+                    </div>
             </div>
         )
     }
