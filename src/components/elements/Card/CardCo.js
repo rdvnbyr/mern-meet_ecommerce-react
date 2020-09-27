@@ -94,9 +94,11 @@ class CardCo extends Component {
                     </div>
                     {/* card footer */}
                     <div className="card-gf d-flex justify-content-between">
-                            <h3 className="aling-self-center mb-0 mx-2">
-                            {title}
-                            </h3>
+                        <Link to ="/details" style={{color:"black"}}>
+                                <h3 className="aling-self-center mb-0 mx-2">
+                                    {title}
+                                </h3>
+                        </Link>
                             <h5 className="text-blue font-italic mb-0 mx-2">
                                 <span className ="mr-1"> € </span>
                                 {price}

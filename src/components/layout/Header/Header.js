@@ -57,12 +57,12 @@ function Header() {
                 />
                 <div className="nav_logo">
                     <img src={logo} alt=""/>
-                    <h4>meetHUB</h4>
+                    <h4 to="/" >meetHUB</h4>
                 </div>
                 <div className="header_links_left">
                     <ul>
                         <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
-                        <li><NavLink activeClassName="active" to="/shoping">Shoping</NavLink></li>
+                        <li><NavLink activeClassName="active" to="/shopping">Shopping</NavLink></li>
                         <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
                         <li><NavLink activeClassName="active" to="/contact">Contact</NavLink></li>
                     </ul>
