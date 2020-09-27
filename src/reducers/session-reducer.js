@@ -35,7 +35,6 @@ export const sessionReducer = (state = initialState, action) => {
                     isLogin: false,
                     user: {}
                 }
-            
             case SessionActions.REGISTER:
                 console.log('REGISTER')
                 return {
