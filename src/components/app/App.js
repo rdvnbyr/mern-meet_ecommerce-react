@@ -22,7 +22,7 @@ function App() {
           <Route path="/shopping" component={Shopping} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-          <Route path="/details/:productId" component={DetailProduct} />
+          <Route path="/details" component={DetailProduct} />
           <Route path="/login" component={SignIn} />
           <Route path="/signup" component={SignUp} />
           <Route component={Page404} />
