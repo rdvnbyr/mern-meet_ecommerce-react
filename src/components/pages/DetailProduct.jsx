@@ -1,34 +1,77 @@
-import React, { useEffect } from 'react'
+import React, { Component } from 'react';
+import {ProductConsumer} from '../../context'
+import {Link} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
-
-function Details(props) { 
-    useEffect(() => {
-        
-
-    }, [])
-    return (
-        <div style={{minHeight:"100vh", marginTop:"120px"}}>
-            <div className="container">
-                <div className="row" >
-                    <div className="col-12 my-5">
-                        <div className="card">
-                            <div style={{ display: "flex", flex: "1 1 auto"}}>
-                                <div className="img-square-wrapper">
-                                    <img className="col img-fluid my-5" src="https://i.pinimg.com/originals/98/df/62/98df627b202f976dccca1fabc01e336d.png" alt="about us"/>    
-                                </div>   
-                                <div class="card-body">    
-                                    <h1 className="card-title p-2 m-0">WHO WE ARE</h1>
-                                    <p className="card-text"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                                    <a href="/" className="btn btn-dark"> Read More </a>
+class DetailProduct extends Component {
+    render() {
+        return (
+            <ProductConsumer>
+            {
+                value => {
+                  const {
+                      id, 
+                      category, 
+                      image, 
+                      details, 
+                      price, 
+                      title, 
+                      inCart
+                    } = value.detailProduct;
+                  return (
+                      <div className="container py-5" style={{margin: '120px', minHeight: '100vh'}}>
+                            {/* product info */}
+                                <div className="row">
+                                    <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                        <img src={image} className="img-fluid" alt="product"/>
+                                    </div>
+                            {/* product text */}        
+                                    <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
+                                        <h2> {title} </h2>
+                                        <h4 className="text-title text-uppercase text-muted mt-3 mb-2"> {category } </h4>
+                                        <h4><strong> Price: {price}
+                                                    <span className ="mr-1"> € </span> 
+                                            </strong> 
+                                        </h4>
+                                        <p className=" mt-3 mb-0 text-muted lead"> {details} </p>
+                            {/* buttons */}
+                                        <div>
+                                            <Link to="/shopping">
+                                                <Button
+                                                    className="mx-auto my-5"
+                                                    type="submit"
+                                                    variant="contained"
+                                                    color="dark"     
+                                                >
+                                                    Back to Products
+                                                </Button>
+                                            </Link>
+                                            <Button
+                                                className="ml-5 my-5"
+                                                type="submit"
+                                                variant="contained" color="dark"
+                                                disabled = {inCart ? true : false}
+                                                onClick={() => {
+                                                    value.addToCart(id);
+                                                    value.openModal(id);
+                                                } }
+                                            >
+                                                {inCart ? 'inCart': 'Add to Cart'}
+                                            </Button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
-        
-    )
+
+                      </div>
+                  )
+                }
+            }
+                
+            
+            </ProductConsumer>
+            
+        );
+    }
 }
 
-export default Details
+export default DetailProduct;

@@ -6,14 +6,17 @@ import * as serviceWorker from './serviceWorker';
 import { persistor, store } from './store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
+import { ProductProvider} from './context'
 
 ReactDOM.render(
-  <Provider store={store} >
+  <ProductProvider>
+    <Provider store={store} >
     <PersistGate loading={null} persistor={persistor} >
       <App />
     </PersistGate>
-  </Provider>,
+    </Provider>
+  </ProductProvider>
+,
   document.getElementById('root')
 );
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../styles/header.scss';
-import logo from '../../../assets/logo-ecm.jpg';
+import logo from '../../../assets/logo_transparent.png';
+// import SignedInLinks from './SignedInLinks';
 import CartBadge from './CartBadge';
 import Search from './Search';
 import SearchDialog from './SearchDialog';
@@ -55,7 +56,7 @@ function Header() {
                     onClick={responsiveHandler}
                 />
                 <div className="nav_logo">
-                    <img src={logo} alt=""/>
+                    <img src={logo} alt="logo" style={{width:"7.5rem", height:"6rem"}} className="m-0"/>
                     <h4 to="/" >meetHUB</h4>
                 </div>
                 <div className="header_links_left">
@@ -81,12 +82,14 @@ function Header() {
                                 <Link className="button_nav mx-2" to="/signup">Sign Up</Link>
                             </div>
                         }
-                        <CartBadge
-                            cartQty={3}
-                            color="secondary"
-                            onClick={ () => console.log('Say Hello from cartBadge') }
-                            className="cartBadge_navIcon"
-                        />
+                        <Link to="/cart" >
+                            <CartBadge
+                                cartQty={3}
+                                color="secondary"
+                                onClick={ () => console.log('Say Hello from cartBadge') }
+                                className="cartBadge_navIcon"
+                            />
+                        </Link>
                 </div>
             </nav>
             <SearchDialog
