@@ -3,7 +3,7 @@ import SignInForm from "../auth/SignIn"
 
 function SignIn() {
     return (
-        <div style={{minHeight:"100vh", marginTop:"100px"}}>
+        <div style={{minHeight:"100vh", marginTop:"120px"}}>
             <SignInForm />
         </div>
     )

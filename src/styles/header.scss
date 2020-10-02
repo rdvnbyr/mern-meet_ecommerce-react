@@ -62,8 +62,8 @@ nav {
                     text-decoration: none;
                     text-transform: uppercase;
                     transition: .8s;
-                    font-weight: bold;
-                    font-size: calc(12px + 0.2vw);
+                    font-weight: bold !important;
+                    font-size: calc(12px + 0.2vw) !important;
                     &.active, &:hover {
                         color: #485461;
                     }

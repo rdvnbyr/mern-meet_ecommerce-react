@@ -3,7 +3,7 @@ import React from 'react'
 
 function Contact() {
     return (
-        <div style={{margin: '100px'}}>
+        <div style={{minHeight:"100vh", marginTop:"120px"}}>
                 <div class="site-blocks-cover inner-page aos-init aos-animate"  data-aos="fade">
                     <div class="container">
                         <div class="row" style={{margin: 'auto', maxHeight: '100vh'}}>

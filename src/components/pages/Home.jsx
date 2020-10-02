@@ -4,7 +4,7 @@ import CaruoselCards from '../elements/Card/CarouselCards';
 
 function Home() {
     return (
-        <div style={{marginTop: '100px'}}>
+        <div style={{minHeight:"100vh", marginTop:"120px"}}>
             <CaruoselCards/>
             <Card />
         </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../styles/header.scss';
 import logo from '../../../assets/logo-ecm.jpg';
-import SignedInLinks from './SignedInLinks';
 import CartBadge from './CartBadge';
 import Search from './Search';
 import SearchDialog from './SearchDialog';
@@ -75,9 +74,7 @@ function Header() {
                         {
                             isLogin
                             ?
-                            <SignedInLinks
-                                onClick={logout}
-                            /> 
+                            <button className="button_nav" onClick={logout}>Logout</button>
                             : 
                             <div>
                                 <Link className="button_nav mx-2" to="/login">Login</Link>

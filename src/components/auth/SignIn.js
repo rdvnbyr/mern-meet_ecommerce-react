@@ -50,7 +50,7 @@ const SignIn = (props) => {
 
     const validationSchema = Yup.object({
         email: Yup.string().email().required('required'),
-        password: Yup.string()
+        password: Yup.string().min(8, 'Minimum 8 characters required!').required('Required!'),
     });
 
     const onSubmit = (values) => {

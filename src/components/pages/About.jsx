@@ -32,7 +32,7 @@ function About() {
     //     return Redirect('/');
     // }
     return (
-        <div style={{margin: '120px', minHeight: '100vh'}}>
+        <div style={{marginTop: '120px', minHeight: '100vh'}}>
             <div className="my-5">
                 <div className="container">
                     <div className="row" style={{margin: 'auto', maxHeight: '100vh'}}>

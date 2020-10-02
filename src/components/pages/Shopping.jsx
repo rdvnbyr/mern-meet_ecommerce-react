@@ -4,7 +4,7 @@ import Cart from './Cart'
 
 function Shoping() {
     return (
-        <div style={{margin: '120px', minHeight: '100vh'}}>
+        <div style={{marginTop: '120px', minHeight: '100vh'}}>
             <CheckOut />
             <Cart/>
         </div>

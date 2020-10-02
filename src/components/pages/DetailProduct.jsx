@@ -7,7 +7,7 @@ function Details(props) {
 
     }, [])
     return (
-        <div style={{minHeight:"100vh", marginTop:"100px"}}>
+        <div style={{minHeight:"100vh", marginTop:"120px"}}>
             <div className="container">
                 <div className="row" >
                     <div className="col-12 my-5">

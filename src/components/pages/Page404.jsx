@@ -1,11 +1,11 @@
 import React from 'react'
-import './Page404.scss'
+import '../../styles/Page404.scss'
 // import { Link } from 'react-router-dom'
 
 
 function Page404() {
     return (
-        <div id="notfound">
+        <div id="notfound" style={{minHeight:"100vh"}}>
 		<div className="notfound">
 			<div className="notfound-404">
 				<h1>Oops!</h1>
