@@ -5,6 +5,8 @@ import {CardGroup, Card} from 'react-bootstrap'
 import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 import styled from "styled-components";
+import logo from '../../assets/logo_transparent.png';
+
 
 
 // import { Redirect } from 'react-router';
@@ -36,7 +38,7 @@ function About() {
             <div className="my-5">
                 <div className="container">
                     <div className="row" style={{margin: 'auto', maxHeight: '100vh'}}>
-                        <img src="https://www.alternativesolution.in/image/aboutus.jpg" alt="" className="img-fluid"/>
+                        <img src="https://delivery-xpress.com/wp-content/uploads/2019/03/about-us-header-1.jpg" alt="" className="img-fluid"/>
                     </div>
                 </div>
             </div>
@@ -47,7 +49,7 @@ function About() {
                         <div className="card">
                             <div style={{ display: "flex", flex: "1 1 auto"}}>
                                 <div className="img-square-wrapper">
-                                    <img className="col img-fluid my-5" src="https://i.pinimg.com/originals/98/df/62/98df627b202f976dccca1fabc01e336d.png" alt="about us"/>    
+                                    <img className="col img-fluid my-5" src={logo} alt="about us"/>    
                                 </div>   
                                 <div class="card-body">    
                                     <h1 className="card-title p-2 m-0">WHO WE ARE</h1>

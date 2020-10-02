@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import CardCo from './CardCo';
-import { saleProductData } from '../../../data';
+import {productData} from '../../../data'
 import { CardGroup } from 'react-bootstrap';
 import './Card.scss'
 
-
-class Cards extends Component {
+class ProductCards extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,18 +16,17 @@ class Cards extends Component {
     render() {
         return (
             <div className="container mt-3 mb-5">
-                <h1 className='text-center my-5'>BEST SELLERS</h1>
                     <div>
                             {
                                 this.state.category.length ===0 ?
                                 (
                                     <CardGroup>
-                                    {saleProductData.cards.map((item,index) =>
-                                        <CardCo
-                                            key={index}
-                                            {...item}
-                                        />
-                                    )}
+                                        {productData.cards.map((item,index) =>
+                                            <CardCo
+                                                key={index}
+                                                {...item}
+                                            />
+                                        )}
                                     </CardGroup>
                                 ) : (
                                     'Array is empty'
@@ -39,6 +37,4 @@ class Cards extends Component {
         )
     }
 }
-
-
-export default Cards
+export default ProductCards

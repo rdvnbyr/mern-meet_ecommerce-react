@@ -113,11 +113,11 @@ const SignIn = (props) => {
             {formik.touched && formik.errors.password ? <div className="text-danger">{formik.errors.password }</div> : null}
           
           <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="dark"
-          className={classes.submit}
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="dark"
+            className={classes.submit}
           >
             Sign In
           </Button>

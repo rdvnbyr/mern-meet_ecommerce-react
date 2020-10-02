@@ -11,6 +11,9 @@ import Page404 from '../pages/Page404';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import DetailProduct from '../pages/DetailProduct';
+import Cart from '../pages/Cart/Cart';
+import Modal  from '../pages/Modal';
+
 
 
 function App() {
@@ -25,13 +28,16 @@ function App() {
           <Route path="/details" component={DetailProduct} />
           <Route path="/login" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/cart" component={Cart} />
           <Route component={Page404} />
         </Switch>
+        <Modal />
       <Footer />
 
     </Router>
 
   );
 }
+
 
 export default App;
