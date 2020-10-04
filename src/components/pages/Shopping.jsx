@@ -1,14 +1,19 @@
-import React, { Component } from 'react'
-import {productData} from '../../data'
-import {ProductConsumer} from '../../context'
-import ProductCards from '../elements/Card/ProductCards'
+import React, { useEffect } from 'react'
+import ProductCards from '../elements/Card/ProductCards';
+import {useDispatch, useSelector} from 'react-redux';
+import { ProductsActions } from '../../actions';
 
-export class Shopping extends Component {
-    state = {
-        products : productData.cards
-    }
-    render() {
-        // console.log(this.state.products )
+
+const Shopping = () => {
+
+    const dispatch = useDispatch();
+    const products = useSelector(state => state.products.products.data);
+
+    useEffect(() => {
+        dispatch(ProductsActions.getProducts());
+    }, [dispatch]);
+
+
         return (
             <React.Fragment>
                 <div style={{margin: '120px', minHeight: '100vh'}}>
@@ -16,21 +21,22 @@ export class Shopping extends Component {
                         <div className="container">
                             <h1 className="text-center text-title"> OUR PRODUCTS</h1>
                             <div className="row">
-                                <ProductConsumer>
-                                    { value =>{
-                                            return <ProductCards 
-                                                        key={value.id} 
-                                                        product={value}  
-                                                    />
-                                    } }
-                                </ProductConsumer>
-                               
+                                {
+                                    (products !== undefined) &&
+                                        products.map( (product, index) => {
+                                            return(
+                                                <ProductCards 
+                                                    key={product._id}
+                                                    {...product}
+                                            />
+                                            )
+                                        })
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
             </React.Fragment>
         )
-    }
 }
-export default Shopping
+export default Shopping;

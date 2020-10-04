@@ -13,29 +13,39 @@ import SignUp from '../pages/SignUp';
 import DetailProduct from '../pages/DetailProduct';
 import Cart from '../pages/Cart/Cart';
 import Modal  from '../pages/Modal';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic'
 
-
+// optional configuration
+const options = {
+  // you can also just use 'bottom center'
+  position: positions.TOP_LEFT,
+  offset: '100px',
+  type: 'error', 
+  // you can also just use 'scale'
+  transition: transitions.SCALE
+}
 
 function App() {
   return (
-    <Router>
-      <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/shopping" component={Shopping} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/details" component={DetailProduct} />
-          <Route path="/login" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/cart" component={Cart} />
-          <Route component={Page404} />
-        </Switch>
-        <Modal />
-      <Footer />
-
-    </Router>
-
+    <AlertProvider template={AlertTemplate} {...options}>
+      <Router>
+        <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/shopping" component={Shopping} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/details/:_id" component={DetailProduct} />
+            <Route path="/login" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/cart" component={Cart} />
+            <Route component={Page404} />
+          </Switch>
+          <Modal />
+        <Footer />
+      </Router>
+    </AlertProvider>
   );
 }
 

@@ -116,7 +116,7 @@ const SignIn = (props) => {
             type="submit"
             fullWidth
             variant="contained"
-            color="dark"
+            color="inherit"
             className={classes.submit}
           >
             Sign In
