@@ -2,7 +2,7 @@ import { SessionActions } from '../actions/session-actions';
 
 const initialState = {
     isLogin: false,
-    user: {}
+    access: {}
 }
 
 export const sessionReducer = (state = initialState, action) => {
@@ -19,7 +19,7 @@ export const sessionReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 isLogin: true,
-                user: action.payload.user
+                access: action.payload.user
             }
         case SessionActions.LOGIN_FAIL:
             console.log('LOGIN FAIL')
@@ -33,7 +33,7 @@ export const sessionReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     isLogin: false,
-                    user: {}
+                    access: {}
                 }
             case SessionActions.REGISTER:
                 console.log('REGISTER')
@@ -46,7 +46,7 @@ export const sessionReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     loading: false,
-                    user: action.payload.user
+                    access: action.payload.user
                 }
             case SessionActions.REGISTER_FAIL:
                 console.log('REGISTER FAIL')

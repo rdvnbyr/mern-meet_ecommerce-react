@@ -73,8 +73,7 @@ const SignUp= (props) => {
       const user = {
           username:values.username,
           email: values.email,
-          password: values.password,
-          status: "client"
+          password: values.password
       };
       dispatch(SessionActions.register(user));
     };

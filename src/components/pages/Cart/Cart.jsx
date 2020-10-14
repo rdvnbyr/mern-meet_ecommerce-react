@@ -1,14 +1,41 @@
-import React,{Component} from 'react'
+import React , {Fragment, useEffect , useState} from 'react'
 import CartColumns from './CartColumns'
-import {ProductConsumer} from '../../../context'
+// import {ProductConsumer} from '../../../context'
 import CartList from './CartList'
 import CartTotals from './CartTotals'
+import { useDispatch, useSelector} from 'react-redux'
+import { CartActions } from '../../../actions'
 
-class Cart extends Component{
-    render ( ) {
+const Cart = ({history}) => {
+
+    const dispatch = useDispatch();
+    const token = useSelector(state => state.session.access.token);
+    const userId = useSelector(state => state.session.access.userId);
+    const userCart = useSelector(state => state.carts.cart);
+    console.log(userCart);
+
+
+    useEffect(() => {
+        dispatch(CartActions.getCart(token, userId));
+    }, [dispatch, token, userId]);
+
         return (
             <div style={{margin: '120px', minHeight: '100vh'}}>
-                <ProductConsumer>
+                <React.Fragment>
+                    <h2 className="text-center text-title my-5"> Your Cart</h2>
+                    <CartColumns />
+                    {
+                        userCart !== undefined ?
+                        <>
+                            <CartList value = {userCart}/>
+                            <CartTotals value= {userCart} history={history} />
+                        </>
+                        :
+                        null
+                    }
+
+                </React.Fragment>
+                {/*<ProductConsumer>
                     { value => {
                         const {cart} = value;
                         if (cart.length > 0 ){
@@ -27,10 +54,9 @@ class Cart extends Component{
                             )
                         }
                     }}
-                </ProductConsumer>
+                </ProductConsumer>*/}
             </div>
         )
-    }
     
 }
 

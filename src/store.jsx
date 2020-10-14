@@ -10,7 +10,7 @@ import { createHashHistory } from 'history';
 import { epics } from './epics';
 
 // then we load all reducer, that we need
-import { commentReducer, sessionReducer, productsReducer } from './reducers';
+import { commentReducer, sessionReducer, productsReducer, cartReducer } from './reducers';
 
 // now we generate an application history object. This will be used by the app-container as well, so we need to export it
 export const routerHistory = createHashHistory();
@@ -30,7 +30,8 @@ const mainReducer = combineReducers({
     router: connectRouter(routerHistory),
     comment: commentReducer,
     session: sessionReducer,
-    products: productsReducer
+    products: productsReducer,
+    carts: cartReducer
 });
 
 const persistConfig = {

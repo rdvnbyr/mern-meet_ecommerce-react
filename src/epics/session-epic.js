@@ -4,6 +4,9 @@ import { from } from 'rxjs';
 import axios from 'axios';
 import { SessionActions } from '../actions';
 
+
+const api = 'http://localhost:8080';// https://meethub-node-restapi.herokuapp.com
+
 function loginAuth(action$) {
     return action$.pipe(
         ofType(SessionActions.LOGIN),
@@ -11,7 +14,7 @@ function loginAuth(action$) {
             (action) => from(
                 axios
                     .post(
-                        'https://meethub-node-restapi.herokuapp.com/auth/login', action.payload.user
+                        api + '/auth/login', action.payload.user
                     )
                     .then((res) => {
                         console.log('EPIC',res);
@@ -35,7 +38,7 @@ function signUpAuth(action$) {
             (action) => from(
                 axios
                     .post(
-                        'https://meethub-node-restapi.herokuapp.com/auth/signup', action.payload.user
+                        `${api}/auth/signup`, action.payload.user
                     )
                     .then((res) => {
                         console.log('EPIC',res);
