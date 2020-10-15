@@ -12,7 +12,6 @@ const Cart = ({history}) => {
     const token = useSelector(state => state.session.access.token);
     const userId = useSelector(state => state.session.access.userId);
     const userCart = useSelector(state => state.carts.cart);
-    console.log(userCart);
 
 
     useEffect(() => {
@@ -21,20 +20,23 @@ const Cart = ({history}) => {
 
         return (
             <div style={{margin: '120px', minHeight: '100vh'}}>
-                <React.Fragment>
+                <Fragment>
                     <h2 className="text-center text-title my-5"> Your Cart</h2>
                     <CartColumns />
                     {
                         userCart !== undefined ?
-                        <>
-                            <CartList value = {userCart}/>
-                            <CartTotals value= {userCart} history={history} />
-                        </>
+                        userCart.map( (cart) => {
+                            return(
+                                <Fragment key={cart._id} >
+                                <CartList products = {cart.items}/>
+                                <CartTotals cart = {cart}/>
+                                </Fragment>
+                            )
+                        })
                         :
                         null
                     }
-
-                </React.Fragment>
+                </Fragment>
                 {/*<ProductConsumer>
                     { value => {
                         const {cart} = value;

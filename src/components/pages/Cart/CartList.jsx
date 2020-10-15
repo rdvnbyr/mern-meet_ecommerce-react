@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import CartItem from './CartItem'
 
 
-function CartList({ value }) {
-
+function CartList({ products }) {
+  
   return (
     <div className="container-fluid">
-       {value.map( item => {
-               return <CartItem 
-                              key={item._id} 
-                              item={item} 
-                              value={value}
-                        />
-           })
-       }
+    {
+      products.map( (product, index) => {
+        return(
+          <Fragment key={index}>
+          {
+            product.isActive !== false ? <CartItem item={product} /> : null
+          }
+          </Fragment>
+        )
+      })
+    }
     </div>
   )
 }

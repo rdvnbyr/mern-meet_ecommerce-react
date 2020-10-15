@@ -64,7 +64,7 @@ const ProductWrapper = styled.div`
 const CardCo = (props) => {
 
     const domain = 'http://localhost:8080/';
-    const { title, price, details, image, _id, category } = props;
+    const { title, price, image, _id } = props;
     const alert = useAlert()
 
     const isLogin = useSelector(state => state.session.isLogin);

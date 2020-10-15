@@ -34,6 +34,75 @@ function getCart(action$) {
     );
 }
 
+function changeQty(action$) {
+    return action$.pipe(
+        ofType(CartActions.CHANGE_QUANTITY),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post( api + '/cart/update-cart' , {
+                        userId: action.payload.userId,
+                        productId: action.payload.productId,
+                        cartId: action.payload.cartId,
+                        qty: action.payload.qty,
+                    },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.getCart(action.payload.token,action.payload.userId);
+                        } else {
+                            return CartActions.changeQuantityFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.changeQuantityFail();
+                    } )))
+    );
+}
+
+function removeProductFromCartEpic(action$) {
+    return action$.pipe(
+        ofType(CartActions.REMOVE_PRODUCT_FROM_CART),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post( api + '/cart/update-cart' , {
+                        removeProduct: action.payload.removeProduct,
+                        userId: action.payload.userId,
+                        productId: action.payload.productId,
+                        cartId: action.payload.cartId
+                    },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.getCart(action.payload.token,action.payload.userId);
+                        } else {
+                            return CartActions.removeProductFromCartFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.removeProductFromCartFail();
+                    } )))
+    );
+}
+
+
 export const cartEpics = combineEpics(
-    getCart
+    getCart,
+    changeQty,
+    removeProductFromCartEpic
 );
