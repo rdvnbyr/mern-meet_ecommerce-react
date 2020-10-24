@@ -36,6 +36,7 @@ const Cart = ({history}) => {
                         :
                         null
                     }
+                    
                 </Fragment>
                 {/*<ProductConsumer>
                     { value => {

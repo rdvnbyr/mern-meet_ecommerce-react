@@ -8,6 +8,22 @@ const initialState = {
 
 export const cartReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CartActions.ADD_PRODUCT_TO_CART_CART:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.ADD_PRODUCT_TO_CART_CART_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
+        case CartActions.ADD_PRODUCT_TO_CART_CART_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong'
+            }
         case CartActions.GET_CART:
             return {
                 ...state,

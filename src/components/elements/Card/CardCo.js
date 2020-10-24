@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import { useAlert } from 'react-alert'
+import { useDispatch, useSelector } from 'react-redux';
+import { useAlert } from 'react-alert';
+import { CartActions } from '../../../actions';
+
 
 
 const ProductWrapper = styled.div`
@@ -67,8 +69,17 @@ const CardCo = (props) => {
     const { title, price, image, _id } = props;
     const alert = useAlert()
 
+    const dispatch = useDispatch();
     const isLogin = useSelector(state => state.session.isLogin);
+    const token = useSelector(state => state.session.access.token);
+    const userId = useSelector(state => state.session.access.userId);
 
+    const addproductToCart = (productId) => {
+        !isLogin ?
+        alert.show(<div className="text-info">BU BIR ALERT</div>)
+      :
+        dispatch(CartActions.addProductToCartAction(token, productId, userId));
+    }
     
     return (
         <ProductWrapper className = "col-9 mx-auto col-md-6 col-lg-4 my-3">
@@ -82,12 +93,7 @@ const CardCo = (props) => {
             
                 <button 
                         className="cart-btn"
-                        onClick={() => {
-                            !isLogin ?
-                                alert.show(<div className="text-info">BU BIR ALERT</div>)
-                              :
-                                console.log('clicked');
-                        }}
+                        onClick={() => addproductToCart(_id) }
                 >
                 {
                     <i className ="fas fa-cart-plus " />

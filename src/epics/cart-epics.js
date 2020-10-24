@@ -34,6 +34,34 @@ function getCart(action$) {
     );
 }
 
+function addProductCart(action$) {
+    return action$.pipe(
+        ofType(CartActions.ADD_PRODUCT_TO_CART_CART),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post( api + '/cart/add-cart' , { productId: action.payload.productId, userId: action.payload.userId },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.addProductToCartActionSuccess(res);
+                        } else {
+                            return CartActions.addProductToCartActionFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.addProductToCartActionFail();
+                    } )))
+    );
+}
+
 function changeQty(action$) {
     return action$.pipe(
         ofType(CartActions.CHANGE_QUANTITY),
@@ -104,5 +132,6 @@ function removeProductFromCartEpic(action$) {
 export const cartEpics = combineEpics(
     getCart,
     changeQty,
-    removeProductFromCartEpic
+    removeProductFromCartEpic,
+    addProductCart
 );
