@@ -3,7 +3,8 @@ import { CartActions } from '../actions';
 const initialState = {
     loading: false,
     error: '',
-    cart: []
+    cart: [],
+    items: []
 }
 
 export const cartReducer = (state = initialState, action) => {
@@ -68,6 +69,23 @@ export const cartReducer = (state = initialState, action) => {
                 loading: false
             }
         case CartActions.REMOVE_PRODUCT_FROM_CART_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong'
+            }
+        case CartActions.DELETE_CART_FROM_DB:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.DELETE_CART_FROM_DB_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                cart: []
+            }
+        case CartActions.DELETE_CART_FROM_DB_FAIL: 
             return {
                 ...state,
                 loading: false,

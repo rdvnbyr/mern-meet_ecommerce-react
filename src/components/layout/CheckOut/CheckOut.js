@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 // import AppBar from '@material-ui/core/AppBar';
@@ -10,9 +10,10 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
-import PaymentForm from './PaymentForm';
 import Review from './Review';
-
+import { FormikHandler } from './FormikHandler';
+import { PaymentForm } from './PaymentForm';
+import { Redirect } from 'react-router';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -67,22 +68,35 @@ function getStepContent(step) {
   }
 }
 
-function CheckOut() {
+export function CheckOut() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
 
+  const btnRef = useRef();
+  const saveProductClick = () => {
+    if (btnRef && btnRef.current) {
+      btnRef.current.click();
+    }
+  };
+
+  const payment = (values) => {
+    
+    if(activeStep === steps.length - 2) {
+      console.log('clicked', values);
+      setActiveStep(activeStep + 1);
+    } else {
+      console.log('clicked Step', values);
+      setActiveStep(activeStep + 1);
+    }
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
-
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
@@ -108,21 +122,26 @@ function CheckOut() {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {getStepContent(activeStep)}
+                <FormikHandler
+                  btnRef={btnRef}
+                  payment={payment}
+                >
+                  {getStepContent(activeStep)}
+                </FormikHandler>
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>
                       Back
                     </Button>
                   )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={saveProductClick}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? "Proceed" :  "Next"}
+                    </Button>              
                 </div>
               </React.Fragment>
             )}
@@ -132,4 +151,3 @@ function CheckOut() {
     </React.Fragment>
   );
 }
-export default CheckOut;

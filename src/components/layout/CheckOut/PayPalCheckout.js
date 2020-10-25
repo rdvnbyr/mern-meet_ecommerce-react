@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
- 
-class PayPalCheckout extends Component {
-    render() {
+
+
+const PayPalCheckout = () => {
+
         const onSuccess = (payment) => {
             		console.log("The payment was succeeded!", payment);
         }
@@ -20,12 +21,13 @@ class PayPalCheckout extends Component {
         let total = 1; 
 
         const client = {
-            sandbox:    'YOUR-SANDBOX-APP-ID',
-            production: 'YOUR-PRODUCTION-APP-ID',
+            sandbox:    'R8NNEUJFMED98',
+            production: 'access_token$sandbox$xwq64m9jj9dhwgm7$968b48d5c98ff7acf07871ce240261d7',
         }
+
          return (
             <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
         );
-    }
+    
 }
 export default PayPalCheckout

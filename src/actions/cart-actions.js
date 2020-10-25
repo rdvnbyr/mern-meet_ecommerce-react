@@ -232,6 +232,60 @@ export class CartActions {
         }
     }
 
+    /* --------------------------------------- */
+    /* --------------------------------------- */
+        /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get DELETE_CART_FROM_DB() {
+        return `${CartActions.PREFIX}DELETE_CART_FROM_DB`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get DELETE_CART_FROM_DB_SUCCESS() {
+        return `${CartActions.PREFIX}DELETE_CART_FROM_DB_SUCCESS`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get DELETE_CART_FROM_DB_FAIL() {
+        return `${CartActions.PREFIX}DELETE_CART_FROM_DB_FAIL`;
+    }
+
+
+    /**
+     * 
+     * @param {*} token 
+     * @param {*} cartId 
+     */
+    static deleteCart( token, cartId) {
+        return {
+            type: CartActions.DELETE_CART_FROM_DB,
+            payload: {
+                token: token,
+                cartId: cartId
+            }
+        }
+    }
+
+    static deleteCartSuccess() {
+        return {
+            type: CartActions.DELETE_CART_FROM_DB_SUCCESS
+        }
+    }
+
+    static deleteCartFail() {
+        return {
+            type: CartActions.DELETE_CART_FROM_DB_FAIL
+        }
+    }
 
 
 

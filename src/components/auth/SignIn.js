@@ -11,8 +11,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { SessionActions } from '../../actions/session-actions';;
+import { useDispatch, useSelector } from 'react-redux';
+import { SessionActions } from '../../actions/session-actions';
+import { Redirect } from 'react-router';
 
 
 
@@ -36,12 +37,11 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-
-
 const SignIn = (props) => {
     const classes = useStyles();
 
     const dispatch = useDispatch();
+    const { isLogin } = useSelector(state => state.session);
 
     const initialValues = {
         email: '',
@@ -67,7 +67,9 @@ const SignIn = (props) => {
         validationSchema
     });
 
-    
+    if(isLogin) {
+      return Redirect('/');
+    };
 
     return (
     <Container component="main" maxWidth="xs">

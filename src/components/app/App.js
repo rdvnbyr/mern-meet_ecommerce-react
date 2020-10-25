@@ -15,6 +15,8 @@ import Cart from '../pages/Cart/Cart';
 import Modal  from '../pages/Modal';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic'
+import ScrollToTop from '../elements/ScrollTop/ScrollTop';
+import Payment from '../pages/Payment';
 
 // optional configuration
 const options = {
@@ -30,6 +32,7 @@ function App() {
   return (
     <AlertProvider template={AlertTemplate} {...options}>
       <Router>
+        <ScrollToTop />
         <Header />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -40,6 +43,7 @@ function App() {
             <Route path="/login" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={Payment} />
             <Route component={Page404} />
           </Switch>
           <Modal />

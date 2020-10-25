@@ -76,7 +76,7 @@ const CardCo = (props) => {
 
     const addproductToCart = (productId) => {
         !isLogin ?
-        alert.show(<div className="text-info">BU BIR ALERT</div>)
+        alert.show(<div className="text-info text-lowercase text-capitalize">Please login before shopping</div>)
       :
         dispatch(CartActions.addProductToCartAction(token, productId, userId));
     }

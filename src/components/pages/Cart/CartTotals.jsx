@@ -1,32 +1,25 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
-import PayPalCheckout from './PayPalCheckout';
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { CartActions } from '../../../actions';
+import { Link } from 'react-router-dom'
 
 
 function CartTotals({cart, history}) {
-    const { shippingPrice, taxPrice, totalPrice } = cart;
+    const { shippingPrice, taxPrice, totalPrice, _id } = cart;
+    
+    const dispatch = useDispatch();
+    const {token} = useSelector(state => state.session.access);
+
+    const deleteCart = (cartId) => {
+        console.log('cartId:',cartId, token);
+        dispatch(CartActions.deleteCart(token, cartId));
+    }
     
     return (
         <React.Fragment>
             <div className="container">
                 <div className="row">
                     <div className="col-10 mt-2 ml-sm-5 ml-md-auto col-sm-8 text-capitalize text-right">
-                        <Link to="/">
-                            <button 
-                            className="btn btn-outline-warning text-uppercase mb-3 px-5 mr-3"
-                            type="button"
-                            onClick={()=> {}}>
-                                Proceed to Checkout
-                            </button>
-                        </Link>
-                        <Link to="/">
-                            <button 
-                            className="btn btn-outline-warning text-uppercase mb-3 px-5"
-                            type="button"
-                            onClick={()=> {}}>
-                                clear cart
-                            </button>
-                        </Link>
                         <h5>
                             <span className="text-title mr-2">
                                 Shipping: 
@@ -45,11 +38,22 @@ function CartTotals({cart, history}) {
                             </span>
                             <strong className="text-danger">{totalPrice}  € </strong>
                         </h5>
-                        <PayPalCheckout 
-                            total={totalPrice}
-                            clearCart = {''}
-                            history= {history}
-                        />
+                        <div className="mt-5">
+                            <button 
+                                className="btn btn-outline-warning text-uppercase px-5 mr-3"
+                                type="button"
+                                onClick={()=> deleteCart(_id)}>
+                                    Delete Cart
+                            </button>
+                            <Link to="/checkout">
+                                <button 
+                                    className="btn btn-outline-warning text-uppercase px-5"
+                                    type="button"
+                                    >
+                                        Proceed to Checkout
+                                </button>
+                            </Link> 
+                        </div>
                     </div>
                 </div>
             </div>

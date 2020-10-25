@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import {useDispatch, useSelector} from 'react-redux';
-import { ProductsActions } from '../../actions';
+import { ProductsActions, CartActions } from '../../actions';
 
 
 
@@ -12,12 +12,20 @@ const DetailProduct = () => {
     const domain = 'http://localhost:8080/';
 
     const dispatch = useDispatch();
-    const product = useSelector(state => state.products.product);
-    const loading = useSelector(state => state.products.loading);
+    const { product, loading } = useSelector(state => state.products);
+    const {isLogin} = useSelector(state => state.session);
+    const {token, userId} = useSelector(state => state.session.access);
 
     useEffect(() => {
         dispatch(ProductsActions.getProductDetails(_id));
     }, [_id, dispatch]);
+
+    const addproductToCart = (productId) => {
+        !isLogin ?
+        alert.show(<div className="text-info text-lowercase text-capitalize">Please login before shopping</div>)
+      :
+        dispatch(CartActions.addProductToCartAction(token, productId, userId));
+    }
 
     return(
         <div className="container py-5" style={{margin: '120px', minHeight: '100vh'}}>
@@ -51,11 +59,9 @@ const DetailProduct = () => {
                              className="ml-5 my-5"
                              type="submit"
                              variant="contained" color="dark"
-                             // onClick={() => {
-                             //     value.addToCart(id);
-                             //     value.openModal(id);
-                             // } }
+                             onClick={() => addproductToCart(product._id) }
                          >
+                         Add Product
                          </Button>
                      </div>
                  </div>

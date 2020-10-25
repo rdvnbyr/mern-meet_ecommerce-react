@@ -1,19 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import {CartActions} from '../../../actions';
+import { initialValues as values } from './FormikHandler'; 
 
-const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+
+
 const payments = [
   { name: 'Card type', detail: 'Visa' },
   { name: 'Card holder', detail: 'Mr John Smith' },
@@ -34,34 +31,73 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Review() {
+  const dispatch = useDispatch();
+  const { cart } = useSelector(state => state.carts);
+  const {token, userId} = useSelector(state => state.session.access)
   const classes = useStyles();
+  console.log(values)
+  const addresses = [
+    values.address,
+    values.postCode,
+    values.city,
+    values.region,
+    values.country
+  ];
+
+  useEffect(() => {
+    dispatch(CartActions.getCart(token, userId));
+}, [dispatch, token, userId]);
 
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
-      <List disablePadding>
-        {products.map((product) => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem className={classes.listItem}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" className={classes.total}>
-            $34.06
-          </Typography>
-        </ListItem>
-      </List>
-      <Grid container spacing={2}>
+      {
+        (cart !== undefined || cart.length > 0) ?
+          cart.map( (userCart, index) => {
+            return(
+              <List disablePadding key={index}>
+                {
+                  userCart.items.map((item, index) => (
+                      <ListItem className={classes.listItem} key={index}>
+                        <ListItemText secondary={item.product.title} primary={item.product.brand}/>
+                        <ListItemText primary={'Quantity'} secondary={item.quantity}/>
+                        <Typography variant="body2">{item.price}€</Typography>
+                      </ListItem>
+                    ))
+                }
+                <ListItem className={classes.listItem} style={{borderTop: '1px solid gray'}}>
+                  <ListItemText primary="Shipping" />
+                  <Typography variant="subtitle1" className={classes.total}>
+                    {userCart.shippingPrice}€
+                  </Typography>
+                </ListItem>
+                <ListItem className={classes.listItem}>
+                  <ListItemText primary="tax" />
+                  <Typography variant="subtitle1" className={classes.total}>
+                    {userCart.taxPrice}€
+                  </Typography>
+                </ListItem>
+                <ListItem className={classes.listItem}>
+                  <ListItemText primary="Total" />
+                  <Typography variant="subtitle1" className={classes.total}>
+                    {userCart.totalPrice}€
+                  </Typography>
+                </ListItem>
+              </List> 
+            )
+          })
+          :
+          null
+      }
+      <Grid container spacing={2} style={{borderTop: '1px solid gray'}}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
+          <Typography gutterBottom>{values.firstName + " " + values.lastName}</Typography>
+          <Typography gutterBottom>{addresses.join(", ")}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>

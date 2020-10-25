@@ -2,22 +2,26 @@ import React from 'react';
 import './InputCo.scss';
 import { Form } from 'react-bootstrap';
 
-function InputCo({ classInput, classLabel, labelText, type, placeholder, value, onChange, name, ref, min, onBlur, readOnly, controlId }) {
-
+function InputCo({
+    field,
+    classInput,
+    classLabel,
+    labelText,
+    type="text",
+    placeholder,
+    readOnly,
+    ...props
+}) {
     return (
-        <Form.Group controlId={controlId}>
+        <Form.Group>
             <Form.Label className={classLabel}>{labelText}</Form.Label>
             <Form.Control
-                name={name}
                 className={classInput} 
                 type={type}
                 placeholder={placeholder}
-                value={value}
-                onChange={ onChange }
-                ref={ref}
-                min={min}
-                onBlur={onBlur}
                 readOnly={readOnly}
+                {...field}
+                {...props}
             />
         </Form.Group>
     );

@@ -8,7 +8,7 @@ import Search from './Search';
 import SearchDialog from './SearchDialog';
 import ResponsiveIcon from './ResponsiveIcon';
 import { useSelector, useDispatch } from 'react-redux';
-import { SessionActions } from '../../../actions';
+import {  SessionActions } from '../../../actions';
 
 
 
@@ -17,6 +17,7 @@ function Header() {
     const isLogin = useSelector(state => state.session.isLogin);
     const dispatch = useDispatch();
 
+    const {cart} = useSelector(state => state.carts);
     const [scrollClass, setScrollClass] = useState('');
     const [open, setOpen] = useState(false);
     const [ respToggle, setRespToggle] = useState(true);
@@ -84,7 +85,7 @@ function Header() {
                         }
                         <Link to="/cart" >
                             <CartBadge
-                                cartQty={3}
+                                cartQty={ cart.length > 0 && cart[0].items.length }
                                 color="secondary"
                                 onClick={ () => console.log('Say Hello from cartBadge') }
                                 className="cartBadge_navIcon"

@@ -5,7 +5,10 @@ import axios from 'axios';
 import { CartActions } from '../actions';
 
 const api = 'http://localhost:8080';
-
+/**
+ * 
+ * @param {*} action$ 
+ */
 function getCart(action$) {
     return action$.pipe(
         ofType(CartActions.GET_CART),
@@ -33,7 +36,11 @@ function getCart(action$) {
                     } )))
     );
 }
-
+/**
+ * 
+ * @param {*} action$ 
+ * @return 
+ */
 function addProductCart(action$) {
     return action$.pipe(
         ofType(CartActions.ADD_PRODUCT_TO_CART_CART),
@@ -61,7 +68,10 @@ function addProductCart(action$) {
                     } )))
     );
 }
-
+/**
+ * 
+ * @param {*} action$ 
+ */
 function changeQty(action$) {
     return action$.pipe(
         ofType(CartActions.CHANGE_QUANTITY),
@@ -94,7 +104,10 @@ function changeQty(action$) {
                     } )))
     );
 }
-
+/**
+ * 
+ * @param {*} action$ 
+ */
 function removeProductFromCartEpic(action$) {
     return action$.pipe(
         ofType(CartActions.REMOVE_PRODUCT_FROM_CART),
@@ -128,10 +141,45 @@ function removeProductFromCartEpic(action$) {
     );
 }
 
+/**
+ * 
+ * @param {*} action$ 
+ */
+function deleteCartEpic(action$) {
+    return action$.pipe(
+        ofType(CartActions.DELETE_CART_FROM_DB),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post( api + '/cart/delete-cart' , {
+                        cartId: action.payload.cartId
+                    },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.deleteCartSuccess();
+                        } else {
+                            return CartActions.deleteCartFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.deleteCartFail();
+                    } )))
+    );
+}
+
 
 export const cartEpics = combineEpics(
     getCart,
     changeQty,
     removeProductFromCartEpic,
-    addProductCart
+    addProductCart,
+    deleteCartEpic
 );
