@@ -8,17 +8,15 @@ const CarouselCardCo = (props) => {
         const domain = 'http://localhost:8080/';
 
         return (
-            <div>
-                <Container className = "mx-auto col-md-6 col-lg-4 my-3">
-                
+                <div className = "my-3 mx-auto" style={{height: '500px'}} >
                     <Row>
-                        <Link to ={`/details/${_id}`}>
-                            <Col
-                                className="car_img-container mx-auto p-5"
-                                >
-                                    <img src={ domain + image } alt={title} className ="card-img-top"/>
-                            </Col> 
-                        </Link> 
+                        <Col
+                            className="mx-auto p-5"
+                            >
+                            <Link to ={`/details/${_id}`}>
+                                <img src={ domain + image } alt={title} className ="card-img-top"/>
+                            </Link>
+                        </Col> 
                         <Col>
                             <div>
                                 <h3 className="aling-self-center mb-1 my-2">
@@ -31,8 +29,7 @@ const CarouselCardCo = (props) => {
                             </div>
                             </Col>
                     </Row>
-                </Container>
-            </div>
+                </div>
         );
 }
 

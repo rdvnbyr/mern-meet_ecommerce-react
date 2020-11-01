@@ -71,30 +71,32 @@ const CardCo = (props) => {
 
     const dispatch = useDispatch();
     const isLogin = useSelector(state => state.session.isLogin);
-    const token = useSelector(state => state.session.access.token);
-    const userId = useSelector(state => state.session.access.userId);
+    const {token, userId} = useSelector(state => state.session.access);
+    // const {loading, resMsg} = useSelector(state => state.carts);
 
-    const addproductToCart = (productId) => {
+
+    const addproductToCart = async (productId) => {
         !isLogin ?
         alert.show(<div className="text-info text-lowercase text-capitalize">Please login before shopping</div>)
       :
         dispatch(CartActions.addProductToCartAction(token, productId, userId));
-    }
-    
+    };
+
     return (
+        <>
         <ProductWrapper className = "col-9 mx-auto col-md-6 col-lg-4 my-3">
             <div className = "card">
                 <div
                     className="img-container p-5"
-                 >
+                >
                 <Link to ={`/details/${_id}`}>
                     <img src={domain + image} alt="product" className ="card-img-top"/>
                 </Link>
-            
                 <button 
                         className="cart-btn"
                         onClick={() => addproductToCart(_id) }
                 >
+                
                 {
                     <i className ="fas fa-cart-plus " />
                 }
@@ -123,6 +125,7 @@ const CardCo = (props) => {
                 </div>
             </div>
         </ProductWrapper>
+        </>
     );
 }
 

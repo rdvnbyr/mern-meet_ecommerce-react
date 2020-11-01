@@ -57,8 +57,8 @@ function Header() {
                     onClick={responsiveHandler}
                 />
                 <div className="nav_logo">
-                    <img src={logo} alt="logo" style={{width:"7.5rem", height:"6rem"}} className="m-0"/>
-                    <h4 to="/" >meetHUB</h4>
+                    <img src={logo} alt="logo"  className="m-0"/>
+                    <h4><a className="navbar-brand" href="/">meetHUB</a></h4>
                 </div>
                 <div className="header_links_left">
                     <ul>

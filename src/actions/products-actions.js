@@ -173,5 +173,62 @@ export class ProductsActions {
             type: ProductsActions.GET_PRODUCT_DETAILS_FAIL
         }
     }
+        // ----------------------------- //
+    /**
+     * return the action type prefix for get all products actions
+     * @returns {string}
+     * @constructor
+     */
+    static get GET_PRODUCTS_BEST_SELLERS() {
+        return `${ProductsActions.PREFIX}GET_PRODUCTS_BEST_SELLERS`;
+    }
+    /**
+     * return the action type prefix for get all products actions sucesss
+     * @returns {string}
+     * @constructor
+     */
+    static get GET_PRODUCTS_BEST_SELLERS_SUCCESS() {
+        return `${ProductsActions.PREFIX}GET_PRODUCTS_BEST_SELLERS_SUCCESS`;
+    }
+    /**
+     * return the action type prefix for get all products actions fail
+     * @returns {string}
+     * @constructor
+     */
+    static get GET_PRODUCTS_BEST_SELLERS_FAIL() {
+        return `${ProductsActions.PREFIX}GET_PRODUCTS_BEST_SELLERS_FAIL`;
+    }
+    /**
+     * 
+     */
+    static getProductsBestSellers(state) {
+        return {
+            type: ProductsActions.GET_PRODUCTS_BEST_SELLERS,
+            payload: {
+                state: state
+            }
+        }
+    }
+    /**
+     * @param type {array} all products from db
+     */
+    static getProductsBestSellersSuccess(products) {
+        return {
+            type: ProductsActions.GET_PRODUCTS_BEST_SELLERS_SUCCESS,
+            payload: {
+                products: products
+            }
+        }
+    }
+    /**
+     * 
+     */
+    static getProductsBestSellersFail() {
+        return {
+            type: ProductsActions.GET_PRODUCTS_BEST_SELLERS_FAIL
+        }
+    }
+
+    // ----------------------------- //
 
 }

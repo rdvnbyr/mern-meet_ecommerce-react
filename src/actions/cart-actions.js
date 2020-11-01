@@ -49,18 +49,18 @@ export class CartActions {
         }
     }
 
-    static addProductToCartActionSuccess(cart) {
+    static addProductToCartActionSuccess() {
         return {
-            type: CartActions.ADD_PRODUCT_TO_CART_CART_SUCCESS,
-            payload: {
-                cart: cart
-            }
+            type: CartActions.ADD_PRODUCT_TO_CART_CART_SUCCESS
         }
     }
 
-    static addProductToCartActionFail() {
+    static addProductToCartActionFail(data) {
         return {
-            type: CartActions.ADD_PRODUCT_TO_CART_CART_FAIL
+            type: CartActions.ADD_PRODUCT_TO_CART_CART_FAIL,
+            payload: {
+                data: data
+            }
         }
     }
 
@@ -284,6 +284,118 @@ export class CartActions {
     static deleteCartFail() {
         return {
             type: CartActions.DELETE_CART_FROM_DB_FAIL
+        }
+    }
+
+    /* --------------------------------------- */
+    /* --------------------------------------- */
+        /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get ADD_SHIPPING_TO_CART() {
+        return `${CartActions.PREFIX}ADD_SHIPPING_TO_CART`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get ADD_SHIPPING_TO_CART_SUCCESS() {
+        return `${CartActions.PREFIX}ADD_SHIPPING_TO_CART_SUCCESS`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get ADD_SHIPPING_TO_CART_FAIL() {
+        return `${CartActions.PREFIX}ADD_SHIPPING_TO_CART_FAIL`;
+    }
+
+
+    /**
+     * 
+     * @param {*} token 
+     * @param {*} cartId 
+     */
+    static addShipping( token, cartId, updateShipping) {
+        console.log(updateShipping)
+        return {
+            type: CartActions.ADD_SHIPPING_TO_CART,
+            payload: {
+                token: token,
+                cartId: cartId,
+                updateShipping: updateShipping
+            }
+        }
+    }
+
+    static addShippingSuccess() {
+        return {
+            type: CartActions.ADD_SHIPPING_TO_CART_SUCCESS
+        }
+    }
+
+    static addShippingFail() {
+        return {
+            type: CartActions.ADD_SHIPPING_TO_CART_FAIL
+        }
+    }
+    /* --------------------------------------- */
+    /* --------------------------------------- */
+        /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get PAYMENT_WITH_STRIPE() {
+        return `${CartActions.PREFIX}PAYMENT_WITH_STRIPE`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get PAYMENT_WITH_STRIPE_SUCCESS() {
+        return `${CartActions.PREFIX}PAYMENT_WITH_STRIPE_SUCCESS`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get PAYMENT_WITH_STRIPE_FAIL() {
+        return `${CartActions.PREFIX}PAYMENT_WITH_STRIPE_FAIL`;
+    }
+
+
+    /**
+     * 
+     * @param {*} token 
+     * @param {*} cartId 
+     */
+    static paymentWithStripe(data, price) {
+        console.log(data)
+        return {
+            type: CartActions.PAYMENT_WITH_STRIPE,
+            payload: {
+                data: data,
+                price: price
+            }
+        }
+    }
+
+    static paymentWithStripeSuccess() {
+        return {
+            type: CartActions.PAYMENT_WITH_STRIPE_SUCCESS
+        }
+    }
+
+    static paymentWithStripeFail() {
+        return {
+            type: CartActions.PAYMENT_WITH_STRIPE_FAIL
         }
     }
 

@@ -62,6 +62,37 @@ function getProductsWeeksDeal(action$) {
 }
 
 /**
+ * all weeks deal products, method => GET
+ * @param {*} action$ 
+ */
+function getProductsBestSellerEpic(action$) {
+    return action$.pipe(
+        ofType(ProductsActions.GET_PRODUCTS_BEST_SELLERS),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post(
+                        'http://localhost:8080/shop/get-products',
+                        {
+                            state: action.payload.state
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return ProductsActions.getProductsBestSellersSuccess(res.data);
+                        } else {
+                            return ProductsActions.getProductsBestSellersFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return ProductsActions.getProductsBestSellersFail();
+                    } )))
+    );
+}
+
+/**
  * 
  * @param {*} action$ 
  */
@@ -90,5 +121,6 @@ function getProductDetails(action$) {
 export const productsEpics = combineEpics(
     getProducts,
     getProductDetails,
-    getProductsWeeksDeal
+    getProductsWeeksDeal,
+    getProductsBestSellerEpic
 );

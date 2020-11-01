@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react'
 import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
+import { CarouselMaterial } from './CarouselMaterial'
 import CarouselCardCo from './CarouselCardCo';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductsActions } from '../../../actions';
+import Button from '@material-ui/core/Button';
 
 function CarouselCards () {
     const dispatch = useDispatch();
@@ -15,20 +17,25 @@ function CarouselCards () {
     }, [dispatch]);
 
     return (
-        <div>
+        <>
                 <h1 className='text-center my-5'>WEEK'S DEALS</h1>
-                <Carousel>
-                    {
-                        (products !== undefined) &&
-                            products.map((item,index) =>
+                <CarouselMaterial
+                    className="container mx-auto"
+                    index={1}
+                    autoPlay={false}
+                >
+                {
+                    (products !== undefined) &&
+                        products.map((item,index) =>
                             <CarouselCardCo
                                 key={index}
                                 {...item}
-                            />)
-                    }
-                </Carousel>
-        </div>
+                            />
+                        )
+                }
+                </CarouselMaterial>
+        </>
     )
 }
 
-export default CarouselCards
+export default CarouselCards;

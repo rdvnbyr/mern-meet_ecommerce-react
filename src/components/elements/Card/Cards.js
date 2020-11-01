@@ -1,43 +1,44 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import CardCo from './CardCo';
 import { saleProductData } from '../../../data';
 import { CardGroup } from 'react-bootstrap';
-import './Card.scss'
+import './Card.scss';
+import {useDispatch, useSelector} from 'react-redux';
+import { ProductsActions } from '../../../actions'
 
 
-class Cards extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-             category:[]
-        }
-    }
+const Cards = () => {
 
+    const dispatch = useDispatch();
+    const {bestSellers} = useSelector(state => state.products);
+    console.log('BEST SELLERS',bestSellers);
 
-    render() {
-        return (
-            <div className="container mt-3 mb-5">
-                <h1 className='text-center my-5'>BEST SELLERS</h1>
-                    <div>
-                            {
-                                this.state.category.length ===0 ?
-                                (
-                                    <CardGroup>
-                                    {saleProductData.cards.map((item,index) =>
-                                        <CardCo
-                                            key={index}
-                                            {...item}
-                                        />
-                                    )}
-                                    </CardGroup>
-                                ) : (
-                                    'Array is empty'
-                                )
-                            }
-                    </div>
-            </div>
-        )
-    }
+    useEffect(() => {
+        dispatch(ProductsActions.getProductsBestSellers('Best Seller'));
+    }, [dispatch]);
+
+    return (
+        <div className="container my-5">
+            <h1 className='text-center my-5'>BEST SELLERS</h1>
+                <div className="py-5">
+                        {
+                            (bestSellers !== undefined && bestSellers.length > 0) ?
+                            (
+                                <CardGroup>
+                                {bestSellers.map((item,index) =>
+                                    <CardCo
+                                        key={index}
+                                        {...item}
+                                    />
+                                )}
+                                </CardGroup>
+                            ) : (
+                                'No Best Sellers'
+                            )
+                        }
+                </div>
+        </div>
+    )
 }
 
 

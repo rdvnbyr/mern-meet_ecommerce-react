@@ -5,7 +5,8 @@ const initialState = {
     error: '',
     products: [],
     product: {},
-    weeksDealproducts: []
+    weeksDealproducts: [],
+    bestSellers: []
 }
 
 export const productsReducer = (state = initialState, action) => {
@@ -56,6 +57,23 @@ export const productsReducer = (state = initialState, action) => {
                 product: action.payload.product
             }
         case ProductsActions.GET_PRODUCT_DETAILS_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong, products not fetched'
+            }
+        case ProductsActions.GET_PRODUCTS_BEST_SELLERS:
+            return {
+                ...state,
+                loading: true
+            }
+        case ProductsActions.GET_PRODUCTS_BEST_SELLERS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                bestSellers: action.payload.products
+            }
+        case ProductsActions.GET_PRODUCTS_BEST_SELLERS_FAIL: 
             return {
                 ...state,
                 loading: false,

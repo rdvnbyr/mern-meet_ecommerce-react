@@ -2,15 +2,16 @@
 .carousel .slide {
     background: #fff !important;
 }
-.car_img-container {
-    overflow: hidden;
-    position: relative;
+// .car_img-container {
+//     overflow: hidden;
+//     position: relative;
 
- }
+//  }
  .car_card-img-top {
      transition :all 1s linear;
  }
 
  .car_img-container:hover .card-img-top {
+    transition :all .4s linear;
     transform: scale(1.2);
  }

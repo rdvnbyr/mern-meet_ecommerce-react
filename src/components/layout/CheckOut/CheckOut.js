@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 // import AppBar from '@material-ui/core/AppBar';
@@ -13,8 +13,9 @@ import AddressForm from './AddressForm';
 import Review from './Review';
 import { FormikHandler } from './FormikHandler';
 import { PaymentForm } from './PaymentForm';
+import { useDispatch, useSelector } from 'react-redux'
+import { CartActions } from '../../../actions';
 import { Redirect } from 'react-router';
-
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -53,24 +54,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Shipping address', 'Review your order', 'Payment'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
+
 
 export function CheckOut() {
+
+  const [shipping, setShipping] = useState([]);
+
+  // redux
+  const dispatch = useDispatch();
+  const { token } = useSelector(state => state.session.access);
+  const { cart, loading, shipLoading } = useSelector(state => state.carts);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
@@ -83,16 +81,43 @@ export function CheckOut() {
     }
   };
 
-  const payment = (values) => {
-    
-    if(activeStep === steps.length - 2) {
-      console.log('clicked', values);
+
+
+  const payment = async (values) => {
+    const updateShipping = {
+      firstname: values.firstName,
+      lastname: values.lastName,
+      address: values.address,
+      city: values.city,
+      region: values.region,
+      postCode: values.postCode,
+      country: values.country,
+      paymentMethod: ""
+    };
+    if(activeStep === steps.length - 3) {
+      setShipping([updateShipping]);
       setActiveStep(activeStep + 1);
+    } else if (activeStep === steps.length - 2) {
+      dispatch(CartActions.addShipping(token, cart[0]._id, updateShipping));
+      setActiveStep(activeStep + 1);
+
     } else {
-      console.log('clicked Step', values);
       setActiveStep(activeStep + 1);
     }
   };
+
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <AddressForm />;
+      case 1:
+        return <Review shippingAddress={shipping}/>;
+      case 2:
+        return <Redirect to="/payment"/>;
+      default:
+        throw new Error('Unknown step');
+    }
+  }
 
   return (
     <React.Fragment>

@@ -17,6 +17,9 @@ import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic'
 import ScrollToTop from '../elements/ScrollTop/ScrollTop';
 import Payment from '../pages/Payment';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import StripePay from '../layout/CheckOut/Stripe/StripePay';
 
 // optional configuration
 const options = {
@@ -28,28 +31,35 @@ const options = {
   transition: transitions.SCALE
 }
 
+
 function App() {
+
+  const stripePromise = loadStripe("pk_test_51HgxbAEraGwCsF1wPkWVzVcCGhWr9IAKADcDr4KbuukSdty5jz4HUeF3bmzWuk0tVlrNqnHTvAz5Gf9r1mV4pXAb00iAuvAqBV");
+
   return (
-    <AlertProvider template={AlertTemplate} {...options}>
-      <Router>
-        <ScrollToTop />
-        <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/shopping" component={Shopping} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/details/:_id" component={DetailProduct} />
-            <Route path="/login" component={SignIn} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/checkout" component={Payment} />
-            <Route component={Page404} />
-          </Switch>
-          <Modal />
-        <Footer />
-      </Router>
-    </AlertProvider>
+    <Elements stripe={stripePromise}>
+      <AlertProvider template={AlertTemplate} {...options}>
+        <Router>
+          <ScrollToTop />
+          <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/shopping" component={Shopping} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/details/:_id" component={DetailProduct} />
+              <Route path="/login" component={SignIn} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/checkout" component={Payment} />
+              <Route path="/payment" component={StripePay} />
+              <Route component={Page404} />
+            </Switch>
+            <Modal />
+          <Footer />
+        </Router>
+      </AlertProvider>
+    </Elements>
   );
 }
 

@@ -57,9 +57,9 @@ function addProductCart(action$) {
                     .then((res) => {
                         console.log(res);
                         if (res.status === 200) {
-                            return CartActions.addProductToCartActionSuccess(res);
-                        } else {
-                            return CartActions.addProductToCartActionFail();
+                            return CartActions.addProductToCartActionSuccess();
+                        } else if(res.status === 409) {
+                            return CartActions.addProductToCartActionFail(res.data);
                         }
                     })
                     .catch((err) =>{
@@ -175,11 +175,86 @@ function deleteCartEpic(action$) {
     );
 }
 
+/**
+ * 
+ * @param {*} action$ 
+ */
+function addShippingEpic(action$) {
+    return action$.pipe(
+        ofType(CartActions.ADD_SHIPPING_TO_CART),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post(
+                        api + '/cart/update-shipping' , 
+                        {
+                            cartId: action.payload.cartId,
+                            updateShipping: action.payload.updateShipping
+                        },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.addShippingSuccess();
+                        } else {
+                            return CartActions.addShippingFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.addShippingFail();
+                    } )))
+    );
+}
+
+/**
+ * 
+ * @param {*} action$ 
+ */
+function paymentEpic(action$) {
+    return action$.pipe(
+        ofType(CartActions.PAYMENT_WITH_STRIPE),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post(
+                        api + '/cart/payment' , 
+                        {
+                            data: action.payload.data,
+                            price: action.payload.price
+                        },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.paymentWithStripeSuccess();
+                        } else {
+                            return CartActions.paymentWithStripeFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.paymentWithStripeFail();
+                    } )))
+    );
+}
 
 export const cartEpics = combineEpics(
     getCart,
     changeQty,
     removeProductFromCartEpic,
     addProductCart,
-    deleteCartEpic
+    deleteCartEpic,
+    addShippingEpic,
+    paymentEpic
 );

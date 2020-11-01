@@ -2,7 +2,9 @@ import { CartActions } from '../actions';
 
 const initialState = {
     loading: false,
+    shipLoading: 0,
     error: '',
+    resMsg: "",
     cart: [],
     items: []
 }
@@ -23,7 +25,7 @@ export const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: 'Something went wrong'
+                resMsg: action.payload.data
             }
         case CartActions.GET_CART:
             return {
@@ -89,6 +91,22 @@ export const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
+                error: 'Something went wrong'
+            }
+        case CartActions.ADD_SHIPPING_TO_CART:
+            return {
+                ...state,
+                shipLoading: true
+            }
+        case CartActions.ADD_SHIPPING_TO_CART_SUCCESS:
+            return {
+                ...state,
+                shipLoading: false
+            }
+        case CartActions.ADD_SHIPPING_TO_CART_FAIL: 
+            return {
+                ...state,
+                shipLoading: false,
                 error: 'Something went wrong'
             }
         default:

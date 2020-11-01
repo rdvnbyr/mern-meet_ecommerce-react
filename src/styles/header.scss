@@ -20,19 +20,21 @@ nav {
     .nav_logo {
         display: flex;
         img {
-            height: 60px;
-            width: 60px;
-            line-height: 60px;
+            height: 80px;
+            width: 80px;
+            line-height: 80px;
             transition: .5s;
             background: none;
         }
         h4 {
             margin: auto;
-            color: darkgray;
-            padding: 5px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: calc(12px + 0.5vw);
+            a {
+                color: darkgray;
+                padding: 5px 20px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: calc(12px + 0.5vw);
+            }
         }
     }
 
@@ -111,17 +113,21 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    height: 50px;
+    height: 60px;
     padding: 0px 6%;
     background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     .nav_logo {
         img {
-            height: 45px;          
+            height: 60px;
+            width: 60px;
+            line-height: 60px;   
         }
         h4 {
-            line-height: 45px;
-            color: darkgray;
-            padding: 5px 20px;
+            a {
+                line-height: 45px;
+                color: darkgray;
+                padding: 5px 20px;
+            }
         }
     }
     .header_links {
@@ -243,12 +249,14 @@ nav {
         background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         .nav_logo {
             img {
-                height: 45px;          
+                width: 50px;
             }
             h4 {
-                line-height: 45px;
-                color: darkgray;
-                padding: 5px 20px;
+                a {
+                    line-height: 45px;
+                    color: darkgray;
+                    padding: 5px 20px;
+                }
             }
         }
 

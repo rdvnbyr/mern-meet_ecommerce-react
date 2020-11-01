@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -30,12 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review() {
+export default function Review({shippingAddress}) {
+  console.log(shippingAddress)
   const dispatch = useDispatch();
   const { cart } = useSelector(state => state.carts);
   const {token, userId} = useSelector(state => state.session.access)
   const classes = useStyles();
-  console.log(values)
+
   const addresses = [
     values.address,
     values.postCode,
@@ -96,10 +97,20 @@ export default function Review() {
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
-          <Typography gutterBottom>{values.firstName + " " + values.lastName}</Typography>
-          <Typography gutterBottom>{addresses.join(", ")}</Typography>
+          {
+            shippingAddress.map( (userCart, index) => {
+                return(
+                  <Fragment key={index}>
+                    <Typography gutterBottom>{userCart.firstname + " " + userCart.lastname}</Typography>
+                    <Typography gutterBottom>
+                      {`${userCart.address}, ${userCart.city}, ${userCart.region}, ${userCart.postCode}, ${userCart.country}`}
+                    </Typography>
+                  </Fragment>
+                )
+              })
+          }
         </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
+{/*         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Payment details
           </Typography>
@@ -115,7 +126,7 @@ export default function Review() {
               </React.Fragment>
             ))}
           </Grid>
-        </Grid>
+            </Grid> */}
       </Grid>
     </React.Fragment>
   );
