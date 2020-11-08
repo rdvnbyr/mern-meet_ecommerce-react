@@ -1,5 +1,5 @@
 import { combineEpics, ofType } from 'redux-observable';
-import { mergeMap } from 'rxjs/operators';
+import { mergeMap, withLatestFrom } from 'rxjs/operators';
 import { from } from 'rxjs';
 import axios from 'axios';
 import { CartActions } from '../actions';
@@ -39,18 +39,51 @@ function getCart(action$) {
 /**
  * 
  * @param {*} action$ 
+ */
+function getPurchasedCartEpic(action$, state$) {
+    return action$.pipe(
+        ofType(CartActions.GET_PURCHASED_CART),
+        withLatestFrom(state$),
+        mergeMap(
+            ([action, state]) => from(
+                axios
+                    .get( api + '/cart/get-purchased-cart' ,
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${state.session.access.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.getPurchasedCartSuccess(res.data);
+                        } else {
+                            return CartActions.getPurchasedCartFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.getPurchasedCartFail();
+                    } )))
+    );
+}
+/**
+ * 
+ * @param {*} action$ 
  * @return 
  */
-function addProductCart(action$) {
+function addProductCart(action$, state$) {
     return action$.pipe(
         ofType(CartActions.ADD_PRODUCT_TO_CART_CART),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post( api + '/cart/add-cart' , { productId: action.payload.productId, userId: action.payload.userId },
                         {
                             headers: {
-                                'Authorization': `Bearer ${action.payload.token}`
+                                'Authorization': `Bearer ${state.session.access.token}`
                             }
                         }
                     )
@@ -59,12 +92,12 @@ function addProductCart(action$) {
                         if (res.status === 200) {
                             return CartActions.addProductToCartActionSuccess();
                         } else if(res.status === 409) {
-                            return CartActions.addProductToCartActionFail(res.data);
+                            return CartActions.addProductToCartActionFail();
                         }
                     })
                     .catch((err) =>{
                         console.log(err);
-                        return CartActions.addProductToCartActionFail();
+                        return CartActions.addProductToCartActionFail(err);
                     } )))
     );
 }
@@ -225,7 +258,6 @@ function paymentEpic(action$) {
                     .post(
                         api + '/cart/payment' , 
                         {
-                            data: action.payload.data,
                             price: action.payload.price
                         },
                         {
@@ -237,7 +269,7 @@ function paymentEpic(action$) {
                     .then((res) => {
                         console.log(res);
                         if (res.status === 200) {
-                            return CartActions.paymentWithStripeSuccess();
+                            return CartActions.paymentWithStripeSuccess(res.data);
                         } else {
                             return CartActions.paymentWithStripeFail();
                         }
@@ -249,6 +281,42 @@ function paymentEpic(action$) {
     );
 }
 
+/**
+ * 
+ * @param {*} action$ 
+ */
+function paymentEndEpic(action$) {
+    return action$.pipe(
+        ofType(CartActions.PAYMENT_END),
+        mergeMap(
+            (action) => from(
+                axios
+                    .post(
+                        api + '/cart/payment-end' , 
+                        {
+                            cartId: action.payload.cartId
+                        },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${action.payload.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.paymentEndSuccess(res.data);
+                        } else {
+                            return CartActions.paymentEndFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.paymentEndFail();
+                    } )))
+    );
+}
+
 export const cartEpics = combineEpics(
     getCart,
     changeQty,
@@ -256,5 +324,7 @@ export const cartEpics = combineEpics(
     addProductCart,
     deleteCartEpic,
     addShippingEpic,
-    paymentEpic
+    paymentEpic,
+    paymentEndEpic,
+    getPurchasedCartEpic
 );

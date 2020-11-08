@@ -67,10 +67,10 @@ function About() {
                 <ProductWrapper>
                     <Carousel infiniteLoop useKeyboardArrows autoPlay>
                         {
-                            comments.map( comment => {
+                            comments.map( (comment, index) => {
                                 return( 
                                     
-                                        <CardGroup  border="dark" className="row justify-content-center"  >
+                                        <CardGroup key={index} border="dark" className="row justify-content-center"  >
                                             <Card key={comment.id} className=" col-12 mb-5 ">
                                                 <Card.Body className="text-center">
                                                     <Card.Img variant="top" src="https://3z61v51uhgnmmsubi1n0uv6r-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/happy-user-experience.png" className="w-50 rounded-circle m-auto"  />

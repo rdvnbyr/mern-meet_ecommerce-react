@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import {Link, useLocation} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import {Button} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 import { ProductsActions, CartActions } from '../../actions';
+import { useAlert } from 'react-alert';
+import { Review } from '../layout/ProductDetails';
 
 
 
 const DetailProduct = () => {
-
+    const alert = useAlert();
     const _id = useLocation().pathname.split('/')[2];
     const domain = 'http://localhost:8080/';
 
@@ -50,16 +52,17 @@ const DetailProduct = () => {
                                  className="mx-auto my-5"
                                  type="submit"
                                  variant="contained"
-                                 color="dark"     
+                                 color="default"     
                              >
                                  Back to Products
                              </Button>
                          </Link>
                          <Button
-                             className="ml-5 my-5"
-                             type="submit"
-                             variant="contained" color="dark"
-                             onClick={() => addproductToCart(product._id) }
+                            className="ml-5 my-5"
+                            type="submit"
+                            variant="contained"
+                            color="default"
+                            onClick={() => addproductToCart(product._id) }
                          >
                          Add Product
                          </Button>
@@ -67,6 +70,9 @@ const DetailProduct = () => {
                  </div>
              </div>
         }
+        <>
+            <Review />
+        </>
                 
         </div>
     )

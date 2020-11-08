@@ -1,23 +1,22 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import "./CarouselCard.scss";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 const CarouselCardCo = (props) => {
         const { _id, image, title, price } = props;
         const domain = 'http://localhost:8080/';
 
         return (
-                <div className = "my-3 mx-auto" style={{height: '500px'}} >
-                    <Row>
+                <div className = "mx-auto _carouselCard"  >
+                    <Row className="_row">
                         <Col
-                            className="mx-auto p-5"
-                            >
+                            className="mx-auto my-auto p-5 col-8 _imageCol"
+                        >
                             <Link to ={`/details/${_id}`}>
                                 <img src={ domain + image } alt={title} className ="card-img-top"/>
                             </Link>
                         </Col> 
-                        <Col>
+                        <Col className="mx-auto col-4 my-auto _textCol">
                             <div>
                                 <h3 className="aling-self-center mb-1 my-2">
                                     {title}
@@ -27,7 +26,7 @@ const CarouselCardCo = (props) => {
                                     <span className ="mr-1"> € </span>
                                 </h5>
                             </div>
-                            </Col>
+                        </Col>
                     </Row>
                 </div>
         );

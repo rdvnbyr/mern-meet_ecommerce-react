@@ -79,6 +79,22 @@ export const productsReducer = (state = initialState, action) => {
                 loading: false,
                 error: 'Something went wrong, products not fetched'
             }
+        case ProductsActions.REVIEW_PRODUCT:
+            return {
+                ...state,
+                loading: true
+            }
+        case ProductsActions.REVIEW_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
+        case ProductsActions.REVIEW_PRODUCT_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong'
+            }
         default:
             return state
     }

@@ -230,5 +230,60 @@ export class ProductsActions {
     }
 
     // ----------------------------- //
+        /**
+     * return the action type prefix for get all products actions
+     * @returns {string}
+     * @constructor
+     */
+    static get REVIEW_PRODUCT() {
+        return `${ProductsActions.PREFIX}REVIEW_PRODUCT`;
+    }
+    /**
+     * return the action type prefix for get all products actions sucesss
+     * @returns {string}
+     * @constructor
+     */
+    static get REVIEW_PRODUCT_SUCCESS() {
+        return `${ProductsActions.PREFIX}REVIEW_PRODUCT_SUCCESS`;
+    }
+    /**
+     * return the action type prefix for get all products actions fail
+     * @returns {string}
+     * @constructor
+     */
+    static get REVIEW_PRODUCT_FAIL() {
+        return `${ProductsActions.PREFIX}REVIEW_PRODUCT_FAIL`;
+    }
+
+        /**
+     * 
+     */
+    static reviewProductAction(review, productId) {
+        return {
+            type: ProductsActions.REVIEW_PRODUCT,
+            payload: {
+                review: review,
+                id: productId
+            }
+        }
+    }
+    /**
+     * @param type {array} all products from db
+     */
+    static reviewProductActionSuccess() {
+        return {
+            type: ProductsActions.REVIEW_PRODUCT_SUCCESS
+        }
+    }
+    /**
+     * 
+     */
+    static reviewProductActionFail() {
+        return {
+            type: ProductsActions.REVIEW_PRODUCT_FAIL
+        }
+    }
+    // ----------------------------- //
+
 
 }

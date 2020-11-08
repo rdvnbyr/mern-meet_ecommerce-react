@@ -20,6 +20,9 @@ import Payment from '../pages/Payment';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import StripePay from '../layout/CheckOut/Stripe/StripePay';
+import RespondPage from '../pages/RespondPage'
+import ProfilePage from '../pages/ProfilePage';
+import { ReviewProductForm } from '../layout/ReviewProductForm/ReviewProductForm';
 
 // optional configuration
 const options = {
@@ -34,7 +37,7 @@ const options = {
 
 function App() {
 
-  const stripePromise = loadStripe("pk_test_51HgxbAEraGwCsF1wPkWVzVcCGhWr9IAKADcDr4KbuukSdty5jz4HUeF3bmzWuk0tVlrNqnHTvAz5Gf9r1mV4pXAb00iAuvAqBV");
+  const stripePromise = loadStripe("pk_test_51HgxbAEraGwCsF1wosmL5GFgUt3CfAuVYddFQQ9rzfjp9xHK9gEJe0tuH7xUDM9Q2kGeFGbY0wu8DHMwEtWYu7gm00l1cvk6eQ");
 
   return (
     <Elements stripe={stripePromise}>
@@ -46,6 +49,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/shopping" component={Shopping} />
               <Route path="/about" component={About} />
+              <Route path="/profile" component={ProfilePage} />
               <Route path="/contact" component={Contact} />
               <Route path="/details/:_id" component={DetailProduct} />
               <Route path="/login" component={SignIn} />
@@ -53,6 +57,8 @@ function App() {
               <Route path="/cart" component={Cart} />
               <Route path="/checkout" component={Payment} />
               <Route path="/payment" component={StripePay} />
+              <Route path="/payment-respond/:id" component={RespondPage} />
+              <Route path="/review-product/:id" component={ReviewProductForm} />
               <Route component={Page404} />
             </Switch>
             <Modal />

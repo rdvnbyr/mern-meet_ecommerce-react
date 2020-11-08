@@ -40,7 +40,7 @@ const ProductWrapper = styled.div`
  }
 
  .img-container:hover .card-img-top {
-    transform: scale(1.2);
+    transform: scale(1.1);
 
  }
  .cart-btn {
@@ -53,12 +53,19 @@ const ProductWrapper = styled.div`
      border-radius:0.5rem 0 0 0;
      transform:translate(100%,100%);
      transition :all 0.4s linear;
+     color: #f6830f;
  }
  .img-container:hover .cart-btn {
      transform:translate(0,0);
  }
  .cart-btn:hover {
      cursor: pointer;
+ }
+ .card-footer {
+     background: transparent;
+     h5 {
+        color: darkgray;
+     }
  }
 `;
 
@@ -83,8 +90,7 @@ const CardCo = (props) => {
     };
 
     return (
-        <>
-        <ProductWrapper className = "col-9 mx-auto col-md-6 col-lg-4 my-3">
+        <ProductWrapper className = "mx-auto col-md-6 col-lg-4 my-3">
             <div className = "card">
                 <div
                     className="img-container p-5"
@@ -112,20 +118,16 @@ const CardCo = (props) => {
                 
                 {/* card footer */}
                 <div className="card-footer d-flex justify-content-between">
-                    <Link to ="/details" style={{color:"black"}}>
                         <h5 className="align-self-center mb-0 mx-2">
                             {title}
                         </h5>
-                    </Link>
                         <h5 className="font-italic mb-0 mx-2">
                             {price}
                             <span className ="mr-1"> € </span>
-                            
                         </h5>
                 </div>
             </div>
         </ProductWrapper>
-        </>
     );
 }
 

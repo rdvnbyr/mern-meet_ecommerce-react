@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import CardCo from './CardCo';
-import { saleProductData } from '../../../data';
 import { CardGroup } from 'react-bootstrap';
 import './Card.scss';
 import {useDispatch, useSelector} from 'react-redux';
@@ -19,7 +18,7 @@ const Cards = () => {
 
     return (
         <div className="container my-5">
-            <h1 className='text-center my-5'>BEST SELLERS</h1>
+            <h1 className='text-center my-5 _title_bestSellers'>BEST SELLERS</h1>
                 <div className="py-5">
                         {
                             (bestSellers !== undefined && bestSellers.length > 0) ?

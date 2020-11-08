@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
-import ProductCards from '../elements/Card/ProductCards';
 import {useDispatch, useSelector} from 'react-redux';
 import { ProductsActions } from '../../actions';
+import '../../styles/Shopping.scss';
+import CardCo from '../elements/Card/CardCo';
 
 
 const Shopping = () => {
@@ -15,28 +16,22 @@ const Shopping = () => {
 
 
         return (
-            <React.Fragment>
-                <div style={{margin: '120px', minHeight: '100vh'}}>
-                    <div className="py-5">
-                        <div className="container">
-                            <h1 className="text-center text-title"> OUR PRODUCTS</h1>
-                            <div className="row">
-                                {
-                                    (products !== undefined) &&
-                                        products.map( (product, index) => {
-                                            return(
-                                                <ProductCards 
-                                                    key={product._id}
-                                                    {...product}
-                                            />
-                                            )
-                                        })
-                                }
-                            </div>
-                        </div>
-                    </div>
+            <div className="py-5" style={{margin: '120px', minHeight: '100vh'}}>
+                <h1 className="text-center text-title"> OUR PRODUCTS</h1>
+                <div className="row container mx-auto">
+                    {
+                        (products !== undefined) &&
+                            products.map( (product, index) => {
+                                return(
+                                    <CardCo 
+                                        key={product._id}
+                                        {...product}
+                                />
+                                )
+                            })
+                    }
                 </div>
-            </React.Fragment>
+            </div>
         )
 }
 export default Shopping;

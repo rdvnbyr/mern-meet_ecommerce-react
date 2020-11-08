@@ -3,7 +3,11 @@ import { SessionActions } from '../actions/session-actions';
 const initialState = {
     isLogin: false,
     isRegister: false,
-    access: {}
+    access: {
+        user: {
+            _doc: ""
+        }
+    }
 }
 
 export const sessionReducer = (state = initialState, action) => {

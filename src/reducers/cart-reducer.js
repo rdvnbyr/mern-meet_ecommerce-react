@@ -5,8 +5,11 @@ const initialState = {
     shipLoading: 0,
     error: '',
     resMsg: "",
+    stripeClientKey: "",
+    isPaid: false,
     cart: [],
-    items: []
+    items: [],
+    purchasedCart: []
 }
 
 export const cartReducer = (state = initialState, action) => {
@@ -21,11 +24,16 @@ export const cartReducer = (state = initialState, action) => {
                 ...state,
                 loading: false
             }
-        case CartActions.ADD_PRODUCT_TO_CART_CART_FAIL: 
+        case CartActions.ADD_PRODUCT_TO_CART_CART_FAIL:
+            console.log(action.payload.error.status)
+            let error = null;
+            if( action.payload.error.status  === 409 ) {
+                return alert(action.payload.error.data.message);
+            };
             return {
                 ...state,
                 loading: false,
-                resMsg: action.payload.data
+                resMsg: error || "something went wrong"
             }
         case CartActions.GET_CART:
             return {
@@ -107,6 +115,59 @@ export const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 shipLoading: false,
+                error: 'Something went wrong'
+            }
+        case CartActions.PAYMENT_WITH_STRIPE:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.PAYMENT_WITH_STRIPE_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
+        case CartActions.PAYMENT_WITH_STRIPE_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong'
+            }
+        case CartActions.PAYMENT_END:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.PAYMENT_END_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                stripeClientKey: "",
+                cart: [],
+                items: [],
+                isPaid: true
+            }
+        case CartActions.PAYMENT_END_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong'
+            }
+        case CartActions.GET_PURCHASED_CART:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.GET_PURCHASED_CART_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                purchasedCart: action.payload.cart
+            }
+        case CartActions.GET_PURCHASED_CART_FAIL: 
+            return {
+                ...state,
+                loading: false,
                 error: 'Something went wrong'
             }
         default:

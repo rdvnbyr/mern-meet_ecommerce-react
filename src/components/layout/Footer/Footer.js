@@ -15,8 +15,6 @@ const FooterPage = () => {
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, officia.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, harum?
-              <br></br>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem optio rerum eveniet molestiae dolore quae, deserunt laborum minus commodi accusantium, voluptatum, dignissimos odio mollitia blanditiis?
             </p>
           </MDBCol>
           <MDBCol lg="4" className="mb-4">

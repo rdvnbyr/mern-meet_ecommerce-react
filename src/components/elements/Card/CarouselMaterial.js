@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import {Paper} from '@material-ui/core'
 
 export const  CarouselMaterial = ({
     children,
@@ -17,17 +16,17 @@ export const  CarouselMaterial = ({
 {
     return (
         <Carousel
-        autoPlay={autoPlay}
-        indicators={indicators}
-        animation={animation}
-        timeout={timeout}
-        navButtonsAlwaysVisible={navButtonsAlwaysVisible}
-        navButtonsAlwaysInvisible={navButtonsAlwaysInvisible}
-        fullHeightHover={fullHeightHover}
-        index={index}
-        {...props}
+            autoPlay={autoPlay}
+            indicators={indicators}
+            animation={animation}
+            timeout={timeout}
+            navButtonsAlwaysVisible={navButtonsAlwaysVisible}
+            navButtonsAlwaysInvisible={navButtonsAlwaysInvisible}
+            fullHeightHover={fullHeightHover}
+            index={index}
+            {...props}
         >
-        {children}
+            {children}
         </Carousel>
     )
 }

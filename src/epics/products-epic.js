@@ -1,5 +1,5 @@
 import { combineEpics, ofType } from 'redux-observable';
-import { mergeMap } from 'rxjs/operators';
+import { mergeMap, withLatestFrom } from 'rxjs/operators';
 import { from } from 'rxjs';
 import axios from 'axios';
 import { ProductsActions } from '../actions';
@@ -118,9 +118,48 @@ function getProductDetails(action$) {
     );
 }
 
+/**
+ * 
+ * @param {*} action$ 
+ */
+function reviewProductEpic(action$, state$) {
+    return action$.pipe(
+        ofType(ProductsActions.REVIEW_PRODUCT),
+        withLatestFrom(state$),
+        mergeMap(
+            ([action, state]) => from(
+                axios
+                    .put(
+                        `http://localhost:8080/shop/create-review/${action.payload.id}`,
+                        {
+                            rating: action.payload.review.rating,
+                            comment: action.payload.review.comment
+                        },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${state.session.access.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return ProductsActions.reviewProductActionSuccess();
+                        } else {
+                            return ProductsActions.reviewProductActionFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return ProductsActions.reviewProductActionFail();
+                    } )))
+    );
+}
+
 export const productsEpics = combineEpics(
     getProducts,
     getProductDetails,
     getProductsWeeksDeal,
-    getProductsBestSellerEpic
+    getProductsBestSellerEpic,
+    reviewProductEpic
 );

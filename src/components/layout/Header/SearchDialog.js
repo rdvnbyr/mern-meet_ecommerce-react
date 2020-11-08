@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 export default function SearchDialog({open, onClose}) {
 
   return (
-      <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title" fullWidth={true} maxWidth="lg">
+      <Dialog open={open} disableEscapeKeyDown={true} disableBackdropClick={true} onClose={onClose} aria-labelledby="form-dialog-title" fullWidth={true} maxWidth="lg">
         <DialogTitle id="form-dialog-title">SEARCH</DialogTitle>
         <DialogContent>
           <DialogContentText>

@@ -7,14 +7,25 @@ import CartBadge from './CartBadge';
 import Search from './Search';
 import SearchDialog from './SearchDialog';
 import ResponsiveIcon from './ResponsiveIcon';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import {  SessionActions } from '../../../actions';
+import {Dropdown} from 'react-bootstrap'
+
+
+
 
 
 
 function Header() {
 
-    const isLogin = useSelector(state => state.session.isLogin);
+    const {isLogin, user} = useSelector(
+        (state) => ({
+            isLogin: state.session.isLogin,
+            user: state.session.access.user._doc
+        }),
+        shallowEqual
+    );
+
     const dispatch = useDispatch();
 
     const {cart} = useSelector(state => state.carts);
@@ -38,7 +49,7 @@ function Header() {
     const handleClose = () => setOpen(false);
 
     // logout
-    const logout = () => {
+    const handleLogout = () => {
         dispatch(SessionActions.logout());
     }; 
 
@@ -76,12 +87,21 @@ function Header() {
                         {
                             isLogin
                             ?
-                            <button className="button_nav" onClick={logout}>Logout</button>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                                        {user.username}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/wishlist">Wishlist</Dropdown.Item>
+                                        <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             : 
-                            <div>
-                                <Link className="button_nav mx-2" to="/login">Login</Link>
-                                <Link className="button_nav mx-2" to="/signup">Sign Up</Link>
-                            </div>
+                                <div>
+                                    <Link className="button_nav mx-2" to="/login">Login</Link>
+                                    <Link className="button_nav mx-2" to="/signup">Sign Up</Link>
+                                </div>
                         }
                         <Link to="/cart" >
                             <CartBadge
@@ -103,3 +123,5 @@ function Header() {
 }
 
 export default Header;
+
+// <button className="button_nav" onClick={logout}>Logout</button>
