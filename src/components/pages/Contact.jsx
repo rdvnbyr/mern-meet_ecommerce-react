@@ -27,7 +27,6 @@ function Contact() {
     );
 
     const handleClose = () => {
-        console.log('clicked')
         dispatch(ContactActions.isSuccessToggle());
     };
 

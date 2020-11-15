@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Review({shippingAddress}) {
-  console.log(shippingAddress)
   const dispatch = useDispatch();
   const { cart } = useSelector(state => state.carts);
   const {token, userId} = useSelector(state => state.session.access)

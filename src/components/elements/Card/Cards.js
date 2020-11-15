@@ -10,7 +10,6 @@ const Cards = () => {
 
     const dispatch = useDispatch();
     const {bestSellers} = useSelector(state => state.products);
-    console.log('BEST SELLERS',bestSellers);
 
     useEffect(() => {
         dispatch(ProductsActions.getProductsBestSellers('Best Seller'));

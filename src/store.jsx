@@ -10,7 +10,14 @@ import { createHashHistory } from 'history';
 import { epics } from './epics';
 
 // then we load all reducer, that we need
-import { commentReducer, sessionReducer, productsReducer, cartReducer, contactReducer } from './reducers';
+import { 
+    commentReducer,
+    sessionReducer,
+    productsReducer,
+    cartReducer, 
+    contactReducer,
+    userReducer 
+    } from './reducers';
 
 // now we generate an application history object. This will be used by the app-container as well, so we need to export it
 export const routerHistory = createHashHistory();
@@ -32,13 +39,14 @@ const mainReducer = combineReducers({
     session: sessionReducer,
     products: productsReducer,
     carts: cartReducer,
-    contact: contactReducer
+    contact: contactReducer,
+    user: userReducer
 });
 
 const persistConfig = {
     key: 'meethub-frontend',
     storage,
-    blacklist: ['comment', 'products', 'contact', 'carts']
+    blacklist: ['comment']
 }
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);

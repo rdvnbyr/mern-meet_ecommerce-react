@@ -11,7 +11,6 @@ function CartTotals({cart, history}) {
     const {token} = useSelector(state => state.session.access);
 
     const deleteCart = (cartId) => {
-        console.log('cartId:',cartId, token);
         dispatch(CartActions.deleteCart(token, cartId));
     }
     
@@ -40,14 +39,14 @@ function CartTotals({cart, history}) {
                         </h5>
                         <div className="mt-5">
                             <button 
-                                className="btn btn-outline-warning text-uppercase px-5 mr-3"
+                                className="btn text-uppercase px-5 mr-3 _cart-totals_btn"
                                 type="button"
                                 onClick={()=> deleteCart(_id)}>
                                     Delete Cart
                             </button>
                             <Link to="/checkout">
                                 <button 
-                                    className="btn btn-outline-warning text-uppercase px-5"
+                                    className="btn text-uppercase px-5 _cart-totals_btn"
                                     type="button"
                                     >
                                         Proceed to Checkout

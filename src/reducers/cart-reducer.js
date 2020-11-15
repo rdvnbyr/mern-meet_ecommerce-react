@@ -7,6 +7,7 @@ const initialState = {
     resMsg: "",
     stripeClientKey: "",
     isPaid: false,
+    isArchived: false,
     cart: [],
     items: [],
     purchasedCart: []
@@ -25,7 +26,6 @@ export const cartReducer = (state = initialState, action) => {
                 loading: false
             }
         case CartActions.ADD_PRODUCT_TO_CART_CART_FAIL:
-            console.log(action.payload.error.status)
             let error = null;
             if( action.payload.error.status  === 409 ) {
                 return alert(action.payload.error.data.message);
@@ -165,6 +165,22 @@ export const cartReducer = (state = initialState, action) => {
                 purchasedCart: action.payload.cart
             }
         case CartActions.GET_PURCHASED_CART_FAIL: 
+            return {
+                ...state,
+                loading: false,
+                error: 'Something went wrong'
+            }
+        case CartActions.ARCHIVED_ORDER:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.ARCHIVED_ORDER_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            }
+        case CartActions.ARCHIVED_ORDER_FAIL: 
             return {
                 ...state,
                 loading: false,

@@ -1,4 +1,5 @@
 import React from 'react';
+import {shallowEqual, useSelector} from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../layout/Footer/Footer';
@@ -21,8 +22,9 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import StripePay from '../layout/CheckOut/Stripe/StripePay';
 import RespondPage from '../pages/RespondPage'
-import ProfilePage from '../pages/ProfilePage';
 import { ReviewProductForm } from '../layout/ReviewProductForm/ReviewProductForm';
+import { Purchase } from '../purchased/Purchased';
+import { Wishlist } from '../wishlist/Wishlist';
 
 // optional configuration
 const options = {
@@ -36,37 +38,39 @@ const options = {
 
 
 function App() {
-
-  const stripePromise = loadStripe("pk_test_51HgxbAEraGwCsF1wosmL5GFgUt3CfAuVYddFQQ9rzfjp9xHK9gEJe0tuH7xUDM9Q2kGeFGbY0wu8DHMwEtWYu7gm00l1cvk6eQ");
+ 
+  const stripePromise = loadStripe("pk_test_51HgxbAEraGwCsF1wGiV2w7AwSUcsLEvyiG4dQDRyyFkYl09t3pCJejp79x7hfFANt7iQQoYhuBrOOXByYlDGmNCo00PEsGBiWk");
 
   return (
-    <Elements stripe={stripePromise}>
-      <AlertProvider template={AlertTemplate} {...options}>
-        <Router>
-          <ScrollToTop />
-          <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/shopping" component={Shopping} />
-              <Route path="/about" component={About} />
-              <Route path="/profile" component={ProfilePage} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/details/:_id" component={DetailProduct} />
-              <Route path="/login" component={SignIn} />
-              <Route path="/signup" component={SignUp} />
-              <Route path="/cart" component={Cart} />
-              <Route path="/checkout" component={Payment} />
-              <Route path="/payment" component={StripePay} />
-              <Route path="/payment-respond/:id" component={RespondPage} />
-              <Route path="/review-product/:id" component={ReviewProductForm} />
-              <Route component={Page404} />
-            </Switch>
-            <Modal />
-          <Footer />
-        </Router>
-      </AlertProvider>
-    </Elements>
+      <Elements stripe={stripePromise}>
+        <AlertProvider template={AlertTemplate} {...options}>
+          <Router>
+            <ScrollToTop />
+            <Header />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/shopping" component={Shopping} />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/details/:_id" component={DetailProduct} />
+                <Route path="/login" component={SignIn} />
+                <Route path="/signup" component={SignUp} />
+                <Route path="/cart" component={Cart} />
+                <Route path="/checkout" component={Payment} />
+                <Route path="/payment" component={StripePay} />
+                <Route path="/wishlist" component={Wishlist} />
+                <Route path="/purchased" component={Purchase} />
+                <Route path="/payment-respond/:id" component={RespondPage} />
+                <Route path="/review-product/:id" component={ReviewProductForm} />
+                <Route component={Page404} />
+              </Switch>
+              <Modal />
+            <Footer />
+          </Router>
+        </AlertProvider>
+      </Elements>
   );
+
 }
 
 

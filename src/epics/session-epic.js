@@ -1,5 +1,5 @@
 import { combineEpics, ofType } from 'redux-observable';
-import { mergeMap } from 'rxjs/operators';
+import { mergeMap, withLatestFrom } from 'rxjs/operators';
 import { from } from 'rxjs';
 import axios from 'axios';
 import { SessionActions } from '../actions';
@@ -54,7 +54,44 @@ function signUpAuth(action$) {
                     } )))
     );
 }
+/**
+ * 
+ * @param {*} action$ 
+ */
+function logoutEpic(action$, state$) {
+    return action$.pipe(
+        ofType(SessionActions.LOGOUT),
+        withLatestFrom(state$),
+        mergeMap(
+            ([action, state]) => from(
+                axios
+                    .post(
+                        `${api}/auth/logout`,
+                        {},
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${state.session.access.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 204) {
+                            return SessionActions.logoutSuccess();
+                        } else {
+                            return SessionActions.logoutFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return SessionActions.logoutFail(err);
+                    } )))
+    );
+}
+
+
 export const loginEpics = combineEpics(
     loginAuth,
-    signUpAuth
+    signUpAuth,
+    logoutEpic
 );

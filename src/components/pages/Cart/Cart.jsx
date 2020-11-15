@@ -5,6 +5,7 @@ import CartList from './CartList'
 import CartTotals from './CartTotals'
 import { useDispatch, useSelector} from 'react-redux'
 import { CartActions } from '../../../actions'
+import './_cart.scss';
 
 const Cart = ({history}) => {
 
@@ -12,8 +13,6 @@ const Cart = ({history}) => {
     const { token, userId } = useSelector(state => state.session.access);
     const { isLogin } = useSelector(state => state.session);
     const userCart = useSelector(state => state.carts.cart);
-
-
 
     useEffect(() => {
         isLogin && dispatch(CartActions.getCart(token, userId));
@@ -44,28 +43,7 @@ const Cart = ({history}) => {
                             }
                         </>
                 }
-
                 </Fragment>
-                {/*<ProductConsumer>
-                    { value => {
-                        const {cart} = value;
-                        if (cart.length > 0 ){
-                            return (
-                                <React.Fragment>
-                                    <h2 className="text-center text-title my-5"> Your Cart</h2>
-                                    <CartColumns />
-                                    <CartList value = {value}/>
-                                    <CartTotals value= {value} history={this.props.history} />
-                                </React.Fragment>
-                            )
-                        }else{
-                            return (
-                                <h2 className="text-center text-title my-5">    Your Cart is Empty
-                                </h2>
-                            )
-                        }
-                    }}
-                </ProductConsumer>*/}
             </div>
         )
     

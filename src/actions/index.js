@@ -3,3 +3,4 @@ export * from './session-actions';
 export * from './products-actions';
 export * from './cart-actions';
 export * from './contact-actions';
+export * from './user-actions';

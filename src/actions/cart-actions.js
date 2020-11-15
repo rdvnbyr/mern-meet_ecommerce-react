@@ -321,7 +321,6 @@ export class CartActions {
      * @param {*} cartId 
      */
     static addShipping( token, cartId, updateShipping) {
-        console.log(updateShipping)
         return {
             type: CartActions.ADD_SHIPPING_TO_CART,
             payload: {
@@ -496,6 +495,56 @@ export class CartActions {
     static getPurchasedCartFail() {
         return {
             type: CartActions.GET_PURCHASED_CART_FAIL
+        }
+    }
+/* --------------------------------------- */
+        /* --------------------------------------- */
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get ARCHIVED_ORDER() {
+        return `${CartActions.PREFIX}ARCHIVED_ORDER`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get ARCHIVED_ORDER_SUCCESS() {
+        return `${CartActions.PREFIX}ARCHIVED_ORDER_SUCCESS`;
+    }
+    /**
+     * return the action type prefix for cart related actions
+     * @returns {string}
+     * @constructor
+     */
+    static get ARCHIVED_ORDER_FAIL() {
+        return `${CartActions.PREFIX}ARCHIVED_ORDER_FAIL`;
+    }
+    /**
+     * 
+     */
+    static archivedOrder(cartId) {
+        return {
+            type: CartActions.ARCHIVED_ORDER,
+            payload: {
+                cartId: cartId
+            }
+            
+        }
+    }
+
+    static archivedOrderSuccess(cart) {
+        return {
+            type: CartActions.ARCHIVED_ORDER_SUCCESS
+        }
+    }
+
+    static archivedOrderFail() {
+        return {
+            type: CartActions.ARCHIVED_ORDER_FAIL
         }
     }
 /* --------------------------------------- */

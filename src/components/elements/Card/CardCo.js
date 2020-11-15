@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useAlert } from 'react-alert';
-import { CartActions } from '../../../actions';
+import { CartActions, UserActions } from '../../../actions';
+import {ReactLoadingSpinnerBubbles} from '../index';
 
 
 
@@ -53,12 +54,32 @@ const ProductWrapper = styled.div`
      border-radius:0.5rem 0 0 0;
      transform:translate(100%,100%);
      transition :all 0.4s linear;
-     color: #f6830f;
+     color: rgba(5,84,94,1);
+     background: none;
  }
  .img-container:hover .cart-btn {
      transform:translate(0,0);
  }
  .cart-btn:hover {
+     cursor: pointer;
+ }
+ .cart-btn-wishlist {
+     position:absolute;
+     top: 0px;
+     left: 0px;
+     padding: 0.2rem 0.4rem;
+     border: none;
+     font-size: 1.4rem;
+     border-radius:0.5rem 0 0 0;
+     /* transform:translate(100%,100%);
+     transition :all 0.4s linear; */
+     color: rgba(5,84,94,1);
+     background: none;
+ }
+ /* .img-container:hover .cart-btn-wishlist {
+     transform:translate(0,0);
+ } */
+ .cart-btn-wishlist:hover {
      cursor: pointer;
  }
  .card-footer {
@@ -69,65 +90,87 @@ const ProductWrapper = styled.div`
  }
 `;
 
+const domain = 'http://localhost:8080/';
 
 const CardCo = (props) => {
 
-    const domain = 'http://localhost:8080/';
     const { title, price, image, _id } = props;
-    const alert = useAlert()
-
+    const alert = useAlert();
     const dispatch = useDispatch();
-    const isLogin = useSelector(state => state.session.isLogin);
     const {token, userId} = useSelector(state => state.session.access);
-    // const {loading, resMsg} = useSelector(state => state.carts);
+    const { isLogin, loading, userWishlist } = useSelector(
+        (state) => ({
+            isLogin: state.session.isLogin,
+            loading: state.user.loading,
+            userWishlist: state.user.userWishlist
+        }),
+        shallowEqual
+    );
 
+    const isProductAlreadyInUserWishlist = userWishlist !== undefined ? userWishlist.find( p => p.product._id.toString() === _id) : null;
 
     const addproductToCart = async (productId) => {
         !isLogin ?
-        alert.show(<div className="text-info text-lowercase text-capitalize">Please login before shopping</div>)
-      :
-        dispatch(CartActions.addProductToCartAction(token, productId, userId));
+            alert.show(<div className="text-info text-lowercase text-capitalize">Please login before shopping</div>)
+        :
+            dispatch(CartActions.addProductToCartAction(token, productId, userId));
     };
 
+    const addroductToWishlist = (id) => {
+        !isLogin ?
+            alert.show(<div className="text-info text-lowercase text-capitalize">Please login before add wishlist</div>)
+        :
+            dispatch(UserActions.addProductToWishlist(id));
+    };
     return (
-        <ProductWrapper className = "mx-auto col-md-6 col-lg-4 my-3">
-            <div className = "card">
-                <div
-                    className="img-container p-5"
-                >
-                <Link to ={`/details/${_id}`}>
-                    <img src={domain + image} alt="product" className ="card-img-top"/>
-                </Link>
-                <button 
-                        className="cart-btn"
-                        onClick={() => addproductToCart(_id) }
-                >
-                
-                {
-                    <i className ="fas fa-cart-plus " />
-                }
-                {/*                         {inCart ? (
-                            <p className ="text-capitalize mb-0">
-                                {"in cart"}  
-                            </p>
-                        ) : (
-                            < i className ="fas fa-cart-plus " />
-                        )} */}
-                </button>
-            </div>
-                
-                {/* card footer */}
-                <div className="card-footer d-flex justify-content-between">
-                        <h5 className="align-self-center mb-0 mx-2">
-                            {title}
-                        </h5>
-                        <h5 className="font-italic mb-0 mx-2">
-                            {price}
-                            <span className ="mr-1"> € </span>
-                        </h5>
+        <>
+        {
+            loading ? 
+                <ReactLoadingSpinnerBubbles />
+            :
+            <ProductWrapper className = "mx-auto col-md-6 col-lg-4 my-3">
+                <div className = "card">
+                    <div
+                        className="img-container p-5"
+                    >
+                    <Link to ={`/details/${_id}`}>
+                        <img src={domain + image} alt="product" className ="card-img-top"/>
+                    </Link>
+                    <button 
+                            className="cart-btn"
+                            onClick={() => addproductToCart(_id) }
+                    >
+                    {
+                        <i className ="fas fa-cart-plus " />
+                    }
+                    </button>
+                    <button 
+                        className="cart-btn-wishlist"
+                        onClick={() => addroductToWishlist(_id)}
+                    >
+                    {
+                        isLogin && isProductAlreadyInUserWishlist ? 
+                        <i className ="fas fa-heart" />
+                        :
+                        <i className ="far fa-heart" />
+                    }
+                    </button>
                 </div>
-            </div>
-        </ProductWrapper>
+                    
+                    {/* card footer */}
+                    <div className="card-footer d-flex justify-content-between">
+                            <h5 className="align-self-center mb-0 mx-2">
+                                {title}
+                            </h5>
+                            <h5 className="font-italic mb-0 mx-2">
+                                {price}
+                                <span className ="mr-1"> € </span>
+                            </h5>
+                    </div>
+                </div>
+            </ProductWrapper>
+        }
+        </>
     );
 }
 

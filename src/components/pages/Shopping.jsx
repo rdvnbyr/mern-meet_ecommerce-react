@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import { ProductsActions } from '../../actions';
+import { ProductsActions, UserActions } from '../../actions';
 import '../../styles/Shopping.scss';
 import CardCo from '../elements/Card/CardCo';
 
 
 const Shopping = () => {
 
+    // const [reRender, setReRender] = useState(false);
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.products.data);
+    const {userId} = useSelector(state => state.session.access);
 
     useEffect(() => {
         dispatch(ProductsActions.getProducts());
     }, [dispatch]);
+
+    React.useEffect(() => {
+        dispatch(UserActions.getUserWishlist(userId));
+    }, [userId, dispatch]);
 
 
         return (

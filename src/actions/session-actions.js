@@ -105,6 +105,26 @@ export class SessionActions {
             type: SessionActions.LOGOUT
         };
     };
+        /**
+     * logout auth success
+     * @return {string}
+     * @constructor
+     */
+    static logoutSuccess() {
+        return {
+            type: SessionActions.LOGOUT_SUCCESSFUL
+        };
+    };
+        /**
+     * logout auth success
+     * @return {string}
+     * @constructor
+     */
+    static logoutFail() {
+        return {
+            type: SessionActions.LOGIN_FAIL
+        };
+    };
 /**
     * register auth 
     * @return {string}

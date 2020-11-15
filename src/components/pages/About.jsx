@@ -1,38 +1,22 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CommentActions } from '../../actions';
-import {CardGroup, Card} from 'react-bootstrap'
 import "react-responsive-carousel/lib/styles/carousel.css";
-import { Carousel } from 'react-responsive-carousel';
-import styled from "styled-components";
 import logo from '../../assets/logo_transparent.png';
 
 
 
-// import { Redirect } from 'react-router';
-const ProductWrapper = styled.div`
-.carousel{
-    border:none;
-}
-.carousel .control-dots {
-    display: none;
-}
-`;
+
 
 
 function About() {
 
     const dispatch = useDispatch();
-    const comments = useSelector(state => state.comment.comments);
-    // const isLogin = useSelector(state => state.session.isLogin);
 
     useEffect(() => {
         dispatch(CommentActions.getComment());
     }, [dispatch]);
    
-    // if (isLogin) {
-    //     return Redirect('/');
-    // }
     return (
         <div style={{marginTop: '120px', minHeight: '100vh'}}>
             <div className="my-5">
@@ -60,39 +44,6 @@ function About() {
                         </div>
                     </div>
                 </div> 
-            </div>
-
-            <div className="container">
-                <h1 className="text-center my-5">WHAT OUR CUSTOMERS SAY ABOUT US</h1>
-                <ProductWrapper>
-                    <Carousel infiniteLoop useKeyboardArrows autoPlay>
-                        {
-                            comments.map( (comment, index) => {
-                                return( 
-                                    
-                                        <CardGroup key={index} border="dark" className="row justify-content-center"  >
-                                            <Card key={comment.id} className=" col-12 mb-5 ">
-                                                <Card.Body className="text-center">
-                                                    <Card.Img variant="top" src="https://3z61v51uhgnmmsubi1n0uv6r-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/happy-user-experience.png" className="w-50 rounded-circle m-auto"  />
-                                                        <Card.Title>
-                                                            {comment.name}
-                                                        </Card.Title>
-                                                        <Card.Text>
-                                                            {comment.body}
-                                                        </Card.Text>
-                                                    </Card.Body>
-                                                <Card.Footer className="text-center">
-                                                    <small className="text-muted">{comment.email}</small>
-                                                </Card.Footer>
-                                            </Card>
-                                        </CardGroup>
-                                    
-                                    )
-                                }
-                            )
-                        }
-                    </Carousel> 
-                </ProductWrapper>
             </div>
         </div>    
     )

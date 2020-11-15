@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import '../../../styles/header.scss';
 import logo from '../../../assets/logo_transparent.png';
 // import SignedInLinks from './SignedInLinks';
@@ -9,7 +9,8 @@ import SearchDialog from './SearchDialog';
 import ResponsiveIcon from './ResponsiveIcon';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import {  SessionActions } from '../../../actions';
-import {Dropdown} from 'react-bootstrap'
+import {Dropdown} from 'react-bootstrap';
+
 
 
 
@@ -21,12 +22,13 @@ function Header() {
     const {isLogin, user} = useSelector(
         (state) => ({
             isLogin: state.session.isLogin,
-            user: state.session.access.user._doc
+            user: state.session.access.user
         }),
         shallowEqual
     );
 
     const dispatch = useDispatch();
+    const history = useHistory()
 
     const {cart} = useSelector(state => state.carts);
     const [scrollClass, setScrollClass] = useState('');
@@ -87,12 +89,12 @@ function Header() {
                         {
                             isLogin
                             ?
-                                <Dropdown>
+                                <Dropdown className="header-user-dropdown">
                                     <Dropdown.Toggle variant="secondary" id="dropdown-basic">
                                         {user.username}
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                        <Dropdown.Item href="/purchased">Purchased</Dropdown.Item>
                                         <Dropdown.Item href="/wishlist">Wishlist</Dropdown.Item>
                                         <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
                                     </Dropdown.Menu>
@@ -103,14 +105,12 @@ function Header() {
                                     <Link className="button_nav mx-2" to="/signup">Sign Up</Link>
                                 </div>
                         }
-                        <Link to="/cart" >
                             <CartBadge
                                 cartQty={ cart.length > 0 && cart[0].items.length }
                                 color="secondary"
-                                onClick={ () => console.log('Say Hello from cartBadge') }
+                                onClick={ () => history.push('/cart') }
                                 className="cartBadge_navIcon"
                             />
-                        </Link>
                 </div>
             </nav>
             <SearchDialog

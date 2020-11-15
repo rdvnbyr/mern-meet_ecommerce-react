@@ -1,14 +1,19 @@
 import { SessionActions } from '../actions/session-actions';
 
 const initialState = {
+    loading: false,
     isLogin: false,
     isRegister: false,
     access: {
         user: {
-            _doc: ""
-        }
-    }
-}
+            email: "",
+            username: "",
+            wishlist: []
+        },
+        token: "",
+        userId: ""
+    },
+};
 
 export const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -31,12 +36,18 @@ export const sessionReducer = (state = initialState, action) => {
                 error: 'Something went wrong'
             }
             case SessionActions.LOGOUT:
-                console.log('LOGOUT')
                 return {
                     ...state,
-                    isLogin: false,
-                    access: {}
-                }
+                    loading: true
+                };
+            case SessionActions.LOGOUT_SUCCESSFUL:
+                return initialState;
+            case SessionActions.LOGOUT_FAIL:
+                return {
+                    ...state,
+                    loading: false,
+                    error: 'Something went wrong'
+                };
             case SessionActions.REGISTER:
                 return {
                     ...state,

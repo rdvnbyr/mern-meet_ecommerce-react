@@ -133,6 +133,7 @@ function reviewProductEpic(action$, state$) {
                         `http://localhost:8080/shop/create-review/${action.payload.id}`,
                         {
                             rating: action.payload.review.rating,
+                            title: action.payload.review.title,
                             comment: action.payload.review.comment
                         },
                         {

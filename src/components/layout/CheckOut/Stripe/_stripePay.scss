@@ -1,0 +1,48 @@
+._contain-stripe-form {
+    margin: 120px auto;
+    min-height: 50vh;
+    ._stripe-div {
+        max-width: 600px;
+        ._form-stripe {
+            padding: 20px 15px;
+            border: 1px solid rgba(3,55,91,1);
+            border-radius: 8px;
+            p {
+                font-size: calc(12px + 0.7vw);
+                margin: 20px 0;
+            }
+            .field_input_stripe {
+                width: 100%;
+                height: 50px;
+                border: 1px solid rgba(3,55,91,1);
+                border-radius: 8px;
+            };
+            label {
+                color: rgba(3,55,91,1);
+            }
+            .sr-card-element {
+                border: 1px solid rgba(3,55,91,1);
+                border-radius: 8px;
+                padding: 20px;
+
+            }
+            ._stripe-btn {background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
+            ._stripe-btn {
+                padding: 15px 45px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                box-shadow: 0 0 20px #eee;
+                border-radius: 10px;
+                display: block;
+                &:hover {
+                    background-position: right center; /* change the direction of the change here */
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

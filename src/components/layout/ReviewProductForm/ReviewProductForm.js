@@ -1,16 +1,13 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {TextField, TextareaAutosize} from '@material-ui/core';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useLocation } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router';
 import { ProductsActions } from '../../../actions';
 
 
@@ -37,12 +34,14 @@ const useStyles = makeStyles((theme) => ({
 
   const initialValues = {
     rating: '',
-    comment: ''
+    comment: '',
+    title: ""
 };
 
 const validationSchema = Yup.object({
     rating: Yup.number().required('Required!'),
     comment: Yup.string().min(8, 'Minimum 8 characters required!').required('Required!'),
+    title: Yup.string().required('Required!')
 });
 
 export const ReviewProductForm = (props) => {
@@ -55,7 +54,8 @@ export const ReviewProductForm = (props) => {
 
         const review = {
             rating: values.rating,
-            comment: values.comment
+            comment: values.comment,
+            title: values.title
         };
         dispatch(ProductsActions.reviewProductAction(review, productId));
     };
@@ -103,9 +103,26 @@ export const ReviewProductForm = (props) => {
                     </div>
                 </div>
                 
-                    <div className="form-group row">
+                    <div className="form-group">
                         <div className="col-md-12">
-                            <label htmlFor="comment" className="text-black">Comment </label>
+                            <label className="text-black">Title</label>
+                            <input 
+                                name="title"
+                                id="title"
+                                className="form-control"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                value={formik.values.title}
+                            />
+                            {
+                                formik.touched.title && formik.errors.title ?
+                                <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.title}</div>
+                                :
+                                null
+                            }
+                        </div>
+                        <div className="col-md-12">
+                            <label className="text-black">Comment </label>
                             <textarea 
                                 name="comment"
                                 id="comment"

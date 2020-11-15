@@ -80,7 +80,7 @@ function addProductCart(action$, state$) {
         mergeMap(
             ([action,state]) => from(
                 axios
-                    .post( api + '/cart/add-cart' , { productId: action.payload.productId, userId: action.payload.userId },
+                    .post( api + '/cart/add-cart' , { productId: action.payload.productId, userId: state.session.access.userId },
                         {
                             headers: {
                                 'Authorization': `Bearer ${state.session.access.token}`
@@ -316,6 +316,42 @@ function paymentEndEpic(action$) {
                     } )))
     );
 }
+/**
+ * 
+ * @param {*} action$ 
+ */
+function archivedOrderEpic(action$, state$) {
+    return action$.pipe(
+        ofType(CartActions.ARCHIVED_ORDER),
+        withLatestFrom(state$),
+        mergeMap(
+            ([action, state]) => from(
+                axios
+                    .put(
+                        api + '/cart/archived-order' , 
+                        {
+                            cartId: action.payload.cartId
+                        },
+                        {
+                            headers: {
+                                'Authorization': `Bearer ${state.session.access.token}`
+                            }
+                        }
+                    )
+                    .then((res) => {
+                        console.log(res);
+                        if (res.status === 200) {
+                            return CartActions.archivedOrderSuccess();
+                        } else {
+                            return CartActions.archivedOrderFail();
+                        }
+                    })
+                    .catch((err) =>{
+                        console.log(err);
+                        return CartActions.archivedOrderFail();
+                    } )))
+    );
+}
 
 export const cartEpics = combineEpics(
     getCart,
@@ -326,5 +362,6 @@ export const cartEpics = combineEpics(
     addShippingEpic,
     paymentEpic,
     paymentEndEpic,
-    getPurchasedCartEpic
+    getPurchasedCartEpic,
+    archivedOrderEpic
 );

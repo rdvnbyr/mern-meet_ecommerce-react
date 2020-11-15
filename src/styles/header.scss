@@ -17,6 +17,7 @@ nav {
             outline: none;
         }
     }
+    
     .nav_logo {
         display: flex;
         img {
@@ -106,6 +107,15 @@ nav {
                     color: #485461;
                 }
             }
+            .header-user-dropdown {
+                margin: auto;
+                color: #485461;
+                #dropdown-basic {
+                    border: none;
+                    background: #FFFFFF;
+                    color: #485461;
+                }
+            }
         
     }
 }
@@ -115,7 +125,7 @@ nav {
     left: 0;
     height: 60px;
     padding: 0px 6%;
-    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient( 109.6deg, #bbb 16% , rgba(5,84,94,1) 91.1%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     .nav_logo {
         img {
             height: 60px;
@@ -125,7 +135,7 @@ nav {
         h4 {
             a {
                 line-height: 45px;
-                color: darkgray;
+                color: #FFFFFF;
                 padding: 5px 20px;
             }
         }
@@ -135,9 +145,25 @@ nav {
             li {
                 a {
                     line-height: 50px;
+                    color: darkgray;
                 }
                 .button_nav, i {
                     line-height: 50px;
+                }
+            }
+        }
+    }
+    .header_links_left {
+        ul {
+            li {
+                i {
+                    color: darkgray;
+                }
+                a {
+                    color: #FFFFFF;
+                    &.active, &:hover {
+                        color: #485461;
+                    }
                 }
             }
         }
@@ -246,7 +272,7 @@ nav {
         left: 0;
         height: 50px;
         padding: 0px 6%;
-        background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient( 109.6deg,  rgba(5,84,94,1) 16%, #bbb 91.1% ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         .nav_logo {
             img {
                 width: 50px;
@@ -293,4 +319,3 @@ nav {
         transform: translateX(0);
     }
   }
-  
