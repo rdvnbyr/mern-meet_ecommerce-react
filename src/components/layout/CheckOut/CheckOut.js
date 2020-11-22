@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import Review from './Review';
 import { FormikHandler } from './FormikHandler';
-import { PaymentForm } from './PaymentForm';
+// import { PaymentForm } from './PaymentForm';
 import { useDispatch, useSelector } from 'react-redux'
 import { CartActions } from '../../../actions';
 import { Redirect } from 'react-router';
@@ -65,7 +65,7 @@ export function CheckOut() {
   // redux
   const dispatch = useDispatch();
   const { token } = useSelector(state => state.session.access);
-  const { cart, loading, shipLoading } = useSelector(state => state.carts);
+  const { cart } = useSelector(state => state.carts);
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 

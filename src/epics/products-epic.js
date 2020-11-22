@@ -15,7 +15,7 @@ function getProducts(action$) {
         mergeMap(
             (action) => from(
                 axios
-                    .get('http://localhost:8080/shop/get-products')
+                    .get(`http://localhost:8080/shop/get-products`)
                     .then((res) => {
                         console.log(res);
                         if (res.status === 200) {

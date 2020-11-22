@@ -67,18 +67,18 @@ export function Wishlist() {
                                             </Card.Text>
                                         </div>
                                         <div>
-                                            <Button
+                                            <button
                                                 className="mx-auto mb-2 btn-block px-3"
                                                 onClick={() => addproductToCart(item.product._id)}
                                             >
                                                 Add Cart
-                                            </Button>
-                                            <Button
+                                            </button>
+                                            <button
                                                 className="mx-auto mb-2 btn-block px-3"
                                                 onClick={() => dispatch(UserActions.addProductToWishlist(item.product._id))}
                                             >
                                                 Delete
-                                            </Button>
+                                            </button>
                                         </div>
                                     </div>
                                     </Card.Body>

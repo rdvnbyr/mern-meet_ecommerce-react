@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useAlert } from 'react-alert';
 import { CartActions, UserActions } from '../../../actions';
-import {ReactLoadingSpinnerBubbles} from '../index';
 
 
 
@@ -98,7 +97,7 @@ const CardCo = (props) => {
     const alert = useAlert();
     const dispatch = useDispatch();
     const {token, userId} = useSelector(state => state.session.access);
-    const { isLogin, loading, userWishlist } = useSelector(
+    const { isLogin, userWishlist } = useSelector(
         (state) => ({
             isLogin: state.session.isLogin,
             loading: state.user.loading,
@@ -124,10 +123,6 @@ const CardCo = (props) => {
     };
     return (
         <>
-        {
-            loading ? 
-                <ReactLoadingSpinnerBubbles />
-            :
             <ProductWrapper className = "mx-auto col-md-6 col-lg-4 my-3">
                 <div className = "card">
                     <div
@@ -169,7 +164,6 @@ const CardCo = (props) => {
                     </div>
                 </div>
             </ProductWrapper>
-        }
         </>
     );
 }

@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     appBar: {

@@ -28,10 +28,14 @@ export function Review({
                     reviews.map( (review, index) => {
                         return(
                                 <Card key={review._id} className="my-4 mx-auto review-card">
-                                    <div className="row justify-content-between py-3 _review-header-div px-5">
+                                    <div className="row justify-content-between py-3 px-5">
                                         <div className="column justify-content-center">
                                             <div className="text-muted text-capitalize">{review.reviewer.username}</div>
                                             <div className=" font-italic text-danger">{review.reviewer.email}</div>
+                                        </div>
+                                        <div className="column justify-content-center">
+                                            <div className="text-muted text-capitalize">Reviewed at:</div>
+                                            <div className=" font-italic text-danger">{moment(review.updatedAt, "YYYYY-MM-DDT00:00:00.000Z").format('DD-MM-YYYY')}</div>
                                         </div>
                                         <div className="column justify-content-center">
                                             <div>Ratings: 
@@ -46,16 +50,13 @@ export function Review({
                                     </div>
                                     <hr/>
                                     <Card.Body>
-                                        <Card.Title className="text-left font-weight-bold">
+                                        <Card.Title className="text-center font-weight-bold">
                                             {review.title}
                                         </Card.Title>
-                                        <Card.Title className="text-left">
+                                        <Card.Title className="text-center">
                                             {review.comment}
                                         </Card.Title>
                                     </Card.Body>
-                                    <Card.Footer>
-                                        Reviewed at: <span className="ml-3 text-muted">{moment(review.updatedAt, "YYYYY-MM-DDT00:00:00.000Z").format('DD-MM-YYYY')}</span>
-                                    </Card.Footer>
                                 </Card>
                         )
                     })

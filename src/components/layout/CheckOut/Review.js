@@ -7,16 +7,16 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import {CartActions} from '../../../actions';
-import { initialValues as values } from './FormikHandler'; 
 
 
 
-const payments = [
+
+/* const payments = [
   { name: 'Card type', detail: 'Visa' },
   { name: 'Card holder', detail: 'Mr John Smith' },
   { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
   { name: 'Expiry date', detail: '04/2024' },
-];
+]; */
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -35,14 +35,6 @@ export default function Review({shippingAddress}) {
   const { cart } = useSelector(state => state.carts);
   const {token, userId} = useSelector(state => state.session.access)
   const classes = useStyles();
-
-  const addresses = [
-    values.address,
-    values.postCode,
-    values.city,
-    values.region,
-    values.country
-  ];
 
   useEffect(() => {
     dispatch(CartActions.getCart(token, userId));

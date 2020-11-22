@@ -7,5 +7,20 @@
         ._header-div {
             // background: linear-gradient(176deg, rgba(249,249,249,1) 0%, rgba(174,175,177,1) 170%);
         }
+        .btn-purchased-buy {
+            background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            &:hover {
+                background-position: right center; /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+            }
+        }
     }
 }

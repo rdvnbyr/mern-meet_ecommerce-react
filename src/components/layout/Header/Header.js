@@ -12,11 +12,6 @@ import {  SessionActions } from '../../../actions';
 import {Dropdown} from 'react-bootstrap';
 
 
-
-
-
-
-
 function Header() {
 
     const {isLogin, user} = useSelector(

@@ -1,5 +1,4 @@
 import React from 'react';
-import {shallowEqual, useSelector} from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../layout/Footer/Footer';

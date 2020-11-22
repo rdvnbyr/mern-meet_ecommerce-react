@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {Link} from 'react-router-dom';
 import {CartActions} from '../../actions';
-import { Card, Button, Modal } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import {ReactLoadingSpinnerBubbles} from '../elements/ReactLoading/ReactLoading';
 import moment from 'moment';
 import './_purchased.scss';
@@ -29,7 +29,7 @@ export function Purchase() {
 
     React.useEffect(() => {
         dispatch(CartActions.getPurchasedCart());
-    }, [isArchived]);
+    }, [dispatch, isArchived]);
 
     const archivedOrder = (id) => {
         dispatch(CartActions.archivedOrder(id));
@@ -98,12 +98,12 @@ export function Purchase() {
                                                     </div>
                                                     <div>
                                                         <Button
-                                                            className="mx-auto mb-2 btn-block"
+                                                            className="mx-auto mb-2 btn-blockt btn-purchased-buy"
                                                             variant="outline-primary"
                                                             onClick={() => addproductToCart(item.product._id)}
                                                         >Buy Again</Button>
-                                                            <Link className="btn btn-outline-dark mx-auto mt-2 btn-block " to={`/review-product/${item.product._id}`} >
-                                                                Write a product rewiew
+                                                            <Link className="mx-auto mt-2" to={`/review-product/${item.product._id}`} >
+                                                                Write review
                                                             </Link>
                                                     </div>
                                                 </div>

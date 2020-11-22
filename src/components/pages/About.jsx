@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { CommentActions } from '../../actions';
+import { useDispatch } from 'react-redux';
+// import { CommentActions } from '../../actions';
 import "react-responsive-carousel/lib/styles/carousel.css";
 import logo from '../../assets/logo_transparent.png';
 
@@ -14,7 +14,7 @@ function About() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(CommentActions.getComment());
+        // dispatch(CommentActions.getComment());
     }, [dispatch]);
    
     return (

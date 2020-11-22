@@ -1,22 +1,14 @@
 import React, {useEffect, useState} from 'react';
-// import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useDispatch, useSelector } from 'react-redux'
 import { CartActions } from '../../../../actions';
-// import { useAlert } from 'react-alert';
 import {Redirect} from 'react-router-dom';
 import './_stripePay.scss';
 import {Button} from 'react-bootstrap';
 import {Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { ReactLoadingSpinnerBubbles } from '../../../elements'
 
-const useStyles = makeStyles((theme) => ({
-    button: {
-      marginTop: theme.spacing(3),
-      marginLeft: theme.spacing(1),
-    },
-  }));
 
   const initialValues = {
     firstName: "",
@@ -31,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   const StripePay = () => {
 
   const [paymentIsPaid, setPaymentIsPaid] = useState(false);
+  const [submiting, setSubmiting] = useState(false);
   
     // const alert = useAlert()
     const dispatch = useDispatch()
@@ -38,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState('');
     const { cart } = useSelector(state => state.carts);
+    const loading = useSelector(state => state.carts.loading);
 
     useEffect(() => {
         // const price = cart[0].totalPrice;
@@ -70,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
       initialValues={initialValues}
       validationSchema={checkoutSchema}
       onSubmit={ async (values) => {
+        setSubmiting(true)
         const payload = await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
             card: elements.getElement(CardElement)
@@ -77,11 +72,12 @@ const useStyles = makeStyles((theme) => ({
         });
 
         if (payload.error) {
-          return <Redirect to="/payment-respond/error" />
+          setSubmiting(false);
         } else {
           dispatch(CartActions.paymentEnd(cart[0]._id));
           setPaymentIsPaid(true);
         }
+     
       }}
     >
       {({ handleSubmit, touched, errors }) => (
@@ -118,14 +114,18 @@ const useStyles = makeStyles((theme) => ({
                   className="sr-card-element"
                 />
               </div>
-
-              <Button
-                className="_stripe-btn btn btn-secondary btn-block my-4 p-2"
-                type="submit"
-                disabled={!stripe}
-              >
-                Pay
-              </Button>
+                {
+                  submiting || loading ?
+                    <div className="text-center"><ReactLoadingSpinnerBubbles color="blue"/></div>
+                  :
+                    <Button
+                      className="_stripe-btn btn btn-secondary btn-block my-4 p-2"
+                      type="submit"
+                      disabled={!stripe}
+                    >
+                      Pay
+                    </Button>
+                }
             </Form>
           </div>
         </div>

@@ -86,7 +86,7 @@ export class ProductsActions {
     /**
      * 
      */
-    static getProducts() {
+    static getProducts(limit,page) {
         return {
             type: ProductsActions.GET_PRODUCTS
         }
