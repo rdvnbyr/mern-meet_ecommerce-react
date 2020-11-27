@@ -5,7 +5,11 @@ import axios from 'axios';
 import { ContactActions } from '../actions';
 
 const api = "http://localhost:8080/subscribe/contact";
-
+/**
+ * 
+ * @param {*} action$ 
+ * @return 
+ */
 function postSubscribe(action$) {
     return action$.pipe(
         ofType(ContactActions.POST_SUBSCRIBE),
@@ -14,7 +18,7 @@ function postSubscribe(action$) {
                 axios
                     .post( api, action.payload.subscribe )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return ContactActions.postSubscribeSuccess(res.data);
                         } else {

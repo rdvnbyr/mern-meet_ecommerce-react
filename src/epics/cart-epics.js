@@ -9,16 +9,17 @@ const api = 'http://localhost:8080';
  * 
  * @param {*} action$ 
  */
-function getCart(action$) {
+function getCart(action$, state$) {
     return action$.pipe(
         ofType(CartActions.GET_CART),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action, state]) => from(
                 axios
                     .post( api + '/cart/get-cart' , {userId: action.payload.userId},
                         {
                             headers: {
-                                'Authorization': `Bearer ${action.payload.token}`
+                                'Authorization': `Bearer ${state.session.access.token}`
                             }
                         }
                     )
@@ -90,8 +91,8 @@ function addProductCart(action$, state$) {
                     .then((res) => {
                         console.log(res);
                         if (res.status === 200) {
-                            return CartActions.addProductToCartActionSuccess();
-                        } else if(res.status === 409) {
+                            return CartActions.getCart(state.session.access.userId);
+                        } else {
                             return CartActions.addProductToCartActionFail();
                         }
                     })

@@ -1,0 +1,35 @@
+@import '../../../styles/root';
+
+.footer-link_icon {
+    a {
+        .fab {
+            color: $base-color-1;
+            &:hover {
+                color: $btn-color;
+            }
+        }
+    }
+}
+.footer-addressline_icon {
+    h6 {
+        color: $btn-color;
+    }
+    p {
+        i {
+            color: $base-color-1;
+
+        }
+    }
+}
+
+.footer-part-aboutus {
+    h6 {
+        color: $btn-color;
+    }
+}
+
+.footer-part-link-icon {
+    h6 {
+        color: $btn-color;
+    }
+}

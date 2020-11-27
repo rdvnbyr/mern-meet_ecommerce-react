@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import './_footer.scss';
 
 
 const FooterPage = () => {
@@ -7,7 +8,7 @@ const FooterPage = () => {
     <MDBFooter className="pt-0">
       <MDBContainer className="mt-5 mb-0 text-md-left">
         <MDBRow className="mt-3">
-          <MDBCol lg="4" className="mb-4">
+          <MDBCol lg="4" className="mb-4 footer-part-aboutus">
             <h6 className="text-uppercase font-weight-bold">
               <strong>About Us</strong>
             </h6>
@@ -17,33 +18,33 @@ const FooterPage = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, harum?
             </p>
           </MDBCol>
-          <MDBCol lg="4" className="mb-4">
+          <MDBCol lg="4" className="mb-4 footer-part-link-icon">
             <h6 className="text-uppercase font-weight-bold">
               <strong>Follow Us Online</strong>
             </h6>
             <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: "25%" }} />
-            <div className=" mt-1 mb-5 flex-center">
-            <a href="/" style={{color:'black'}}>
-                <i className="fab fa-facebook-f fa-lg mr-md-4"> </i>
-            </a>
-            <a href="/" style={{color:'black'}}>
-                <i className="fab fa-twitter fa-lg mr-md-4"> </i>
-            </a>
+            <div className=" mt-1 mb-5 flex-center footer-link_icon">
+              <a href="/" >
+                  <i className="fab fa-facebook-f fa-lg mr-md-4"> </i>
+              </a>
+              <a href="/">
+                  <i className="fab fa-twitter fa-lg mr-md-4"> </i>
+              </a>
 
-            <a href="/" style={{color:'black'}}>
-                <i className="fab fa-linkedin-in fa-lg mr-md-4"> </i>
-            </a>
+              <a href="/">
+                  <i className="fab fa-linkedin-in fa-lg mr-md-4"> </i>
+              </a>
 
-            <a href="/" style={{color:'black'}}>
-                <i className="fab fa-instagram fa-lg mr-md-4"> </i>
-            </a>
+              <a href="/">
+                  <i className="fab fa-instagram fa-lg mr-md-4"> </i>
+              </a>
 
-            <a href="/" style={{color:'black'}}>
-                <i className="fab fa-pinterest fa-lg mr-md-4"> </i>
-            </a>
+              <a href="/">
+                  <i className="fab fa-pinterest fa-lg mr-md-4"> </i>
+              </a>
             </div>
           </MDBCol>
-          <MDBCol lg="4" className="mb-4">
+          <MDBCol lg="4" className="mb-4 footer-addressline_icon">
             <h6 className="text-uppercase font-weight-bold">
               <strong>Contact</strong>
             </h6>

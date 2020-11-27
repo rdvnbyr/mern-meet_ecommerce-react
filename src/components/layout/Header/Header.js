@@ -4,8 +4,6 @@ import '../../../styles/header.scss';
 import logo from '../../../assets/logo_transparent.png';
 // import SignedInLinks from './SignedInLinks';
 import CartBadge from './CartBadge';
-import Search from './Search';
-import SearchDialog from './SearchDialog';
 import ResponsiveIcon from './ResponsiveIcon';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import {  SessionActions } from '../../../actions';
@@ -27,7 +25,6 @@ function Header() {
 
     const {cart} = useSelector(state => state.carts);
     const [scrollClass, setScrollClass] = useState('');
-    const [open, setOpen] = useState(false);
     const [ respToggle, setRespToggle] = useState(true);
 
 
@@ -40,10 +37,6 @@ function Header() {
             }
         })
     }, []);
-
-    // search input dialog
-    const handleClickOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
     // logout
     const handleLogout = () => {
@@ -60,10 +53,6 @@ function Header() {
     return (
         <div>
             <nav className={scrollClass + ' ' + toggleClass}>
-                <ResponsiveIcon
-                    className="responsive_navIcon"
-                    onClick={responsiveHandler}
-                />
                 <div className="nav_logo">
                     <img src={logo} alt="logo"  className="m-0"/>
                     <h4><a className="navbar-brand" href="/">meetHUB</a></h4>
@@ -77,10 +66,6 @@ function Header() {
                     </ul>
                 </div>
                 <div className="header_links_right">
-                        <Search
-                            onClick={ handleClickOpen }
-                            className="search_navIcon"
-                        />
                         {
                             isLogin
                             ?
@@ -107,12 +92,11 @@ function Header() {
                                 className="cartBadge_navIcon"
                             />
                 </div>
+                <ResponsiveIcon
+                    className="responsive_navIcon"
+                    onClick={responsiveHandler}
+                />
             </nav>
-            <SearchDialog
-                open={open}
-                onClose={handleClose}
-            />
-
         </div>
     )
 }

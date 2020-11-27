@@ -1,10 +1,11 @@
+@import '../../../styles/root';
 
 .carousel .slide {
     background: #fff !important;
 }
 
 ._title_carousel {
-    color: darkgray; 
+    color: $base-color-1;
 }
 
  ._carouselCard {
@@ -19,18 +20,22 @@
                 height: 100%;
                 transition :all .3s linear;
                 background:transparent
-                &:hover {
-                    transition :all .5s ease;
-                    transform: scale(1.1);
-                }
+            }
+            &:hover {
+                transition :all .5s ease;
+                transform: scale(1.1);
             }
         }
         ._textCol {
-            h3 {
-                color: darkgray;
+            p {
+                color:  $base-color-2;
+                font-size: calc(16px + .3vw);
+                font-weight: bold;
             }
-            h5 {
-                color: #f6830f;
+            ._price_div {
+                color:  $base-color-5;
+                font-size: calc(16px + .3vw);
+                font-weight: bold;
             }
         }
     }

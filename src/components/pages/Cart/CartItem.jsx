@@ -1,11 +1,12 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux'
+import { Link } from 'react-router-dom';
 import { CartActions } from '../../../actions';
 
 
 function CartItem({ item }) {
     const domain = 'http://localhost:8080/';
-    const { title, image, price, _id  /*countInStock,*/ /*brand*/ } = item.product;
+    const { title, image, price, _id, brand} = item.product;
     const cart = useSelector(state => state.carts.cart[0]);
     const access = useSelector(state => state.session.access);
     const token = access.token;
@@ -21,20 +22,22 @@ function CartItem({ item }) {
     return (
       <div className="row mt-2 mb-4 text-capitalize text-center">
         <div className="col-10 m-auto col-lg-2">
-          <img
-            src={ domain + image }
-            style={{ widht: "5rem", height: "5rem" }}
-            className="img-fluid"
-            alt="product"
-          />
+          <Link to={`/details/${_id}`}>
+            <img
+              src={ domain + image }
+              style={{ widht: "5rem", height: "5rem" }}
+              className="img-fluid"
+              alt="product"
+            />
+          </Link>
         </div>
         <div className="col-10 m-auto col-lg-2">
           <span className="d-lg-none">product:</span>
-          {title}
+          {`${brand} / ${title}`}
         </div>
         <div className="col-10 m-auto col-lg-2">
           <span className="d-lg-none">price :</span>
-          {price}
+          {price} €
         </div>
         <div className="col-10 m-auto col-lg-2">
           <div className="d-flex justify-content-center">
@@ -50,7 +53,8 @@ function CartItem({ item }) {
           </div>
         </div>
         <div className="col-10 m-auto col-lg-2">
-          <strong>Total: {price * item.quantity} €</strong>
+        <span className="d-lg-none">Total :</span>
+          <strong>{price * item.quantity} €</strong>
         </div>
         <div className="col-10 m-auto col-lg-2">
           <div className="cart-icon" >

@@ -18,7 +18,7 @@ function CarouselCards () {
 
     return (
         <>
-                <h1 className='text-center my-5 _title_carousel'>WEEK'S DEALS</h1>
+                <h1 className='text-center _title_carousel'>WEEK'S DEALS</h1>
                 <CarouselMaterial
                     className="container mx-auto"
                     index={0}

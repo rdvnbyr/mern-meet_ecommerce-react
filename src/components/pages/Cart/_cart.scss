@@ -1,13 +1,32 @@
+@import '../../../styles/root';
+
 ._cart-totals_btn {
-    background-image: linear-gradient(to right, #525252 0%, #3d72b4  51%, #525252  100%);
-    transition: 0.5s;
-    background-size: 200% auto;
+    background: $btn-color;
     color: white;            
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
     text-decoration: none;
     &:hover {
-        background-position: right center; /* change the direction of the change here */
-        color: #fff;
+        background: #ffffff;
+        color:  $btn-color;
+        border: 1px solid $btn-color;
     }
 };
+._cart-totals_delete-btn {
+    color: $btn-color-2;
+    border-radius: 10px;
+    &:hover {
+        background: $btn-color-2;
+        color:  #ffffff;
+    }
+}
+
+.cart-column-rows {
+    color: $btn-color-3;
+};
+
+.cartTotals-price-span {
+    color: $btn-color-2;
+    font-weight: bold;
+    font-size: calc(12px + .3vw);
+}

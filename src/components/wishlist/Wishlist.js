@@ -2,9 +2,9 @@ import React from 'react';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {Link} from 'react-router-dom';
 import {CartActions, UserActions} from '../../actions';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import {ReactLoadingSpinnerBubbles} from '../elements/ReactLoading/ReactLoading';
-import {ReactRatingStars} from '../elements';
+import {ReactRatingStars, Button} from '../elements';
 import './_wishlist.scss';
  
 
@@ -67,18 +67,18 @@ export function Wishlist() {
                                             </Card.Text>
                                         </div>
                                         <div>
-                                            <button
-                                                className="mx-auto mb-2 btn-block px-3"
+                                            <Button
+                                                className="mx-auto mb-2 btn-block"
                                                 onClick={() => addproductToCart(item.product._id)}
-                                            >
-                                                Add Cart
-                                            </button>
-                                            <button
-                                                className="mx-auto mb-2 btn-block px-3"
+                                                children="Add Cart"
+                                                colorSubmit={true}
+                                            />
+                                            <Button
+                                                className="mx-auto mb-2 btn-block"
                                                 onClick={() => dispatch(UserActions.addProductToWishlist(item.product._id))}
-                                            >
-                                                Delete
-                                            </button>
+                                                colorDelete={true}
+                                                children="Delete"
+                                            />
                                         </div>
                                     </div>
                                     </Card.Body>

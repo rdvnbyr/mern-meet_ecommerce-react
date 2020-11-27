@@ -26,14 +26,10 @@ export const cartReducer = (state = initialState, action) => {
                 loading: false
             }
         case CartActions.ADD_PRODUCT_TO_CART_CART_FAIL:
-            let error = null;
-            if( action.payload.error.status  === 409 ) {
-                return alert(action.payload.error.data.message);
-            };
             return {
                 ...state,
                 loading: false,
-                resMsg: error || "something went wrong"
+                resMsg: "something went wrong"
             }
         case CartActions.GET_CART:
             return {

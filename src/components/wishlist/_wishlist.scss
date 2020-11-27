@@ -1,3 +1,5 @@
+@import '../../styles/_root.scss';
+
 ._wishlist-contain {
     margin: 120px auto;
     min-height: 60vh;
@@ -5,19 +7,5 @@
     .wishlist-card {
         border-radius: 8px;
         padding: 18px 6px;
-        button {
-            background-image: linear-gradient(to right, #606c88 0%, #3f4c6b  51%, #606c88  100%);
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            text-decoration: none;
-            padding: 6px 18px;
-            &:hover {
-                background-position: right center; /* change the direction of the change here */
-                color: #fff;
-            }
-        }
     }
 }

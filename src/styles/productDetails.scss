@@ -1,4 +1,36 @@
+@import './root';
+
 ._product-details-contain {
     margin: 120px auto;
-    min-height: 80vh;
-}
+    min-height: 60vh;
+    .row {
+        .text_part {
+            h5 {
+                color: $base-color-3;
+            }
+            .product-details_details {
+                font-size: calc(12px + 0.3vw);
+                word-spacing: 2px;
+                line-height: 1.6;
+            }
+        }
+        .btn-addproduct_details {
+            background: $btn-color;
+            color: #ffffff;
+            border: 1px solid  $btn-color;
+            &:hover {
+                background: #ffffff;
+                color: $btn-color;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        .label-product_details {
+            color: darkgray;
+        }
+        .label-value-product_details {
+            color: $btn-color;
+        }
+    }
+};

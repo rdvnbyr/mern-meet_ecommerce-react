@@ -2,8 +2,8 @@ import React from 'react';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {Link} from 'react-router-dom';
 import {CartActions} from '../../actions';
-import { Card, Button } from 'react-bootstrap';
-import {ReactLoadingSpinnerBubbles} from '../elements/ReactLoading/ReactLoading';
+import { Card } from 'react-bootstrap';
+import {ReactLoadingSpinnerBubbles, Button} from '../elements';
 import moment from 'moment';
 import './_purchased.scss';
  
@@ -50,22 +50,22 @@ export function Purchase() {
                     purchasedCart.map( (cart, index) => {
                         return(
                                 <Card key={cart._id} className="my-4 mx-auto puchased-card">
-                                    <div className="row justify-content-around py-3 _header-div">
+                                    <div className="row justify-content-around py-3">
                                         <div className="column justify-content-center">
                                             <div className="text-muted text-capitalize">Order Placed</div>
-                                            <div className=" font-italic text-danger">{moment(cart.updatedAt, "YYYYY-MM-DDT00:00:00.000Z").format('DD-MM-YYYY')}</div>
+                                            <div className="subTitle">{moment(cart.updatedAt, "YYYYY-MM-DDT00:00:00.000Z").format('DD-MM-YYYY')}</div>
                                         </div>
                                         <div className="column justify-content-center">
                                             <div className="text-muted text-capitalize">Total Price</div>
-                                            <div className=" font-italic text-danger">{cart.totalPrice} €</div>
+                                            <div className="subTitle">{cart.totalPrice} €</div>
                                         </div>
                                         <div className="column justify-content-center">
                                             <div className="text-muted text-capitalize">Dispatch To</div>
-                                            <div className=" font-italic text-danger">{cart.shippingAddress.firstname + " " + cart.shippingAddress.lastname}</div>
+                                            <div className="subTitle">{cart.shippingAddress.firstname + " " + cart.shippingAddress.lastname}</div>
                                         </div>
                                         <div className="column justify-content-center">
                                             <div className="text-muted text-capitalize">Order Id</div>
-                                            <div className=" font-italic text-danger">{cart._id}</div>
+                                            <div className="subTitle">{cart._id}</div>
                                         </div>
                                     </div>
                                     <hr/>
@@ -77,7 +77,7 @@ export function Purchase() {
                                                     <Card.Img style={{width: '100px'}} variant="top" src={domain + item.product.image} />
                                                     <div className="column">
                                                         <Card.Title>
-                                                            <Link to={`/details/${item.product._id}`} >
+                                                            <Link to={`/details/${item.product._id}`} className="card-title-purchased">
                                                                 <p>{`${item.product.brand} /${item.product.title}`}</p>
                                                             </Link>
                                                         </Card.Title>
@@ -89,22 +89,27 @@ export function Purchase() {
                                                         </Card.Text>
                                                         <Card.Text>
                                                             <span className="text-muted">Price:</span>
-                                                            <span className="ml-3 text-danger">{item.product.price}</span>
+                                                            <span className="ml-3">{item.product.price} €</span>
                                                         </Card.Text>
                                                         <Card.Text>
                                                             <span className="text-muted">Quantity:</span>
-                                                            <span className="ml-3 text-danger">{item.quantity}</span>
+                                                            <span className="ml-3">{item.quantity}</span>
                                                         </Card.Text>
                                                     </div>
-                                                    <div>
-                                                        <Button
-                                                            className="mx-auto mb-2 btn-blockt btn-purchased-buy"
-                                                            variant="outline-primary"
-                                                            onClick={() => addproductToCart(item.product._id)}
-                                                        >Buy Again</Button>
-                                                            <Link className="mx-auto mt-2" to={`/review-product/${item.product._id}`} >
+                                                    <div className="column justify-content-center">
+                                                        <div className="mb-2">
+                                                            <Button
+                                                                className="btn-block"
+                                                                onClick={() => addproductToCart(item.product._id)}
+                                                                children="Buy Again"
+                                                                colorSubmit={true}
+                                                            />
+                                                        </div>
+                                                        <div className="mt-4">
+                                                            <Link className="review-link-purchased" to={`/review-product/${item.product._id}`} >
                                                                 Write review
                                                             </Link>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 </Card.Body>
@@ -112,11 +117,10 @@ export function Purchase() {
                                         })
                                     }
                                     <Card.Footer className="text-muted">
-                                        <Button
-                                            className="mr-auto"
-                                            variant="outline-danger"
+                                        <button
+                                            className="mr-auto btn btn-outline-danger"
                                             onClick={() => archivedOrder(cart._id) }
-                                        >Archive Order</Button>
+                                        >Archive Order</button>
                                     </Card.Footer>
                                 </Card>
                         )

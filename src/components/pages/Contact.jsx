@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {useSelector, useDispatch, shallowEqual} from 'react-redux';
 import { ContactActions } from '../../actions';
-import {AlertDialogSlide} from '../elements';
+import {AlertDialogSlide, Button} from '../elements';
 import { ReactLoadingSpinnerBubbles } from '../elements';
 
 const initialValues = {
@@ -68,44 +68,44 @@ function Contact() {
                                     <div className="mt-5 p-3 p-lg-5 border">
                                         <div className="form-group row">
                                             <div className="col-md-6">
-                                                <label htmlFor="c_fname" className="text-black">First Name <span className="text-danger">*</span></label>
+                                                <label className="text-black">First Name <span className="text-danger">*</span></label>
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    id="c_fname"
                                                     name="firstName"
                                                     onBlur={formik.handleBlur}
                                                     onChange={formik.handleChange}
                                                     value={formik.values.firstName}
                                                 />
-                                                {formik.touched.firstName && formik.errors.firstName ?  <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.firstName}</div>: null}
+                                                {
+                                                    formik.touched.firstName && formik.errors.firstName 
+                                                    &&
+                                                    <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.firstName}</div>
+                                                }
                                             </div>
                                             <div className="col-md-6">
-                                                <label htmlFor="c_lname" className="text-black">Last Name <span className="text-danger">*</span></label>
+                                                <label className="text-black">Last Name <span className="text-danger">*</span></label>
                                                 <input
                                                     type="text"
                                                     className="form-control"
-                                                    id="c_lname"
                                                     name="lastName"
                                                     onBlur={formik.handleBlur}
                                                     onChange={formik.handleChange}
                                                     value={formik.values.lastName}
                                                 />
                                                 {
-                                                    formik.touched.lastName && formik.errors.lastName ?
+                                                    formik.touched.lastName && formik.errors.lastName 
+                                                    &&
                                                     <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.lastName}</div>
-                                                    :
-                                                    null
                                                 }
                                             </div>
                                         </div>
                                         <div className="form-group row">
                                             <div className="col-md-12">
-                                                <label htmlFor="c_email" className="text-black">Email <span className="text-danger">*</span></label>
+                                                <label className="text-black">Email <span className="text-danger">*</span></label>
                                                 <input 
                                                     type="email"
                                                     className="form-control"
-                                                    id="c_email"
                                                     name="email"
                                                     placeholder=""
                                                     onBlur={formik.handleBlur}
@@ -113,39 +113,35 @@ function Contact() {
                                                     value={formik.values.email}
                                                 />
                                                 {
-                                                    formik.touched.email && formik.errors.email ?
+                                                    formik.touched.email && formik.errors.email 
+                                                    &&
                                                     <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.email}</div>
-                                                    :
-                                                    null
                                                 }
                                             </div>
                                         </div>
                                         <div className="form-group row">
                                             <div className="col-md-12">
-                                                <label htmlFor="c_subject" className="text-black">Subject </label>
+                                                <label className="text-black">Subject </label>
                                                 <input 
                                                     type="text" 
                                                     className="form-control"
-                                                    id="c_subject"
                                                     name="subject" 
                                                     onBlur={formik.handleBlur}
                                                     onChange={formik.handleChange}
                                                     value={formik.values.subject}
                                                 />
                                                 {
-                                                    formik.touched.subject && formik.errors.subject ?
+                                                    formik.touched.subject && formik.errors.subject 
+                                                    &&
                                                     <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.subject}</div>
-                                                    :
-                                                    null
                                                 }
                                             </div>
                                         </div>
                                         <div className="form-group row">
                                             <div className="col-md-12">
-                                                <label htmlFor="c_message" className="text-black">Message </label>
+                                                <label className="text-black">Message </label>
                                                 <textarea 
                                                     name="message"
-                                                    id="c_message"
                                                     cols="30"
                                                     rows="7" 
                                                     className="form-control"
@@ -154,10 +150,9 @@ function Contact() {
                                                     value={formik.values.message}
                                                 ></textarea>
                                                 {
-                                                    formik.touched.message && formik.errors.message ?
+                                                    formik.touched.message && formik.errors.message 
+                                                    &&
                                                     <div style={{fontSize: '10px'}} className="text-danger text-right">{formik.errors.message}</div>
-                                                    :
-                                                    null
                                                 }
                                             </div>
                                         </div>
@@ -170,7 +165,12 @@ function Contact() {
                                             :
                                             <div className="form-group row">
                                                 <div className="col-lg-12">
-                                                    <button type="submit" className="btn btn-dark btn-lg btn-block">Contact Us</button>
+                                                    <Button
+                                                     type="submit" 
+                                                     className="btn-block"
+                                                     children="Contact Us"
+                                                     colorSubmit={true}
+                                                     />
                                                 </div>
                                             </div>
                                         }

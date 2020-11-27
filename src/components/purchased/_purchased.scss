@@ -1,26 +1,20 @@
+@import '../../styles/_root.scss';
+
 ._purchased-contain {
     margin: 120px auto;
     min-height: 60vh;
     box-sizing: border-box;
     .puchased-card {
         box-sizing: border-box;
-        ._header-div {
-            // background: linear-gradient(176deg, rgba(249,249,249,1) 0%, rgba(174,175,177,1) 170%);
+        .subTitle {
+            color: $btn-color;
         }
-        .btn-purchased-buy {
-            background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-            &:hover {
-                background-position: right center; /* change the direction of the change here */
-                color: #fff;
-                text-decoration: none;
-            }
+        .card-title-purchased {
+            color: $base-color-3;
+        }
+        .review-link-purchased {
+            color: $base-color-3;
+
         }
     }
 }

@@ -1,7 +1,8 @@
-import React from 'react'
-import SignInForm from "../auth/SignIn"
+import React from 'react';
+import SignInForm from "../auth/SignIn";
 
-function SignIn() {
+
+const SignIn = () => {
     return (
         <div style={{minHeight:"100vh", marginTop:"120px"}}>
             <SignInForm />

@@ -1,7 +1,8 @@
+@import '../../../styles/root';
+
 body{
     background: radial-gradient(#e5e5e5, #ffff, #e5e5e5);
-    font-family: 'Montserrat', sans-serif;
 }
 ._title_bestSellers {
-    color: darkgray;
+    color: $base-color-1;
 }

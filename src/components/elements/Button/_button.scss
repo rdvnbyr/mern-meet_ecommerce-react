@@ -1,0 +1,28 @@
+@import '../../../styles/root';
+
+.root-btn_button {
+    color: white;            
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+.root-btn_button-submit {
+    background: $btn-color;
+    border: 1px solid $btn-color;
+    &:hover {
+        background: #ffffff;
+        color:  $btn-color;
+        border: 1px solid $btn-color;
+    }
+};
+
+.root-btn_button-delete {
+    background: $btn-color-2;
+    border: 1px solid $btn-color-2;
+    &:hover {
+        background: #ffffff;
+        color:  $btn-color-2;
+        border: 1px solid $btn-color-2;
+    }
+};

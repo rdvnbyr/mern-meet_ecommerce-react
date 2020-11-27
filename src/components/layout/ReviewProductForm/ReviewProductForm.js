@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,6 +8,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import { ProductsActions } from '../../../actions';
+import {ReactLoadingSpinnerBubbles, Button} from '../../elements';
 
 
 
@@ -51,7 +51,6 @@ export const ReviewProductForm = (props) => {
     const productId = useLocation().pathname.split("/")[2];
 
     const onSubmit = (values) => {
-
         const review = {
             rating: values.rating,
             comment: values.comment,
@@ -75,8 +74,8 @@ export const ReviewProductForm = (props) => {
                     Review Product
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={formik.handleSubmit}>
-                <div className="form-group row">
-                    <div className="col-md-12">
+                <div className="form-group">
+                    <div className="col-12">
                     <label htmlFor="rating" className="text-black">Rating </label>
                     <select 
                         as="select"
@@ -104,7 +103,7 @@ export const ReviewProductForm = (props) => {
                 </div>
                 
                     <div className="form-group">
-                        <div className="col-md-12">
+                        <div className="col-12 mb-3">
                             <label className="text-black">Title</label>
                             <input 
                                 name="title"
@@ -121,7 +120,7 @@ export const ReviewProductForm = (props) => {
                                 null
                             }
                         </div>
-                        <div className="col-md-12">
+                        <div className="col-12">
                             <label className="text-black">Comment </label>
                             <textarea 
                                 name="comment"
@@ -143,13 +142,10 @@ export const ReviewProductForm = (props) => {
                     </div>
                 <Button
                     type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="inherit"
-                    className={classes.submit}
-                >
-                    Review
-                </Button>
+                    className="btn-block"
+                    children="REVIEW"
+                    colorSubmit={true}
+                />
                 </form>
             </div>
             </Container>

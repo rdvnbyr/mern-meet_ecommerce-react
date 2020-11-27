@@ -45,12 +45,12 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function RespondPage() {
+const RespondPage = () => {
     const classes = useStyles();
     const params = useLocation().pathname.split('/')[2];
 
     return (
-        <div style={{marginTop: '180px', height: '50vh'}}>
+        <div style={{marginTop: '180px', minHeight: '50vh'}}>
             <CssBaseline />
             <main className={classes.layout}>
             <Paper className={classes.paper}>
