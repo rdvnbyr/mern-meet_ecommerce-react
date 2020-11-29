@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useLocation} from 'react-router-dom';
 import {Button} from '../elements';
-import {useDispatch, useSelector} from 'react-redux';
+import {shallowEqual, useDispatch, useSelector} from 'react-redux';
 import { ProductsActions, CartActions } from '../../actions';
 import { useAlert } from 'react-alert';
-import { Review } from '../layout/ProductDetails/Review';
+// import { Review } from '../layout/ProductDetails/Review';
+import {ProductReview} from '../layout/ProductDetails/ProductReview';
 import {ReactRatingStars} from '../elements';
 import '../../styles/productDetails.scss';
 import { ReactLoadingSpinnerBubbles } from '../elements';
@@ -14,11 +15,18 @@ import { ReactLoadingSpinnerBubbles } from '../elements';
 const DetailProduct = () => {
     const alert = useAlert();
     const _id = useLocation().pathname.split('/')[2];
-    const domain = 'http://localhost:8080/';
 
     const dispatch = useDispatch();
-    const { product, loading } = useSelector(state => state.products);
-    const {isLogin} = useSelector(state => state.session);
+    const {product,loading,isLogin,cartActionloading, apiUrl} = useSelector(
+        (state) => ({
+            product: state.products.product,
+            loading: state.products.loading,
+            isLogin: state.session.isLogin,
+            cartActionloading: state.carts.loading,
+            apiUrl: state.apps.apiUrl
+        }),
+        shallowEqual
+    );
     const {token, userId} = useSelector(state => state.session.access);
 
     useEffect(() => {
@@ -32,8 +40,6 @@ const DetailProduct = () => {
         dispatch(CartActions.addProductToCartAction(token, productId, userId));
     };
 
-    console.log(product)
-
     return(
         <div className="container py-5 _product-details-contain">
         {
@@ -41,7 +47,7 @@ const DetailProduct = () => {
              :
              <div className="row">
                  <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
-                     <img src={domain + product.image} className="img-fluid" alt="product"/>
+                     <img src={apiUrl + product.image} className="img-fluid" alt="product"/>
                  </div>      
                  <div className="col-10 mx-auto col-md-6 my-3 text-capitalize text_part">
                      <h5> {`${product.brand} / ${product.title}`} </h5>
@@ -72,8 +78,9 @@ const DetailProduct = () => {
                             className="my-5"
                             type="submit"
                             onClick={() => addproductToCart(product._id) }
-                            children="Add Product"
+                            children={cartActionloading ? "Loading.." : "Add Product"}
                             colorSubmit={true}
+                            disabled={cartActionloading}
                          />
                      </div>
                  </div>
@@ -81,9 +88,9 @@ const DetailProduct = () => {
         }
         {
             (product.reviews !== undefined && product.reviews.length > 0) &&
-                <div className="mx-auto text-center my-5">
-                    <h4 className="text-left my-2">Product Reviews</h4>
-                    <Review reviews={product.reviews}/>
+                <div className="mx-auto my-5">
+                    <h4 className="text-left">Product Reviews</h4>
+                    <ProductReview reviews={product.reviews}/>
                 </div>
         }
         </div>

@@ -17,7 +17,7 @@ function loginAuth(action$) {
                         api + '/auth/login', action.payload.user
                     )
                     .then((res) => {
-                        console.log('EPIC',res);
+                        // console.log('EPIC',res);
                         if (res.status === 200) {
                             return SessionActions.loginSuccessful(res.data);
                         } else {
@@ -41,7 +41,7 @@ function signUpAuth(action$) {
                         `${api}/auth/signup`, action.payload.user
                     )
                     .then((res) => {
-                        console.log('EPIC',res);
+                        // console.log('EPIC',res);
                         if (res.status === 200) {
                             return SessionActions.registerSuccessful(res.data);
                         } else {
@@ -75,7 +75,7 @@ function logoutEpic(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 204) {
                             return SessionActions.logoutSuccess();
                         } else {

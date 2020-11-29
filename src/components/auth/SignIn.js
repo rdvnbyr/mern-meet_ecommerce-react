@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import Link from '@material-ui/core/Link';
@@ -11,10 +11,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { SessionActions } from '../../actions/session-actions';
 import { Redirect } from 'react-router';
-
+import {Button, ReactLoadingSpinnerBubbles} from '../elements'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,21 +37,27 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+  const initialValues = {
+    email: '',
+    password: ''
+  };
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email().required('required'),
+    password: Yup.string().min(8, 'Minimum 8 characters required!').required('Required!'),
+  });
+
 const SignIn = (props) => {
     const classes = useStyles();
 
     const dispatch = useDispatch();
-    const { isLogin } = useSelector(state => state.session);
-
-    const initialValues = {
-        email: '',
-        password: ''
-    };
-
-    const validationSchema = Yup.object({
-        email: Yup.string().email().required('required'),
-        password: Yup.string().min(8, 'Minimum 8 characters required!').required('Required!'),
-    });
+    const { isLogin, loading } = useSelector(
+      (state) => ({
+        isLogin: state.session.isLogin,
+        loading: state.session.loading
+      }),
+      shallowEqual
+    );
 
     const onSubmit = (values) => {
         const user = {
@@ -113,16 +119,16 @@ const SignIn = (props) => {
             onChange={formik.handleChange}
             />
             {formik.touched && formik.errors.password ? <div className="text-danger">{formik.errors.password }</div> : null}
-          
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="inherit"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
+          {
+            loading ? <ReactLoadingSpinnerBubbles /> : 
+              <Button
+                type="submit"
+                children={"Sign In"}
+                colorSubmit={true}
+                className="btn-block text-uppercase mt-3"
+                disabled={loading ? true : false}
+              />
+          }
           {/*<Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">

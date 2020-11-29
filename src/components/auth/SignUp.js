@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -10,9 +10,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { SessionActions } from '../../actions/session-actions';
 import { Redirect } from 'react-router';
+import {Button} from '../elements';
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,61 +36,66 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const lowercaseRegex = /(?=.*[a-z])/;
+const uppercaseRegex = /(?=.*[A-Z])/;
+const numericRegex = /(?=.*[0-9])/;
+
+const validationSchema = Yup.object().shape({
+  username: Yup.string()
+    .min(2, "Too Short!")
+    .required("Required"),
+  email: Yup.string()
+    .lowercase()
+    .email('Must be a valid email!')
+    .required('Required!'),
+  password: Yup.string()
+    .matches(lowercaseRegex, 'one lowercase required!')
+    .matches(uppercaseRegex, 'one uppercase required!')
+    .matches(numericRegex, 'one number required!')
+    .min(8, 'Minimum 8 characters required!')
+    .required('Required!'),
+  passwordConfirm: Yup.string()
+    .oneOf([Yup.ref('password')], 'Password must be the same!')
+    .required('Required!'),
+});
+const initialValues = {
+  username : '',
+  email: '',
+  password: '',
+  passwordConfirm: '',
+  
+};
+
 const SignUp= (props) => {
+
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { isLogin } = useSelector(state => state.session);
+  const { isLogin,loading } = useSelector(
+    (state) => ({
+      isLogin: state.session.isLogin,
+      loading: state.session.loading
+    }),
+    shallowEqual
+  );
 
-    const initialValues = {
-        username : '',
-        email: '',
-        password: '',
-        passwordConfirm: '',
-        
+  const onSubmit = (values) => {
+    const user = {
+        username:values.username,
+        email: values.email,
+        password: values.password
     };
+    dispatch(SessionActions.register(user));
+  };
 
-    
-    const lowercaseRegex = /(?=.*[a-z])/;
-    const uppercaseRegex = /(?=.*[A-Z])/;
-    const numericRegex = /(?=.*[0-9])/;
+  const formik = useFormik({
+      initialValues,
+      onSubmit,
+      validationSchema
+  });
 
-    const validationSchema = Yup.object().shape({
-      username: Yup.string()
-        .min(2, "Too Short!")
-        .required("Required"),
-      email: Yup.string()
-        .lowercase()
-        .email('Must be a valid email!')
-        .required('Required!'),
-      password: Yup.string()
-        .matches(lowercaseRegex, 'one lowercase required!')
-        .matches(uppercaseRegex, 'one uppercase required!')
-        .matches(numericRegex, 'one number required!')
-        .min(8, 'Minimum 8 characters required!')
-        .required('Required!'),
-      passwordConfirm: Yup.string()
-        .oneOf([Yup.ref('password')], 'Password must be the same!')
-        .required('Required!'),
-    });
-
-    const onSubmit = (values) => {
-      const user = {
-          username:values.username,
-          email: values.email,
-          password: values.password
-      };
-      dispatch(SessionActions.register(user));
-    };
-
-    const formik = useFormik({
-        initialValues,
-        onSubmit,
-        validationSchema
-    });
-
-    if(isLogin) {
-      return Redirect('/');
-    };
+  if(isLogin) {
+    return Redirect('/');
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -167,13 +174,11 @@ const SignUp= (props) => {
           </Grid>
           <Button
             type="submit"
-            fullWidth
-            variant="contained"
-            color="inherit"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
+            children={loading ? "Loading.." : "Sign Up"}
+            colorSubmit={true}
+            className="btn-block text-uppercase mt-3"
+            disabled={loading ? true : false}
+          />
         </form>
       </div>
 

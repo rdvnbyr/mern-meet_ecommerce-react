@@ -17,7 +17,7 @@ function getProducts(action$) {
                 axios
                     .get(`http://localhost:8080/shop/get-products`)
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return ProductsActions.getProductsSuccess(res.data);
                         } else {
@@ -47,7 +47,7 @@ function getProductsWeeksDeal(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return ProductsActions.getProductsWeeksDealSuccess(res.data);
                         } else {
@@ -78,7 +78,7 @@ function getProductsBestSellerEpic(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return ProductsActions.getProductsBestSellersSuccess(res.data);
                         } else {
@@ -104,7 +104,7 @@ function getProductDetails(action$) {
                 axios
                     .get(`http://localhost:8080/shop/get-products/${action.payload._id}`)
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return ProductsActions.getProductDetailsSuccess(res.data);
                         } else {
@@ -143,7 +143,7 @@ function reviewProductEpic(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return ProductsActions.reviewProductActionSuccess();
                         } else {

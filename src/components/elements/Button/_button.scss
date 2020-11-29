@@ -2,9 +2,11 @@
 
 .root-btn_button {
     color: white;            
-    border-radius: 6px;
+    border-radius: 5px;
     text-decoration: none;
     padding: 8px 12px;
+    font-size: calc(10px + 0.3vw);
+    font-weight: bold;
 }
 
 .root-btn_button-submit {

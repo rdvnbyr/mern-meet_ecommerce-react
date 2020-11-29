@@ -10,7 +10,8 @@ const initialState = {
     isArchived: false,
     cart: [],
     items: [],
-    purchasedCart: []
+    purchasedCart: [],
+    isShowActionmodal: false
 }
 
 export const cartReducer = (state = initialState, action) => {
@@ -23,7 +24,8 @@ export const cartReducer = (state = initialState, action) => {
         case CartActions.ADD_PRODUCT_TO_CART_CART_SUCCESS:
             return {
                 ...state,
-                loading: false
+                loading: false,
+                isShowActionmodal: true
             }
         case CartActions.ADD_PRODUCT_TO_CART_CART_FAIL:
             return {

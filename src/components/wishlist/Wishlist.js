@@ -8,16 +8,16 @@ import {ReactRatingStars, Button} from '../elements';
 import './_wishlist.scss';
  
 
-const domain = 'http://localhost:8080/';
 
 export function Wishlist() {
 
     const dispatch = useDispatch();
-    const {userWishlist, isLoading, userId} = useSelector(
+    const {userWishlist, isLoading, userId, apiUrl} = useSelector(
         (state) => ({
             isLoading: state.carts.loading,
             userWishlist: state.user.userWishlist,
-            userId: state.session.access.userId
+            userId: state.session.access.userId,
+            apiUrl: state.apps.apiUrl
         }),
         shallowEqual
     );
@@ -42,7 +42,7 @@ export function Wishlist() {
                                 <Card key={index} className="my-4 mx-auto wishlist-card">
                                     <Card.Body>
                                     <div className="row justify-content-around">
-                                        <Card.Img style={{width: '100px'}} variant="top" src={domain + item.product.image} />
+                                        <Card.Img style={{width: '100px'}} variant="top" src={apiUrl + item.product.image} />
                                         <div className="column">
                                             <Card.Title>
                                                 <Link to={`/details/${item.product._id}`} >

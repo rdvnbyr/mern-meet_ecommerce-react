@@ -3,26 +3,21 @@ import {useDispatch, useSelector, shallowEqual} from 'react-redux'
 import {Link} from 'react-router-dom';
 import {CartActions} from '../../actions';
 import { Card } from 'react-bootstrap';
-import {ReactLoadingSpinnerBubbles, Button} from '../elements';
+import { Button} from '../elements';
 import moment from 'moment';
 import './_purchased.scss';
- 
-
-
-const domain = 'http://localhost:8080/';
-
 
 
 export function Purchase() {
 
-
     const [isArchived, setIsArchived] = React.useState(false);
 
     const dispatch = useDispatch();
-    const {purchasedCart, isLoading} = useSelector(
+    const {purchasedCart, isLoading, apiUrl} = useSelector(
         (state) => ({
             purchasedCart: state.carts.purchasedCart,
-            isLoading: state.carts.loading
+            isLoading: state.carts.loading,
+            apiUrl: state.apps.apiUrl
         }),
         shallowEqual
     );
@@ -43,9 +38,6 @@ export function Purchase() {
     return (
         <div className="container _purchased-contain">
             {
-                isLoading ? 
-                    <ReactLoadingSpinnerBubbles />
-                :
                 purchasedCart !== undefined && purchasedCart.length > 0 ?
                     purchasedCart.map( (cart, index) => {
                         return(
@@ -74,7 +66,7 @@ export function Purchase() {
                                             return(
                                                 <Card.Body key={i}>
                                                 <div className="row justify-content-around">
-                                                    <Card.Img style={{width: '100px'}} variant="top" src={domain + item.product.image} />
+                                                    <Card.Img style={{width: '100px'}} variant="top" src={apiUrl + item.product.image} />
                                                     <div className="column">
                                                         <Card.Title>
                                                             <Link to={`/details/${item.product._id}`} className="card-title-purchased">
@@ -101,8 +93,9 @@ export function Purchase() {
                                                             <Button
                                                                 className="btn-block"
                                                                 onClick={() => addproductToCart(item.product._id)}
-                                                                children="Buy Again"
+                                                                children={ isLoading ? "Loading.." : "Buy Again"}
                                                                 colorSubmit={true}
+                                                                disabled={isLoading}
                                                             />
                                                         </div>
                                                         <div className="mt-4">

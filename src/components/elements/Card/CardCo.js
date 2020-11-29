@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { useAlert } from 'react-alert';
 import { CartActions, UserActions } from '../../../actions';
-
+import {OverlayTrigger,Popover} from 'react-bootstrap';
+import {
+    ShoppingCart,
+    ShoppingCartOutlined,
+    FavoriteBorderOutlined,
+    FavoriteOutlined
+} from '@material-ui/icons';
 
 const ProductWrapper = styled.div`
     min-width: 360px;
@@ -51,20 +57,12 @@ const ProductWrapper = styled.div`
      border: none;
      font-size: 1.4rem;
      border-radius:0.5rem 0 0 0;
-     /* transform:translate(100%,100%); */
      transition :all 0.4s linear;
      color: #f47556;
      background: none;
  }
- /* .img-container:hover .cart-btn {
-     transform:translate(0,0);
- } */
  .cart-btn:hover {
      cursor: pointer;
-     transform: scale(1.05);
- }
- .cart-btn:focus {
-     outline: none;
  }
  .cart-btn-wishlist {
      position:absolute;
@@ -93,34 +91,31 @@ const ProductWrapper = styled.div`
  }
 `;
 
-const domain = 'http://localhost:8080/';
-
 const CardCo = (props) => {
     const { title, price, image, _id } = props;
     const alert = useAlert();
     const dispatch = useDispatch();
     const {token, userId} = useSelector(state => state.session.access);
-    const { isLogin, userWishlist, cart } = useSelector(
+    const { isLogin, userWishlist, cart, isLoading, apiUrl  } = useSelector(
         (state) => ({
             isLogin: state.session.isLogin,
             userActionLoading: state.user.loading,
             userWishlist: state.user.userWishlist,
             cart: state.carts.cart,
-            cartActionLoading: state.carts.loading
+            cartActionLoading: state.carts.loading,
+            isLoading: state.carts.loading,
+            apiUrl: state.apps.apiUrl
         }),
         shallowEqual
     );
 
     const isProductAlreadyInUserWishlist = userWishlist !== undefined ? userWishlist.find( p => p.product._id.toString() === _id) : null;
 
+    const isProductExistInUserCart = cart !== undefined ? cart.find(cart => {
+        return cart.items.find( product => product.product._id.toString() === _id)
+    }) : null;
 
     const addproductToCart = async (productId) => {
-        const isProductExistInUserCart = cart !== undefined ? cart.find(cart => {
-            return cart.items.find( product => product.product._id.toString() === _id)
-        }) : null;
-        isProductExistInUserCart ? 
-            alert.show(<div className="text-info text-lowercase text-capitalize">Please !!</div>)
-        :
         !isLogin ?
             alert.show(<div className="text-info text-lowercase text-capitalize">Please login before shopping</div>)
         :
@@ -134,6 +129,8 @@ const CardCo = (props) => {
             dispatch(UserActions.addProductToWishlist(id));
     };
 
+    
+
     return (
             <ProductWrapper className = "mx-auto col-md-6 col-lg-4 my-3">
                 <div className = "card">
@@ -141,23 +138,38 @@ const CardCo = (props) => {
                         className="img-container p-5"
                     >
                     <Link to ={`/details/${_id}`}>
-                        <img src={domain + image} alt="product" className ="card-img-top"/>
+                        <img src={apiUrl + image} alt="product" className ="card-img-top"/>
                     </Link>
-                    <button 
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={
+                            <Popover id={`tooltip-top_id`} className="p-2">
+                                {isLoading ? "Loading.." : isProductExistInUserCart ? "Already in cart" : "Add to Cart"}
+                            </Popover>
+                        }
+                    > 
+                        <button 
                             className="cart-btn"
                             onClick={() => addproductToCart(_id) }
-                    >
-                        <i className ="fas fa-cart-plus " />
-                    </button>
+                            disabled={isLoading}
+                            >
+                            {
+                                isLogin && isProductExistInUserCart ?
+                                <ShoppingCart style={{ fontSize: 28 }} />
+                                :
+                                <ShoppingCartOutlined style={{ fontSize: 28 }} />
+                            }
+                        </button>
+                  </OverlayTrigger>
                     <button 
                         className="cart-btn-wishlist"
                         onClick={() => addProductToWishlist(_id)}
                     >
                     {
                         isLogin && isProductAlreadyInUserWishlist ? 
-                        <i className ="fas fa-heart" />
+                        <FavoriteOutlined style={{ fontSize: 28 }} />
                         :
-                        <i className ="far fa-heart" />
+                        <FavoriteBorderOutlined style={{ fontSize: 28 }} />
                     }
                     </button>
                 </div>

@@ -5,10 +5,10 @@ import { CartActions } from '../../../actions';
 
 
 function CartItem({ item }) {
-    const domain = 'http://localhost:8080/';
     const { title, image, price, _id, brand} = item.product;
     const cart = useSelector(state => state.carts.cart[0]);
     const access = useSelector(state => state.session.access);
+    const {apiUrl} = useSelector(state => state.apps);
     const token = access.token;
     const cartId = cart._id;
     const userId = access.userId;
@@ -24,7 +24,7 @@ function CartItem({ item }) {
         <div className="col-10 m-auto col-lg-2">
           <Link to={`/details/${_id}`}>
             <img
-              src={ domain + image }
+              src={ apiUrl + image }
               style={{ widht: "5rem", height: "5rem" }}
               className="img-fluid"
               alt="product"

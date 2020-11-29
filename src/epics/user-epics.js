@@ -23,7 +23,7 @@ function addProductToWishlistEpic(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return UserActions.getUserWishlist(state.session.access.userId);
                         } else {
@@ -53,7 +53,7 @@ function getUserWishlistEpic(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return UserActions.getUserWishlistSuccess(res.data);
                         } else {

@@ -4,11 +4,6 @@ import { useDispatch } from 'react-redux';
 import "react-responsive-carousel/lib/styles/carousel.css";
 import logo from '../../assets/logo_transparent.png';
 
-
-
-
-
-
 function About() {
 
     const dispatch = useDispatch();
@@ -18,7 +13,7 @@ function About() {
     }, [dispatch]);
    
     return (
-        <div style={{marginTop: '120px', minHeight: '100vh'}}>
+        <div style={{margin: '120px auto', minHeight: '70vh'}}>
             <div className="my-5">
                 <div className="container">
                     <div className="row" style={{margin: 'auto', maxHeight: '100vh'}}>

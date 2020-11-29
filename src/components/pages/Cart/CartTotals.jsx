@@ -13,7 +13,7 @@ function CartTotals({cart, history}) {
 
     const deleteCart = (cartId) => {
         dispatch(CartActions.deleteCart(token, cartId));
-    }
+    };
     
     return (
         <React.Fragment>
@@ -37,7 +37,7 @@ function CartTotals({cart, history}) {
                         <div className="mt-5">
                             <Button children="Delete Cart" colorDelete={true} onClick={()=> deleteCart(_id)} className="mr-3"/>
                             <Link to="/checkout">
-                                <Button children="Proceed to checkout" colorSubmit={true}/>
+                                <Button children="Proceed to Checkout" colorSubmit={true} />
                             </Link> 
                         </div>
                     </div>

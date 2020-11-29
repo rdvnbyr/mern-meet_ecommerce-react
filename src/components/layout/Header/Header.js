@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import '../../../styles/header.scss';
 import logo from '../../../assets/logo_transparent.png';
-// import SignedInLinks from './SignedInLinks';
 import CartBadge from './CartBadge';
 import ResponsiveIcon from './ResponsiveIcon';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
@@ -23,7 +22,6 @@ function Header() {
     const dispatch = useDispatch();
     const history = useHistory()
 
-    const {cart} = useSelector(state => state.carts);
     const [scrollClass, setScrollClass] = useState('');
     const [ respToggle, setRespToggle] = useState(true);
 
@@ -55,7 +53,7 @@ function Header() {
             <nav className={scrollClass + ' ' + toggleClass}>
                 <div className="nav_logo">
                     <img src={logo} alt="logo"  className="m-0"/>
-                    <h4><a className="navbar-brand" href="/">meetHUB</a></h4>
+                    <h4><a className="navbar-brand" href="/">MeetHub</a></h4>
                 </div>
                 <div className="header_links_left">
                     <ul>
@@ -86,7 +84,6 @@ function Header() {
                                 </div>
                         }
                             <CartBadge
-                                cartQty={ cart.length > 0 && cart[0].items.length }
                                 color="secondary"
                                 onClick={ () => history.push('/cart') }
                                 className="cartBadge_navIcon"

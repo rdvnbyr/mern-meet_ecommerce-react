@@ -5,7 +5,7 @@ export function ReactLoadingSpinnerBubbles({
     className,
     name="SpinningBubbles",
     type="bubbles",// { blank,balls, bars, bubbles, cubes, cylon, spin, spinningBubbles, spokes}
-    color="#331231",
+    color="#f47556",
     delay,
     height,
     width

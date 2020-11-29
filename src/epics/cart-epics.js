@@ -9,7 +9,7 @@ const api = 'http://localhost:8080';
  * 
  * @param {*} action$ 
  */
-function getCart(action$, state$) {
+function getCartEpic(action$, state$) {
     return action$.pipe(
         ofType(CartActions.GET_CART),
         withLatestFrom(state$),
@@ -24,7 +24,7 @@ function getCart(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.getCartSuccess(res.data);
                         } else {
@@ -56,7 +56,7 @@ function getPurchasedCartEpic(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.getPurchasedCartSuccess(res.data);
                         } else {
@@ -89,9 +89,9 @@ function addProductCart(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
-                            return CartActions.getCart(state.session.access.userId);
+                            return CartActions.getCart(state.session.access.token, state.session.access.userId);
                         } else {
                             return CartActions.addProductToCartActionFail();
                         }
@@ -125,7 +125,7 @@ function changeQty(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.getCart(action.payload.token,action.payload.userId);
                         } else {
@@ -161,7 +161,7 @@ function removeProductFromCartEpic(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.getCart(action.payload.token,action.payload.userId);
                         } else {
@@ -195,7 +195,7 @@ function deleteCartEpic(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.deleteCartSuccess();
                         } else {
@@ -232,7 +232,7 @@ function addShippingEpic(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.addShippingSuccess();
                         } else {
@@ -268,7 +268,7 @@ function paymentEpic(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.paymentWithStripeSuccess(res.data);
                         } else {
@@ -304,7 +304,7 @@ function paymentEndEpic(action$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.paymentEndSuccess(res.data);
                         } else {
@@ -340,7 +340,7 @@ function archivedOrderEpic(action$, state$) {
                         }
                     )
                     .then((res) => {
-                        console.log(res);
+                        // console.log(res);
                         if (res.status === 200) {
                             return CartActions.archivedOrderSuccess();
                         } else {
@@ -355,7 +355,7 @@ function archivedOrderEpic(action$, state$) {
 }
 
 export const cartEpics = combineEpics(
-    getCart,
+    getCartEpic,
     changeQty,
     removeProductFromCartEpic,
     addProductCart,

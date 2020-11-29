@@ -5,10 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import { ProductsActions } from '../../../actions';
-import {ReactLoadingSpinnerBubbles, Button} from '../../elements';
+import { Button} from '../../elements';
 
 
 
@@ -49,6 +49,11 @@ export const ReviewProductForm = (props) => {
     const dispatch = useDispatch();
 
     const productId = useLocation().pathname.split("/")[2];
+    const {loading} = useSelector(
+        (state) => ({
+            loading: state.products.loading
+        })
+    );
 
     const onSubmit = (values) => {
         const review = {
@@ -143,8 +148,9 @@ export const ReviewProductForm = (props) => {
                 <Button
                     type="submit"
                     className="btn-block"
-                    children="REVIEW"
+                    children={loading ? "Loading.." : "REVIEW"}
                     colorSubmit={true}
+                    disabled={loading}
                 />
                 </form>
             </div>

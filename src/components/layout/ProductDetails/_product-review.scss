@@ -1,0 +1,27 @@
+@import "../../../styles/root";
+
+.product-review-contain {
+    margin: 50px auto;
+    min-height: 25vh;
+    box-sizing: border-box;
+    .product-review-card {
+        border-left: none;
+        border-right: none;
+        .review-date {
+            color: $btn-color;
+        }
+        .reviewer-email {
+            color: $btn-color;
+        }
+    }
+    .product-review-footer {
+        background: none;
+        i {
+            color:$base-color-1;
+            span {
+                color:$btn-color;
+                font-size: large;
+            }
+        }
+    }
+}

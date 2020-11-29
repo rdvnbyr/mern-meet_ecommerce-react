@@ -35,7 +35,6 @@ export class UserActions {
     }
 
     static addProductToWishlist = (id) => {
-        console.log(id)
         return {
             type: UserActions.ADD_PRODUCT_TO_WISHLIST,
             payload: {

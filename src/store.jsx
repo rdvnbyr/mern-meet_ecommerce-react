@@ -18,6 +18,7 @@ import {
     contactReducer,
     userReducer 
     } from './reducers';
+import { applicationReducer } from './reducers/application-reducer';
 
 // now we generate an application history object. This will be used by the app-container as well, so we need to export it
 export const routerHistory = createHashHistory();
@@ -40,7 +41,8 @@ const mainReducer = combineReducers({
     products: productsReducer,
     carts: cartReducer,
     contact: contactReducer,
-    user: userReducer
+    user: userReducer,
+    apps: applicationReducer
 });
 
 const persistConfig = {

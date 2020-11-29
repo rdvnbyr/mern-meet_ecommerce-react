@@ -38,7 +38,6 @@ function Contact() {
     });
 
     const onSubmit = (values , { resetForm }) => {
-        // console.log(values);
         const subscribe = {...values};
         dispatch(ContactActions.postSubscribe(subscribe));
         resetForm();
