@@ -53,7 +53,7 @@ function Header() {
             <nav className={scrollClass + ' ' + toggleClass}>
                 <div className="nav_logo">
                     <img src={logo} alt="logo"  className="m-0"/>
-                    <h4><a className="navbar-brand" href="/">MeetHub</a></h4>
+                    <h4><a className="navbar-brand" href="/">Meet-Shop</a></h4>
                 </div>
                 <div className="header_links_left">
                     <ul>
