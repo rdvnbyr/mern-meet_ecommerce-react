@@ -5,8 +5,6 @@ import axios from 'axios';
 import { SessionActions } from '../actions';
 
 
-const api = 'http://localhost:8080';// https://meethub-node-restapi.herokuapp.com
-
 function loginAuth(action$,state$) {
     return action$.pipe(
         ofType(SessionActions.LOGIN),

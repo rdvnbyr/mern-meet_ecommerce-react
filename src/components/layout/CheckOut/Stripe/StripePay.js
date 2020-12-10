@@ -32,13 +32,14 @@ import { ReactLoadingSpinnerBubbles } from '../../../elements'
     const [clientSecret, setClientSecret] = useState('');
     const { cart } = useSelector(state => state.carts);
     const loading = useSelector(state => state.carts.loading);
+    const apiUrl = useSelector(state=>state.apps.apiUrl)
 
     useEffect(() => {
         // const price = cart[0].totalPrice;
         // dispatch(CartActions.paymentWithStripe(price));
         // Create PaymentIntent as soon as the page loads
           window
-            .fetch("http://localhost:8080/cart/create-payment-intent", {
+            .fetch(`${apiUrl}/cart/create-payment-intent`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
@@ -52,7 +53,7 @@ import { ReactLoadingSpinnerBubbles } from '../../../elements'
               setClientSecret(data.clientSecret);
             });
 
-      }, [cart]);
+      }, [apiUrl,cart]);
 
       if(paymentIsPaid) {
         return <Redirect to="/payment-respond/success" />
