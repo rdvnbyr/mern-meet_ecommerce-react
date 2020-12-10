@@ -30,8 +30,7 @@ const middleware = compose(
     applyMiddleware(
         epicMiddleware,
         routerMiddleware(routerHistory)
-    ),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 );
 
 const mainReducer = combineReducers({
