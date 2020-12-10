@@ -4,7 +4,6 @@ import { from } from 'rxjs';
 import axios from 'axios';
 import { UserActions } from '../actions';
 
-const api = "http://localhost:8080";
 
 function addProductToWishlistEpic(action$, state$) {
     return action$.pipe(
@@ -14,7 +13,7 @@ function addProductToWishlistEpic(action$, state$) {
             ([action, state]) => from(
                 axios
                     .put( 
-                        `${api}/shop/add-product-wishlist/${action.payload.id}`,
+                        `${state.apps.apiUrl}/shop/add-product-wishlist/${action.payload.id}`,
                         {},
                         {
                             headers: {
@@ -45,7 +44,7 @@ function getUserWishlistEpic(action$, state$) {
             ([action, state]) => from(
                 axios
                     .get( 
-                        `${api}/auth/get-user`,
+                        `${state.apps.apiUrl}/auth/get-user`,
                         {
                             headers: {
                                 'Authorization': `Bearer ${state.session.access.token}`

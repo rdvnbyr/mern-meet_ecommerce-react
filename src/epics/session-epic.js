@@ -7,14 +7,15 @@ import { SessionActions } from '../actions';
 
 const api = 'http://localhost:8080';// https://meethub-node-restapi.herokuapp.com
 
-function loginAuth(action$) {
+function loginAuth(action$,state$) {
     return action$.pipe(
         ofType(SessionActions.LOGIN),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        api + '/auth/login', action.payload.user
+                        state.apps.apiUrl + '/auth/login', action.payload.user
                     )
                     .then((res) => {
                         // console.log('EPIC',res);
@@ -30,15 +31,16 @@ function loginAuth(action$) {
                     } )))
     );
 }
-function signUpAuth(action$) {
+function signUpAuth(action$,state$) {
 
     return action$.pipe(
         ofType(SessionActions.REGISTER),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        `${api}/auth/signup`, action.payload.user
+                        `${state.apps.apiUrl}/auth/signup`, action.payload.user
                     )
                     .then((res) => {
                         // console.log('EPIC',res);
@@ -66,7 +68,7 @@ function logoutEpic(action$, state$) {
             ([action, state]) => from(
                 axios
                     .post(
-                        `${api}/auth/logout`,
+                        `${state.apps.apiUrl}/auth/logout`,
                         {},
                         {
                             headers: {

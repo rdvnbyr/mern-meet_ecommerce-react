@@ -138,7 +138,7 @@ const CardCo = (props) => {
                         className="img-container p-5"
                     >
                     <Link to ={`/details/${_id}`}>
-                        <img src={apiUrl + image} alt="product" className ="card-img-top"/>
+                        <img src={ `${apiUrl}/${image}` } alt="product" className ="card-img-top"/>
                     </Link>
                     <OverlayTrigger
                         placement="top"

@@ -4,7 +4,7 @@ import { from } from 'rxjs';
 import axios from 'axios';
 import { CartActions } from '../actions';
 
-const api = 'http://localhost:8080';
+// const apiUrl = 'https://shopapi.apps.salevali.de';
 /**
  * 
  * @param {*} action$ 
@@ -16,7 +16,7 @@ function getCartEpic(action$, state$) {
         mergeMap(
             ([action, state]) => from(
                 axios
-                    .post( api + '/cart/get-cart' , {userId: action.payload.userId},
+                    .post( state.apps.apiUrl + '/cart/get-cart' , {userId: action.payload.userId},
                         {
                             headers: {
                                 'Authorization': `Bearer ${state.session.access.token}`
@@ -48,7 +48,7 @@ function getPurchasedCartEpic(action$, state$) {
         mergeMap(
             ([action, state]) => from(
                 axios
-                    .get( api + '/cart/get-purchased-cart' ,
+                    .get( state.apps.apiUrl + '/cart/get-purchased-cart' ,
                         {
                             headers: {
                                 'Authorization': `Bearer ${state.session.access.token}`
@@ -81,7 +81,7 @@ function addProductCart(action$, state$) {
         mergeMap(
             ([action,state]) => from(
                 axios
-                    .post( api + '/cart/add-cart' , { productId: action.payload.productId, userId: state.session.access.userId },
+                    .post( state.apps.apiUrl + '/cart/add-cart' , { productId: action.payload.productId, userId: state.session.access.userId },
                         {
                             headers: {
                                 'Authorization': `Bearer ${state.session.access.token}`
@@ -106,13 +106,14 @@ function addProductCart(action$, state$) {
  * 
  * @param {*} action$ 
  */
-function changeQty(action$) {
+function changeQty(action$,state$) {
     return action$.pipe(
         ofType(CartActions.CHANGE_QUANTITY),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
-                    .post( api + '/cart/update-cart' , {
+                    .post( state.apps.apiUrl + '/cart/update-cart' , {
                         userId: action.payload.userId,
                         productId: action.payload.productId,
                         cartId: action.payload.cartId,
@@ -142,13 +143,14 @@ function changeQty(action$) {
  * 
  * @param {*} action$ 
  */
-function removeProductFromCartEpic(action$) {
+function removeProductFromCartEpic(action$,state$) {
     return action$.pipe(
         ofType(CartActions.REMOVE_PRODUCT_FROM_CART),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
-                    .post( api + '/cart/update-cart' , {
+                    .post( state.apps.apiUrl + '/cart/update-cart' , {
                         removeProduct: action.payload.removeProduct,
                         userId: action.payload.userId,
                         productId: action.payload.productId,
@@ -179,13 +181,14 @@ function removeProductFromCartEpic(action$) {
  * 
  * @param {*} action$ 
  */
-function deleteCartEpic(action$) {
+function deleteCartEpic(action$,state$) {
     return action$.pipe(
         ofType(CartActions.DELETE_CART_FROM_DB),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
-                    .post( api + '/cart/delete-cart' , {
+                    .post( state.apps.apiUrl + '/cart/delete-cart' , {
                         cartId: action.payload.cartId
                     },
                         {
@@ -213,14 +216,15 @@ function deleteCartEpic(action$) {
  * 
  * @param {*} action$ 
  */
-function addShippingEpic(action$) {
+function addShippingEpic(action$,state$) {
     return action$.pipe(
         ofType(CartActions.ADD_SHIPPING_TO_CART),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        api + '/cart/update-shipping' , 
+                        state.apps.apiUrl + '/cart/update-shipping' , 
                         {
                             cartId: action.payload.cartId,
                             updateShipping: action.payload.updateShipping
@@ -250,14 +254,15 @@ function addShippingEpic(action$) {
  * 
  * @param {*} action$ 
  */
-function paymentEpic(action$) {
+function paymentEpic(action$,state$) {
     return action$.pipe(
         ofType(CartActions.PAYMENT_WITH_STRIPE),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        api + '/cart/payment' , 
+                        state.apps.apiUrl + '/cart/payment' , 
                         {
                             price: action.payload.price
                         },
@@ -286,14 +291,15 @@ function paymentEpic(action$) {
  * 
  * @param {*} action$ 
  */
-function paymentEndEpic(action$) {
+function paymentEndEpic(action$,state$) {
     return action$.pipe(
         ofType(CartActions.PAYMENT_END),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        api + '/cart/payment-end' , 
+                        state.apps.apiUrl + '/cart/payment-end' , 
                         {
                             cartId: action.payload.cartId
                         },
@@ -329,7 +335,7 @@ function archivedOrderEpic(action$, state$) {
             ([action, state]) => from(
                 axios
                     .put(
-                        api + '/cart/archived-order' , 
+                        state.apps.apiUrl + '/cart/archived-order' , 
                         {
                             cartId: action.payload.cartId
                         },

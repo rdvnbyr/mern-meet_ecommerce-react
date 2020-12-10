@@ -9,13 +9,14 @@ import { ProductsActions } from '../actions';
  * @param {*} action$
  * @return all products from db
  */
-function getProducts(action$) {
+function getProducts(action$,state$) {
     return action$.pipe(
         ofType(ProductsActions.GET_PRODUCTS),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
-                    .get(`http://localhost:8080/shop/get-products`)
+                    .get(`${state.apps.apiUrl}/shop/get-products`)
                     .then((res) => {
                         // console.log(res);
                         if (res.status === 200) {
@@ -34,14 +35,15 @@ function getProducts(action$) {
  * all weeks deal products, method => GET
  * @param {*} action$ 
  */
-function getProductsWeeksDeal(action$) {
+function getProductsWeeksDeal(action$,state$) {
     return action$.pipe(
         ofType(ProductsActions.GET_PRODUCTS_WEEKS_DEAL),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        'http://localhost:8080/shop/get-products',
+                        `${state.apps.apiUrl}/shop/get-products`,
                         {
                             state: action.payload.state
                         }
@@ -65,14 +67,15 @@ function getProductsWeeksDeal(action$) {
  * all weeks deal products, method => GET
  * @param {*} action$ 
  */
-function getProductsBestSellerEpic(action$) {
+function getProductsBestSellerEpic(action$,state$) {
     return action$.pipe(
         ofType(ProductsActions.GET_PRODUCTS_BEST_SELLERS),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
                     .post(
-                        'http://localhost:8080/shop/get-products',
+                        `${state.apps.apiUrl}/shop/get-products`,
                         {
                             state: action.payload.state
                         }
@@ -96,13 +99,14 @@ function getProductsBestSellerEpic(action$) {
  * 
  * @param {*} action$ 
  */
-function getProductDetails(action$) {
+function getProductDetails(action$,state$) {
     return action$.pipe(
         ofType(ProductsActions.GET_PRODUCT_DETAILS),
+        withLatestFrom(state$),
         mergeMap(
-            (action) => from(
+            ([action,state]) => from(
                 axios
-                    .get(`http://localhost:8080/shop/get-products/${action.payload._id}`)
+                    .get(`${state.apps.apiUrl}/shop/get-products/${action.payload._id}`)
                     .then((res) => {
                         // console.log(res);
                         if (res.status === 200) {
@@ -130,7 +134,7 @@ function reviewProductEpic(action$, state$) {
             ([action, state]) => from(
                 axios
                     .put(
-                        `http://localhost:8080/shop/create-review/${action.payload.id}`,
+                        `${state.apps.apiUrl}/shop/create-review/${action.payload.id}`,
                         {
                             rating: action.payload.review.rating,
                             title: action.payload.review.title,

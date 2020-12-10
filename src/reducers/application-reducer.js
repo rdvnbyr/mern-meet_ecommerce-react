@@ -1,7 +1,7 @@
 import { ApplicationActions } from '../actions';
 
 const initialState = {
-    apiUrl: 'http://localhost:8080/'
+    apiUrl: 'https://shopapi.apps.salevali.de'
 }
 
 export const applicationReducer = (state = initialState, action) => {

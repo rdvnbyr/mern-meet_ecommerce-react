@@ -24,7 +24,7 @@ function CartItem({ item }) {
         <div className="col-10 m-auto col-lg-2">
           <Link to={`/details/${_id}`}>
             <img
-              src={ apiUrl + image }
+              src={  `${apiUrl}/${image}`}
               style={{ widht: "5rem", height: "5rem" }}
               className="img-fluid"
               alt="product"

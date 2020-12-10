@@ -15,7 +15,7 @@ const CarouselCardCo = (props) => {
                         className="mx-auto my-auto p-5 col-7 _imageCol"
                     >
                         <Link to ={`/details/${_id}`}>
-                            <img src={ apiUrl + image } alt={title} className ="card-img-top"/>
+                            <img src={  `${apiUrl}/${image}`} alt={title} className ="card-img-top"/>
                         </Link>
                     </Col> 
                     <Col className="mx-auto col-5 my-auto _textCol">

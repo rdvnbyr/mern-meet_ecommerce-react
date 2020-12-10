@@ -47,7 +47,7 @@ const DetailProduct = () => {
              :
              <div className="row">
                  <div className="col-10 mx-auto col-md-6 my-3 text-capitalize">
-                     <img src={apiUrl + product.image} className="img-fluid" alt="product"/>
+                     <img src={ `${apiUrl}/${product.image}`} className="img-fluid" alt="product"/>
                  </div>      
                  <div className="col-10 mx-auto col-md-6 my-3 text-capitalize text_part">
                      <h5> {`${product.brand} / ${product.title}`} </h5>
