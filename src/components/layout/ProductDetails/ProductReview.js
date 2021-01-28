@@ -10,13 +10,6 @@ import './_product-review.scss';
 export function ProductReview({
     reviews
 }) {
-    // const { } = useSelector(
-    //     (state) => ({
-    //         isLoading: state.carts.loading
-    //     }),
-    //     shallowEqual
-    // );
-
     return (
         <div className="container product-review-contain">
             {
